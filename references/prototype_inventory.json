@@ -1,0 +1,258 @@
+[
+  {
+    "file": "account.html",
+    "title": "My account | BankAuctions.ai",
+    "page": "account",
+    "isStaff": false,
+    "h1": "My account",
+    "desc": "Your plan, preferences, saved properties, alerts and receipts."
+  },
+  {
+    "file": "admin.html",
+    "title": "Admin console | BankAuctions.ai Staff",
+    "page": "admin",
+    "isStaff": true,
+    "h1": "",
+    "desc": "Admin console"
+  },
+  {
+    "file": "archive.html",
+    "title": "My archive | BankAuctions.ai",
+    "page": "archive",
+    "isStaff": false,
+    "h1": "My archive.",
+    "desc": "Properties you have unlocked with your Pro pack."
+  },
+  {
+    "file": "careers.html",
+    "title": "Careers | BankAuctions.ai",
+    "page": "careers",
+    "isStaff": false,
+    "h1": "Build the clearest view of India’s auction market.",
+    "desc": "Open roles in engineering, data, design, operations and marketing at BankAuctions.ai."
+  },
+  {
+    "file": "checker.html",
+    "title": "Exception queue | BankAuctions.ai Staff",
+    "page": "checker",
+    "isStaff": true,
+    "h1": "Exception queue",
+    "desc": "Checker queue"
+  },
+  {
+    "file": "concierge.html",
+    "title": "Concierge services | BankAuctions.ai",
+    "page": "concierge",
+    "isStaff": false,
+    "h1": "Concierge services for serious buyers.",
+    "desc": "Shortlisting, document review, site verification and bid support for bank auction buyers."
+  },
+  {
+    "file": "contact.html",
+    "title": "Contact us | BankAuctions.ai",
+    "page": "contact",
+    "isStaff": false,
+    "h1": "Talk to us.",
+    "desc": "Contact BankAuctions.ai about plans, data, partnerships or press."
+  },
+  {
+    "file": "data.html",
+    "title": "Data &amp; intelligence: how AI Rank works | BankAuctions.ai",
+    "page": "data",
+    "isStaff": false,
+    "h1": "The numbers behind every rank.",
+    "desc": "How BankAuctions.ai scores bank auction properties on discount, possession, location and documents, with coverage by city."
+  },
+  {
+    "file": "faq.html",
+    "title": "FAQ | BankAuctions.ai",
+    "page": "faq",
+    "isStaff": false,
+    "h1": "Questions, answered.",
+    "desc": "Answers about AI Rank, Pro and Premium plans, photographs and how bank auctions work on BankAuctions.ai."
+  },
+  {
+    "file": "field.html",
+    "title": "Field verification | BankAuctions.ai Staff",
+    "page": "field",
+    "isStaff": true,
+    "h1": "",
+    "desc": "Field verification"
+  },
+  {
+    "file": "flats.html",
+    "title": "Flats &amp; apartments on bank auction in South India | BankAuctions.ai",
+    "page": "cat",
+    "isStaff": false,
+    "h1": "Flats & apartments on bank auction",
+    "desc": "Apartments and flats sold under SARFAESI and DRT orders, from compact 1BHKs to premium towers."
+  },
+  {
+    "file": "home.html",
+    "title": "BankAuctions.ai | Bank auction properties in India, ranked by AI",
+    "page": "home",
+    "isStaff": false,
+    "h1": "Find the auction deal before everyone else.",
+    "desc": "Search bank auction properties in Chennai, Hyderabad, Bengaluru, Coimbatore and Kerala. Every listing carries an AI rank within its own category."
+  },
+  {
+    "file": "houses.html",
+    "title": "Houses &amp; villas on bank auction in South India | BankAuctions.ai",
+    "page": "cat",
+    "isStaff": false,
+    "h1": "Houses & villas on bank auction",
+    "desc": "Independent houses, villas and bungalows with land, usually offered with physical possession."
+  },
+  {
+    "file": "lawyer.html",
+    "title": "Advocate workspace | BankAuctions.ai Staff",
+    "page": "lawyer",
+    "isStaff": true,
+    "h1": "",
+    "desc": "Advocate workspace"
+  },
+  {
+    "file": "lawyers.html",
+    "title": "Talk to a lawyer about a bank auction property | BankAuctions.ai",
+    "page": "lawyers",
+    "isStaff": false,
+    "h1": "Talk to a lawyer before you bid.",
+    "desc": "Book a 30-minute consultation with an empanelled advocate for SARFAESI auctions, title and encumbrance checks."
+  },
+  {
+    "file": "leadership.html",
+    "title": "Leadership dashboard | BankAuctions.ai Staff",
+    "page": "leadership",
+    "isStaff": true,
+    "h1": "",
+    "desc": "Leadership dashboard"
+  },
+  {
+    "file": "learn.html",
+    "title": "Learn: guides to bank auctions | BankAuctions.ai",
+    "page": "learn",
+    "isStaff": false,
+    "h1": "Learn how bank auctions work.",
+    "desc": "Plain-language guides to bank auction properties: process, EMD, due diligence, possession and financing."
+  },
+  {
+    "file": "marketing.html",
+    "title": "Marketing | BankAuctions.ai Staff",
+    "page": "marketing",
+    "isStaff": true,
+    "h1": "",
+    "desc": "Marketing"
+  },
+  {
+    "file": "offices.html",
+    "title": "Offices on bank auction in South India | BankAuctions.ai",
+    "page": "cat",
+    "isStaff": false,
+    "h1": "Offices on bank auction",
+    "desc": "Office floors and IT-park units, with lease status and location noted."
+  },
+  {
+    "file": "plots.html",
+    "title": "Plots &amp; land on bank auction in South India | BankAuctions.ai",
+    "page": "cat",
+    "isStaff": false,
+    "h1": "Plots & land on bank auction",
+    "desc": "Residential and agricultural plots, ranked on road access, frontage and title clarity."
+  },
+  {
+    "file": "preferences.html",
+    "title": "Set preferences | BankAuctions.ai",
+    "page": "preferences",
+    "isStaff": false,
+    "h1": "Set your preferences.",
+    "desc": "Choose your cities, property types, budget and alert channels."
+  },
+  {
+    "file": "premium.html",
+    "title": "Premium plan: curated highway and corner auction properties | BankAuctions.ai",
+    "page": "premium",
+    "isStaff": false,
+    "h1": "Premium properties, curated for your city.",
+    "desc": "Premium opens curated highway, corner and high-commercial-value bank auction properties for your city. 1, 2 or 3 months."
+  },
+  {
+    "file": "pricing.html",
+    "title": "Pricing | BankAuctions.ai",
+    "page": "pricing",
+    "isStaff": false,
+    "h1": "Simple plans. Pay only for what you use.",
+    "desc": "Free, Pro and Premium plans for bank auction property intelligence. Premium is a separate 1, 2 or 3 month plan for one city."
+  },
+  {
+    "file": "property.html",
+    "title": "Property details | BankAuctions.ai",
+    "page": "property",
+    "isStaff": false,
+    "h1": "Loading property…",
+    "desc": "Bank auction property details, AI rank, price and photographs."
+  },
+  {
+    "file": "review.html",
+    "title": "Verify property | BankAuctions.ai Staff",
+    "page": "review",
+    "isStaff": true,
+    "h1": "",
+    "desc": "Checker review"
+  },
+  {
+    "file": "search.html",
+    "title": "Search bank auction properties | BankAuctions.ai",
+    "page": "search",
+    "isStaff": false,
+    "h1": "",
+    "desc": "Filter bank auction properties by city, type, budget and closing date. Every listing shows an AI rank within its own category."
+  },
+  {
+    "file": "shops.html",
+    "title": "Shops &amp; showrooms on bank auction in South India | BankAuctions.ai",
+    "page": "cat",
+    "isStaff": false,
+    "h1": "Shops & showrooms on bank auction",
+    "desc": "Shops, showrooms and retail units, from high streets to neighbourhood markets."
+  },
+  {
+    "file": "staff.html",
+    "title": "Staff login | BankAuctions.ai",
+    "page": "staff",
+    "isStaff": true,
+    "h1": "",
+    "desc": "Staff login"
+  },
+  {
+    "file": "start.html",
+    "title": "BankAuctions Prototype",
+    "page": "",
+    "isStaff": false,
+    "h1": "BankAuctions.ai in the Atlas design",
+    "desc": ""
+  },
+  {
+    "file": "support.html",
+    "title": "Support | BankAuctions.ai",
+    "page": "support",
+    "isStaff": false,
+    "h1": "How can we help?",
+    "desc": "Get help with plans, AI Rank, photographs, billing and listing errors."
+  },
+  {
+    "file": "vehicles.html",
+    "title": "Vehicles &amp; machinery on bank auction in South India | BankAuctions.ai",
+    "page": "cat",
+    "isStaff": false,
+    "h1": "Vehicles & machinery on bank auction",
+    "desc": "Trucks, tractors, buses and machinery sold by lenders and finance companies."
+  },
+  {
+    "file": "warehouses.html",
+    "title": "Warehouses &amp; industrial on bank auction in South India | BankAuctions.ai",
+    "page": "cat",
+    "isStaff": false,
+    "h1": "Warehouses & industrial on bank auction",
+    "desc": "Warehouses, factories and industrial sheds with access and power details."
+  }
+]

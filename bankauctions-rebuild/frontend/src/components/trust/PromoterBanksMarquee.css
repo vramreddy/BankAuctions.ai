@@ -1,0 +1,59 @@
+.lender-section {
+  --lender-inset: 28px;
+  margin-block: 28px;
+  padding-bottom: var(--lender-inset);
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, .14);
+  border-radius: 20px;
+  background: radial-gradient(ellipse at 0 0, rgba(14, 165, 233, .07), transparent 60%), #090f1d;
+}
+.lender-header { padding: var(--lender-inset) var(--lender-inset) 22px; }
+.lender-eyebrow {
+  margin: 0 0 10px;
+  color: #7dd3fc;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.lender-title { display: flex; align-items: center; gap: 10px; margin: 0; color: #fff; font-size: 26px; line-height: 1.25; font-weight: 700; letter-spacing: -.025em; }
+.lender-title svg { flex-shrink: 0; }
+.lender-description { margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #94a3b8; }
+.lender-viewport {
+  margin-inline: var(--lender-inset);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px 0;
+  mask-image: linear-gradient(to right, transparent, #000 8px, #000 calc(100% - 8px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8px, #000 calc(100% - 8px), transparent);
+}
+.lender-viewport::-webkit-scrollbar { display: none; }
+.lender-track, .lender-group { display: flex; width: max-content; }
+.lender-group { gap: 14px; padding-right: 14px; }
+.lender-card {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 18px 16px;
+  text-align: center;
+  border: 1px solid rgba(148, 163, 184, .12);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #121c2c, #0e1625);
+}
+.lender-logo-wrap { display: flex; justify-content: center; }
+.lender-logo { display: flex; align-items: center; justify-content: center; width: 100%; height: 64px; padding: 8px 12px; background: #fff; border-radius: 9px; }
+.lender-logo img { width: 144px; max-width: 100%; height: 48px; object-fit: contain; }
+.lender-name { display: block; margin-top: 14px; color: #e2e8f0; font-size: 12px; line-height: 20px; font-weight: 600; }
+.lender-viewport:focus-visible { outline: 2px solid #7dd3fc; outline-offset: -2px; }
+@media (max-width: 640px) {
+  .lender-section { --lender-inset: 18px; margin-block: 20px; border-radius: 16px; }
+  .lender-header { padding-bottom: 18px; }
+  .lender-eyebrow { font-size: 9px; letter-spacing: .1em; margin-bottom: 8px; }
+  .lender-title { font-size: 22px; gap: 8px; }
+  .lender-title svg { width: 21px; height: 21px; }
+  .lender-description { font-size: 13px; margin-top: 6px; }
+  .lender-card { width: 204px; padding: 16px 14px; }
+  .lender-group { gap: 12px; padding-right: 12px; }
+  .lender-name { margin-top: 12px; }
+}

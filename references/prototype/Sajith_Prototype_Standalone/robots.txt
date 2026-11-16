@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /staff.html
+Disallow: /checker.html
+Disallow: /review.html
+Disallow: /lawyer.html
+Disallow: /field.html
+Disallow: /marketing.html
+Disallow: /admin.html
+Disallow: /leadership.html
+Disallow: /account.html
+Disallow: /archive.html
+Disallow: /preferences.html
+Sitemap: https://bankauctions.ai/sitemap.xml

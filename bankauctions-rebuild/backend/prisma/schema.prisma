@@ -1,0 +1,253 @@
+// Prisma Schema for BankAuctions.ai Rebuild
+// Hybrid PostgreSQL schema supporting relational querying & dynamic JSONB category attributes
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String   @id @default(uuid())
+  email            String   @unique
+  passwordHash     String   @map("password_hash")
+  fullName         String   @map("full_name")
+  phone            String   @unique
+  role             String   @default("BUYER") // ADMIN, CHECKER, ENGINEER, BUYER
+  planTier         String   @default("FREE") @map("plan_tier") // FREE, PRO, PREMIUM
+  unlocksRemaining Int      @default(0) @map("unlocks_remaining")
+  isActive         Boolean  @default(true) @map("is_active")
+  city             String?  @default("chennai")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updated_at       DateTime @updatedAt @map("updated_at")
+
+  claimedAuctions        AuctionNotice[]        @relation("ClaimedByChecker")
+  verificationReviews    VerificationReview[]
+  inspectionsAssigned    InspectionAssignment[] @relation("AssignedEngineer")
+  inspectionsCreated     InspectionAssignment[] @relation("AssignedByAdmin")
+  savedProperties        SavedProperty[]
+  propertyUnlocks        PropertyUnlock[]
+  analyticsEvents        AnalyticsEvent[]
+
+  @@map("users")
+}
+
+model Bank {
+  id           String   @id @default(uuid())
+  code         String   @unique
+  name         String
+  logoUrl      String?  @map("logo_url")
+  contactPhone String?  @map("contact_phone")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  auctions AuctionNotice[]
+
+  @@map("banks")
+}
+
+model AuctionCategory {
+  id          String   @id @default(uuid())
+  code        String   @unique // flat, house, land, shop, office, warehouse, vehicle
+  name        String
+  slug        String   @unique
+  icon        String?
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  auctions AuctionNotice[]
+
+  @@map("auction_categories")
+}
+
+model AuctionNotice {
+  id                    String    @id @default(uuid())
+  sourceRef             String    @unique @map("source_ref") // BNK-CHE-47019
+  sourceLink            String?   @map("source_link")
+  bankId                String    @map("bank_id")
+  categoryId            String    @map("category_id")
+  title                 String
+  shortTitle            String    @map("short_title")
+  city                  String
+  locality              String
+  address               String
+  pincode               String?
+  reservePrice          Float     @map("reserve_price")
+  estimatedMarketValue  Float?    @map("estimated_market_value")
+  emdAmount             Float     @map("emd_amount")
+  bidIncrement          Float     @default(25000) @map("bid_increment")
+  auctionStartDate      DateTime  @map("auction_start_date")
+  auctionEndDate        DateTime? @map("auction_end_date")
+  noticeDate            DateTime? @map("notice_date")
+  inspectionDate        String?   @map("inspection_date")
+  possession            String    @default("Symbolic possession")
+  encumbrances          String?   @default("None disclosed")
+  contactOfficerName    String?   @map("contact_officer_name")
+  contactOfficerPhone   String?   @map("contact_officer_phone")
+  aiScore               Int       @default(75) @map("ai_score")
+  aiRank                Int       @default(1) @map("ai_rank")
+  aiDiscountPct         Float     @default(25.0) @map("ai_discount_pct")
+  isPremium             Boolean   @default(false) @map("is_premium")
+  hasBankPhotos         Boolean   @default(false) @map("has_bank_photos")
+  featured              Boolean   @default(false)
+  primaryImageUrl       String?   @map("primary_image_url")
+  additionalImages      Json      @default("[]") @map("additional_images")
+  status                String    @default("IMPORTED") // See AUCTION_STATUS constants
+  claimedByCheckerId    String?   @map("claimed_by_checker_id")
+  claimedAt             DateTime? @map("claimed_at")
+  createdAt             DateTime  @default(now()) @map("created_at")
+  updatedAt             DateTime  @updatedAt @map("updated_at")
+
+  bank                  Bank                   @relation(fields: [bankId], references: [id])
+  category              AuctionCategory        @relation(fields: [categoryId], references: [id])
+  claimedByChecker      User?                  @relation("ClaimedByChecker", fields: [claimedByCheckerId], references: [id])
+  attributes            AuctionAttribute?
+  verificationReviews   VerificationReview[]
+  inspectionAssignments InspectionAssignment[]
+  savedByUsers          SavedProperty[]
+  unlockedByUsers       PropertyUnlock[]
+
+  @@index([city, status])
+  @@index([reservePrice])
+  @@index([auctionStartDate])
+  @@map("auction_notices")
+}
+
+model AuctionAttribute {
+  id              String   @id @default(uuid())
+  auctionId       String   @unique @map("auction_id")
+  attributes      Json     // Specific attributes (BHK, floors, boundary, etc.)
+  makerExtraction Json     @map("maker_extraction") // Raw confidence scores & extraction flags
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  auction AuctionNotice @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+
+  @@map("auction_attributes")
+}
+
+model VerificationReview {
+  id                    String   @id @default(uuid())
+  auctionId             String   @map("auction_id")
+  checkerId             String   @map("checker_id")
+  decision              String   // VERIFIED, CORRECTED, REJECTED
+  correctionNotes       String?  @map("correction_notes")
+  fieldCorrections      Json     @default("{}") @map("field_corrections")
+  reviewDurationSeconds Int?     @map("review_duration_seconds")
+  createdAt             DateTime @default(now()) @map("created_at")
+
+  auction AuctionNotice @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+  checker User          @relation(fields: [checkerId], references: [id])
+
+  @@map("verification_reviews")
+}
+
+model InspectionAssignment {
+  id            String    @id @default(uuid())
+  auctionId     String    @map("auction_id")
+  engineerId    String    @map("engineer_id")
+  assignedById  String    @map("assigned_by_id")
+  scheduledDate DateTime? @map("scheduled_date")
+  scheduledSlot String?   @map("scheduled_slot")
+  status        String    @default("ASSIGNED") // ASSIGNED, SCHEDULED, SUBMITTED, APPROVED
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  auction    AuctionNotice     @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+  engineer   User              @relation("AssignedEngineer", fields: [engineerId], references: [id])
+  assignedBy User              @relation("AssignedByAdmin", fields: [assignedById], references: [id])
+  report     InspectionReport?
+
+  @@map("inspection_assignments")
+}
+
+model InspectionReport {
+  id                        String   @id @default(uuid())
+  assignmentId              String   @unique @map("assignment_id")
+  occupancyStatus           String   @map("occupancy_status")
+  accessRoadType            String   @map("access_road_type")
+  boundaryMatches           Boolean  @map("boundary_matches")
+  propertyCondition         String   @map("property_condition")
+  utilitiesObserved         Json     @default("[]") @map("utilities_observed")
+  litigationObserved        String?  @default("None seen") @map("litigation_observed")
+  engineerValuationEstimate Float    @map("engineer_valuation_estimate")
+  engineerNotes             String   @map("engineer_notes")
+  gpsCoordinates            String   @map("gps_coordinates")
+  landmarkName              String   @map("landmark_name")
+  landmarkDistanceKm        Float    @map("landmark_distance_km")
+  photos                    Json     @default("[]")
+  submittedAt               DateTime @default(now()) @map("submitted_at")
+
+  assignment InspectionAssignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+
+  @@map("inspection_reports")
+}
+
+model SavedProperty {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  auctionId String   @map("auction_id")
+  savedAt   DateTime @default(now()) @map("saved_at")
+
+  user    User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  auction AuctionNotice @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, auctionId])
+  @@map("saved_properties")
+}
+
+model PropertyUnlock {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  auctionId  String   @map("auction_id")
+  unlockedAt DateTime @default(now()) @map("unlocked_at")
+
+  user    User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  auction AuctionNotice @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, auctionId])
+  @@map("property_unlocks")
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(uuid())
+  eventType String   @map("event_type")
+  entityId  String?  @map("entity_id")
+  userId    String?  @map("user_id")
+  metadata  Json     @default("{}")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([eventType, createdAt])
+  @@map("analytics_events")
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  actorId     String?  @map("actor_id")
+  actorName   String   @map("actor_name")
+  actorRole   String   @map("actor_role")
+  action      String
+  entityType  String   @map("entity_type")
+  entityId    String   @map("entity_id")
+  beforeState Json?    @map("before_state")
+  afterState  Json?    @map("after_state")
+  ipAddress   String?  @map("ip_address")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([entityType, entityId])
+  @@map("audit_logs")
+}
+
+model SiteSetting {
+  id               String   @id @default(uuid())
+  makerAutoPublish Boolean  @default(true) @map("maker_auto_publish")
+  chatWidget       Boolean  @default(true) @map("chat_widget")
+  bannerNotice     String?  @default("") @map("banner_notice")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@map("site_settings")
+}

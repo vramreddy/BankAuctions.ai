@@ -1,0 +1,5190 @@
+[
+  {
+    "text": "Authenticating security session...",
+    "files": [
+      "src\\app\\routes.jsx"
+    ]
+  },
+  {
+    "text": "Quick Action Tools for Bidders",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "EMD & Cashflow Calculator",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Plan your 10% EMD, 15% day-of-sale deposit, and 75% 15-day balance with stamp duty estimates.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Open Calculator",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Instant WhatsApp Alerts",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Get notified the moment a lender publishes an auction in your target locality or budget.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Set Up Alerts",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "DRT Litigation Radar",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Scan causelists across DRT-1, 2 & 3 for borrower stay petitions, Section 17 appeals, or caveats.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Check Stay Status",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Pre-Bid SARFAESI Audit",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "10-point checklist before submitting EMD: Section 13(4), DM orders, 30-yr EC, and tax liabilities.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "View 10-Point Checklist",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "EMD & Capital Outlay Calculator",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "₹10 Lakh",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "₹2.5 Crore",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "₹5 Crore",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "10% EMD to Bid",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Payable before auction",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "15% on Day of Sale",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Upon winning bid",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "75% Balance Outlay",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Within 15 days of sale",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Est. Stamp Duty (7%)",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "reg.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Total Capital Required",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Includes property + registry",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Close Calculator",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "WhatsApp Auction Alerts",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Alerts Active!",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "You will receive instant alerts for new bank auctions in",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "on WhatsApp at",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Done",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx",
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "WhatsApp Mobile Number",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Target City",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Kochi / Kerala",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Zero spam. Only certified bank notices with reserve price under 30 days to auction.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Activate WhatsApp Alerts",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "DRT Litigation & Stay Radar",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Enter Borrower Name, Bank Name, or SA / OA Reference",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "e.g. State Bank of India, Ambattur, or SA 142/2024",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Scan",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "REGISTRY CLEARANCE CONFIRMED",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "10-Point Pre-Bid SARFAESI Audit",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "1. Section 13(2) Demand Notice",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Confirm 60-day demand notice was duly published and served without defects.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "2. Section 13(4) Possession Order",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Verify whether possession is symbolic or physically secured under Section 14 CMM/DM order.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "3. 30-Day Public Auction Publication",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Rule 8(6) & 9(1) of Security Interest Rules mandates 30-day notice in two leading newspapers.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "4. 30-Year Encumbrance Certificate (EC)",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Inspect Form 15 at Sub-Registrar Office to ensure no prior government or municipal attachment.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "5. Unpaid Property Tax & Electricity Dues",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Bank auctions are \"as is where is\"; verify outstanding local body taxes and utility arrears.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "6. Society / Apartment Maintenance Dues",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Obtain written confirmation from RWA on transfer charges and pending monthly dues.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "7. Ground Inspection & Structural Integrity",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Inspect the property in person during the authorized bank inspection window.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "8. Tenant / Lessee Protection Rights",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Examine if any tenancy agreement predates the bank mortgage under state rent control acts.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "9. DRT Stay / SA Litigation Search",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Verify no Securitisation Application (SA) stay order is pending before DRT bench.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "10. 15-Day Balance Settlement Liquidity",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Ensure 75% funds or sanctioned auction loan is ready within 15 days of sale confirmation.",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Done Checklist",
+    "files": [
+      "src\\components\\actions\\AuctionActionHub.jsx"
+    ]
+  },
+  {
+    "text": "Active Shortlist",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Combined Reserve:",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "· Total EMD:",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Compare (",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Joint EMD",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Download CSV file of selected properties",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Export CSV",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Clear selection",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Side-by-Side Comparison (",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Reserve:",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "10% EMD:",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Auction Date:",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx",
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx",
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Open Lot Details",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Close Comparison",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Portfolio EMD Calculation",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Total Properties",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Total Reserve Value",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Total 10% EMD to Submit",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Total 15% Day-of-Sale Deposit",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Ensure separate Demand Drafts (DD) or RTGS challans are created per property, referencing the individual lot numbers and respective branch IFSC codes.",
+    "files": [
+      "src\\components\\actions\\PropertySelectionDock.jsx"
+    ]
+  },
+  {
+    "text": "Notices from newspapers and lender sites, read and structured into one searchable list — by locality, budget or plain words.",
+    "files": [
+      "src\\components\\home\\HowItWorksSteps.jsx",
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "Lender, address, documents and our field team's verification for the properties you are serious about.",
+    "files": [
+      "src\\components\\home\\HowItWorksSteps.jsx",
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "Register and pay EMD on the lender's own e-auction portal. We never touch bid money.",
+    "files": [
+      "src\\components\\home\\HowItWorksSteps.jsx",
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "How BankAuctions works in three steps",
+    "files": [
+      "src\\components\\home\\HowItWorksSteps.jsx",
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "A transparent bridge built for real buyers. No hidden brokerage, zero custody of bidder funds.",
+    "files": [
+      "src\\components\\home\\HowItWorksSteps.jsx",
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "Step",
+    "files": [
+      "src\\components\\home\\HowItWorksSteps.jsx"
+    ]
+  },
+  {
+    "text": "State Bank of India",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Bank of Baroda",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Canara Bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Punjab National Bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "HDFC Bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "ICICI Bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Indian Bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Union Bank of India",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Axis Bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Kotak Mahindra Bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Bank of India",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Central Bank of India",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Promoter Banks and Authorized Lenders",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Previous bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Next bank",
+    "files": [
+      "src\\components\\home\\PromoterBanksCarousel.jsx"
+    ]
+  },
+  {
+    "text": "Auctions",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx",
+      "src\\components\\navigation\\Navbar.jsx",
+      "src\\panels\\buyer\\pages\\LoginPage.jsx",
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "India’s dedicated intelligence platform for commercial and residential bank auction properties. We analyze, verify, and track SARFAESI and DRT public auction notices.",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Independent bank auction data aggregator & analytics",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Residential Apartments",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Independent Houses",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Commercial & Retail",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Industrial Sheds",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx",
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Chennai Auctions",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Bengaluru Auctions",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Hyderabad Auctions",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Coimbatore Auctions",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Kerala Auctions",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "AI Valuation Metric",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "SARFAESI Buyer Guide",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "Subscription Tiers",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "DRT Tribunal Procedures",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "BankAuctions.ai Technologies India Pvt. Ltd. All rights reserved.",
+    "files": [
+      "src\\components\\navigation\\Footer.jsx"
+    ]
+  },
+  {
+    "text": "SARFAESI Discovery",
+    "files": [
+      "src\\components\\navigation\\Navbar.jsx"
+    ]
+  },
+  {
+    "text": "Signed in as",
+    "files": [
+      "src\\components\\navigation\\Navbar.jsx"
+    ]
+  },
+  {
+    "text": "Workspace Panel",
+    "files": [
+      "src\\components\\navigation\\Navbar.jsx"
+    ]
+  },
+  {
+    "text": "Saved Lots",
+    "files": [
+      "src\\components\\navigation\\Navbar.jsx",
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Sign Out",
+    "files": [
+      "src\\components\\navigation\\Navbar.jsx",
+      "src\\layouts\\AdminLayout.jsx",
+      "src\\layouts\\CheckerLayout.jsx",
+      "src\\layouts\\EngineerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Sign Up",
+    "files": [
+      "src\\components\\navigation\\Navbar.jsx"
+    ]
+  },
+  {
+    "text": "Executive control & approvals",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "Exception queue & notices",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "Field inspections & GPS",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "Staff & Operational Portal",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "Authorized personnel only. Access to checker audit queues, field engineer valuation modules, and administrator configuration consoles.",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "Staff Email Address",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "e.g. checker@bankauctions.ai",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "Sign In to Staff Workspace",
+    "files": [
+      "src\\components\\navigation\\StaffPortalModal.jsx"
+    ]
+  },
+  {
+    "text": "Current date and time in India",
+    "files": [
+      "src\\components\\navigation\\UtilityBar.jsx"
+    ]
+  },
+  {
+    "text": "IST",
+    "files": [
+      "src\\components\\navigation\\UtilityBar.jsx"
+    ]
+  },
+  {
+    "text": "Audited",
+    "files": [
+      "src\\components\\properties\\PropertyCard.jsx"
+    ]
+  },
+  {
+    "text": "% below market",
+    "files": [
+      "src\\components\\properties\\PropertyCard.jsx"
+    ]
+  },
+  {
+    "text": "Standard Reserve",
+    "files": [
+      "src\\components\\properties\\SchematicMapView.jsx"
+    ]
+  },
+  {
+    "text": "Featured Mega Auction",
+    "files": [
+      "src\\components\\properties\\SchematicMapView.jsx"
+    ]
+  },
+  {
+    "text": "Newspapers, e-gazettes & DRT registries scanned daily",
+    "files": [
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "Field engineer photo/video + advocate title review",
+    "files": [
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "Direct payment to bank official RTGS/MSTC portal",
+    "files": [
+      "src\\components\\trust\\HowItWorksJourney.jsx"
+    ]
+  },
+  {
+    "text": "The legal bench behind the portal",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "The legal bench",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "behind the portal",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Advocates who have argued auction titles, not read about them.",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "The legal bench behind the portal - Lady Justice",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Classical law library with statues and archives",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "An independent legal opinion on every report",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Every ₹4,999 research report carries an independent legal opinion, and behind each opinion is a named practitioner enrolled with a State Bar Council. You can speak to one of them directly about any property listed here — a paid consultation from 30 to 90 minutes, in the language you think in.",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Encrypted portal bridge legal consultation",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "How a consultation runs",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Neither side ever sees the other's phone number or email address. The call is placed over a portal bridge and the chat thread lives on the portal.",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Debts Recovery Tribunal and High Court Neoclassical Pillars",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Not sure where to start?",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Read the auction guide first — most questions a first-time bidder has about title, possession and process are covered there before you ever need a paid consultation.",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Open the auction guide",
+    "files": [
+      "src\\components\\trust\\LegalBenchBlock.jsx"
+    ]
+  },
+  {
+    "text": "Bank logos",
+    "files": [
+      "src\\components\\trust\\PromoterBanksMarquee.jsx"
+    ]
+  },
+  {
+    "text": "Operations & Pipeline",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Dashboard Overview",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx",
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Auction Inventory",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Import Ingestion Pipeline",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Inspection Approvals",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "User & Staff Directory",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Buyer Investors",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Internal Staff Accounts",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Checker Workloads",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Field Engineer Fleet",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Telemetry & Platform Governance",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Analytics & Intelligence",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Tamper-Evident Audit Log",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "System Settings & Policies",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "BankAuctions",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Admin Console",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Public Discovery",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "SUPER_ADMIN",
+    "files": [
+      "src\\layouts\\AdminLayout.jsx"
+    ]
+  },
+  {
+    "text": "Saved & Unlocked",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Preferences & Alerts",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Plan & Billing",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Buyer Workspace",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Investor",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Welcome back,",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Manage your saved auction watchlist, tracked banks, and personalized search filters.",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Available Unlocks",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Get More Unlocks",
+    "files": [
+      "src\\layouts\\BuyerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Exception Queue",
+    "files": [
+      "src\\layouts\\CheckerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Audit History",
+    "files": [
+      "src\\layouts\\CheckerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Back to Public Site",
+    "files": [
+      "src\\layouts\\CheckerLayout.jsx",
+      "src\\layouts\\EngineerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Quality",
+    "files": [
+      "src\\layouts\\CheckerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Checker Workspace",
+    "files": [
+      "src\\layouts\\CheckerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Two-Tier SARFAESI Notice Data Verification",
+    "files": [
+      "src\\layouts\\CheckerLayout.jsx"
+    ]
+  },
+  {
+    "text": "STAFF CHECKER",
+    "files": [
+      "src\\layouts\\CheckerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Completed Visits",
+    "files": [
+      "src\\layouts\\EngineerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Field",
+    "files": [
+      "src\\layouts\\EngineerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Valuation Engineer",
+    "files": [
+      "src\\layouts\\EngineerLayout.jsx"
+    ]
+  },
+  {
+    "text": "GPS-Tagged On-Site Property Inspections",
+    "files": [
+      "src\\layouts\\EngineerLayout.jsx"
+    ]
+  },
+  {
+    "text": "VALUATION ENGINEER",
+    "files": [
+      "src\\layouts\\EngineerLayout.jsx"
+    ]
+  },
+  {
+    "text": "Command Center",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Live Telemetry",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Platform Operations & Governance",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Real-time PostgreSQL metrics covering data ingestion, quality verification, field engineer audits, and marketplace publication.",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Batch Ingest Feed",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Approvals Desk (",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Regional Catalog Distribution",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Active Lots",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "lots",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx",
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Manage →",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Marketplace Search Telemetry",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Search Queries",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "+14% this week",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Property Views",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "+28% this week",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Tamper-Evident System Audit Feed",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "View Full Stream →",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Action:",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "All staff decisions and property transitions are audited with IP address logging.",
+    "files": [
+      "src\\panels\\admin\\pages\\AdminDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Residential",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Commercial",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Industrial",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Agricultural",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Vehicles",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx",
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Business Intelligence",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Platform Analytics",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Market Dynamics & Asset Metrics",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Comprehensive telemetry tracking inventory velocity, asset valuation distributions, SARFAESI resolution timelines, and search intent.",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Cumulative Asset Book",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "+18.4% vs last quarter",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Monthly Search Volume",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "High-intent investor queries",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Avg Discount to Market",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Below prevailing market guideline",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Avg Days to Auction",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "21 Days",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "From notice publication",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Listing Pipeline & Publication Velocity",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Monthly volume of raw notices ingested vs verified vs publicly discovered",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "6-Month Trend",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Asset Class Share",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Percentage breakdown by primary property category",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Leading Institutions by Lot Count",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Total active auctions categorized by financial lender",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Live Registry",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Reserve Price Distribution",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Asset volume categorized by starting reserve price tier",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Ticket Sizes",
+    "files": [
+      "src\\panels\\admin\\pages\\AnalyticsPage.jsx"
+    ]
+  },
+  {
+    "text": "Auction Inventory Management (",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Full lifecycle control across all imported, verified, inspected, and published auction lots.",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "All Workflow Statuses",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "PUBLISHED (Live)",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "CHECKER_VERIFIED",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "INSPECTION_SUBMITTED",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "PENDING_CHECKER",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "ENGINEER_ASSIGNED",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "ARCHIVED",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "All Cities",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx",
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "No auction listings match this filter criteria.",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Ref",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Title & Locality",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Lifecycle Status",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Admin Controls",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Dispatch Engineer",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Dispatch Field Engineer for Physical Site Audit",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Select Empanelled Field Engineer",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Target Inspection Date",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx",
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Confirm Dispatch",
+    "files": [
+      "src\\panels\\admin\\pages\\AuctionManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Compliance & Security",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Append-Only Ledger",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Audit Trail & Access Log",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Tamper-evident record of all operational actions, publication decisions, inspection sign-offs, and administrative interventions.",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Refresh Trail",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Search by action, user, or entity...",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Timestamp (IST)",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Actor",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Action",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Target Entity",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "IP / Origin",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Payload",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Retrieving tamper-evident audit ledger...",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "No matching audit entries found.",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Inspect",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Audit Entry Cryptographic Detail",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Log Reference ID",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Action Code",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Actor Identity",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Timestamp",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Stored Metadata & State Delta (JSON)",
+    "files": [
+      "src\\panels\\admin\\pages\\AuditLogsPage.jsx"
+    ]
+  },
+  {
+    "text": "Customer Management",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Total Accounts:",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Buyer Directory & Entitlements",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Oversee investor accounts, grant property unlock credits, review search subscriptions, and enforce platform security policies.",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Refresh Directory",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Search by name, email, or mobile...",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Plan:",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Buyer Identity",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Membership Plan",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Unlock Balance",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Account Status",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Loading buyer profiles from database...",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "No buyer accounts found matching the criteria.",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "credits",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Suspended",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Gift",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Grant Unlock Credits",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Grant additional property detail unlocks to",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Number of Credits",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Administrative Note / Reason",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "e.g., VIP onboarding, customer support credit",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Confirm Grant",
+    "files": [
+      "src\\panels\\admin\\pages\\BuyerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Quality Assurance",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Maker-Checker Protocol",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Checker Team & QA Operations",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Monitor OCR discrepancy resolution throughput, auditor workloads, and verify that 100% of exception properties are audited before release.",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Refresh Metrics",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Active Checkers",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Certified SARFAESI auditors",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Pending Exceptions",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Awaiting side-by-side reconciliation",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Avg SLA Turnaround",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "1.4 hrs",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Within 4-hour target",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Correction Rate",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "OCR raw discrepancies fixed",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Checker Workload & Capacity Roster",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Auditor",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Jurisdiction",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx",
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Audited This Month",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Accuracy Score",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "No registered checkers found.",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Available",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "notices",
+    "files": [
+      "src\\panels\\admin\\pages\\CheckerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Ground Operations",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Engineers Roster",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Valuation Engineers & Field Operations",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Track site visit dispatches, enforce GPS coordinate capture policies, verify 3+ photo evidence criteria, and monitor SLA compliance.",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Refresh Roster",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Engineers",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Empanelled civil/structural experts",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "GPS Match Rate",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Geotagged within 50m radius",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Avg Photos / Report",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Exceeds 3-photo minimum",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Pending Review",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Submitted reports for Admin sign-off",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Empanelled Engineer Field Workloads",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Valuer",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Equipment / App Status",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Inspections Completed",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "SLA Compliance",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "No field engineers registered in the system.",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Online & GPS Active",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "properties",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "% on-time",
+    "files": [
+      "src\\panels\\admin\\pages\\EngineerManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "3BHK luxury apartment, 1,750 sq ft · Anna Nagar West",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Industrial Warehouse with container dock, 14,000 sq ft · Peenya",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Batch Auction Data Ingestion Pipeline",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Authorized feed ingestion from BAANKNET extraction notices. Imported records undergo schema validation, deduplication, and are staged for Quality Checker audit.",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Staged",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "new lots",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "directly into the Quality Checker Exception Queue.",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Paste Structured JSON Records",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Load Sample Feed (Aldrin Schema)",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "[ { \"sourceRef\": \"BNK-CHE-47019\", \"title\": \"2BHK Flat...\", \"city\": \"chennai\", \"reservePrice\": 6500000, ... } ]",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Duplicate `sourceRef` values are automatically identified and safely skipped.",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Ingest & Dispatch to Checkers",
+    "files": [
+      "src\\panels\\admin\\pages\\ImportManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Administrative Final Approval Desk (",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx"
+    ]
+  },
+  {
+    "text": "Four-eyes review gate: Final authority to verify quality audit logs and civil inspection evidence before publishing to public buyer search.",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx"
+    ]
+  },
+  {
+    "text": "All Approval Queues Clear",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx"
+    ]
+  },
+  {
+    "text": "No properties currently waiting for final administrative sign-off.",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx"
+    ]
+  },
+  {
+    "text": "Secured Creditor",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx",
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx",
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "EMD Deposit",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx"
+    ]
+  },
+  {
+    "text": "Return for Revision",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx"
+    ]
+  },
+  {
+    "text": "Final Approve & Publish Live",
+    "files": [
+      "src\\panels\\admin\\pages\\InspectionApprovalsPage.jsx"
+    ]
+  },
+  {
+    "text": "System Configuration",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Environment Controls",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Platform Settings & Policies",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Fine-tune OCR auto-ingestion policies, verification constraints, security timeouts, and site-wide broadcast announcements.",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Save Configuration",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "System configuration parameters updated and synced across all nodes.",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Maker-Checker & AI Ingestion Governance",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Control thresholds required before auction notices bypass manual auditor desks",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "OCR Straight-Through Processing (STP) Threshold (%)",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Notices with extraction confidence below",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "% are strictly queued for human checker reconciliation.",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Minimum On-Site Inspection Evidence Photos",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Field engineers cannot submit a report without attaching at least this many geotagged photographs.",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Site-Wide Broadcast Announcement",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Display an emergency or promotional notification banner across all buyer surfaces",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Enable Alert Banner at top of Public & Buyer layouts",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Announcement Message Text",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Security & Session Parameters",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Enforce token expiration and idle logout policies",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Staff Session Idle Timeout (Minutes)",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Cryptographic Key Rotation",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "JWT Secret: Active (HS256)",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Last rotated 14 days ago",
+    "files": [
+      "src\\panels\\admin\\pages\\SettingsPage.jsx"
+    ]
+  },
+  {
+    "text": "Access & Governance",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Total Staff:",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Internal Staff Directory",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Provision roles, manage verification authority, and assign operational jurisdictions for checkers and field engineers.",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Refresh",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Add Staff Member",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Search staff by name or email...",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Filter Role:",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Staff Member",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Security Role",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Assigned Jurisdiction",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Created Date",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Loading staff records...",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "No staff members found matching the filter.",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Provision Internal Staff Account",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Full Legal Name",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx",
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "e.g. Suresh Kumar",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Corporate Email",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "suresh@bankauctions.ai",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Mobile Contact",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx",
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Role Assignment",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Data Quality Checker",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Valuation / Field Engineer",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "System Administrator",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Initial Password",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Jurisdiction / Region",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "e.g. Tamil Nadu - Chennai Metro",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Provision Account",
+    "files": [
+      "src\\panels\\admin\\pages\\StaffManagementPage.jsx"
+    ]
+  },
+  {
+    "text": "Discount to Market Valuation",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Compares the reserve price fixed by the authorized banking officer against prevailing registrar guideline values and secondary market sale deeds in the immediate micro-market.",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Possession Security",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Physical possession under Section 14 with bank seal intact scores highest. Symbolic possession lots carry a calculated risk discount reflecting the required court warrant application.",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Location & Road Access",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Proximity to arterial ring roads, metro lines, commercial hubs, and verified front road width based on registrar layout plans and engineer on-site field visits.",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Clear Title & Document Readiness",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Completeness of 30-year Encumbrance Certificate, mutation registers, nil pending litigation in High Court/DRT records, and prompt bank officer responsiveness.",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Proprietary Intelligence",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "How the",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Works",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "BankAuctions.ai employs an algorithmic multi-factor valuation and risk engine to grade bank distress properties from 1 to 100, filtering out encumbered traps from genuine multi-bagger auction opportunities.",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Ready to Discover High-Scoring Assets?",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Browse vetted auction lots sorted dynamically by highest AI investment score across major metros.",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Explore Top AI-Ranked Lots",
+    "files": [
+      "src\\panels\\buyer\\pages\\AiRankGuidePage.jsx"
+    ]
+  },
+  {
+    "text": "Active Subscription",
+    "files": [
+      "src\\panels\\buyer\\pages\\BuyerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Recent Bookmarked Lots",
+    "files": [
+      "src\\panels\\buyer\\pages\\BuyerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "View All (",
+    "files": [
+      "src\\panels\\buyer\\pages\\BuyerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "No properties bookmarked yet. Browse auctions to save listings.",
+    "files": [
+      "src\\panels\\buyer\\pages\\BuyerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Auction Category",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Verified SARFAESI bank auction properties in this category.",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Region",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "on Bank Auction",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Sourced directly from public lender sale notices with verified reserve prices and title disclosures.",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Key Tracked Attributes:",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Live",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Available in",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Open in Advanced Filter Search →",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "currently published in",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Try checking other cities or search all auction assets.",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Browse all auction assets",
+    "files": [
+      "src\\panels\\buyer\\pages\\CategoryPage.jsx"
+    ]
+  },
+  {
+    "text": "The Complete SARFAESI Act Auction Guide for Buyers",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Understand Section 13(2) demand notices, Section 13(4) possession notices, 30-day statutory sale notice rules, and how physical possession is handed over.",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "How to Submit EMD (Earnest Money Deposit) Safely",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Step-by-step guidance on RTGS/NEFT transfers to bank escrow accounts, IBAPI and MSTC tender bidding portals, and refund timelines if outbid.",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Title Verification Checklist Before Bidding",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Key encumbrances to check: 30-year Encumbrance Certificate (EC), property tax arrears, electricity board dues, and ongoing civil court litigations.",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Physical vs Symbolic Possession: Realities on the Ground",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Why banks conduct symbolic possession auctions, how Chief Metropolitan Magistrate (CMM) warrants work under Section 14, and realistic timelines to secure keys.",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Sale Certificate Registration & Stamp Duty Norms",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Legal nuances of registering the Authorized Officer sale certificate under Indian Stamp Act, Section 89(4) registration exemptions, and sub-registrar procedures.",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Participating in Commercial DRT Auctions",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Differences between SARFAESI bank auctions and Debt Recovery Tribunal (DRT) auctions conducted by Recovery Officers under RDB Act.",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Knowledge Base",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Bank Auction Buyer's",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Manual",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Essential legal frameworks, financial due diligence protocols, and ground reality playbooks for buying auction properties safely in India.",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Read Full Regulatory Playbook",
+    "files": [
+      "src\\panels\\buyer\\pages\\GuidesPage.jsx"
+    ]
+  },
+  {
+    "text": "Verified listings from banks, NBFCs, co-operatives and courts across",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "— each carrying fair value, confirmed clearing prices, possession risk and photographs shot by our own field team.",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Verified Bank Auction Properties - Villas, Commercial & Land",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Search auction properties",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "₹25 lakh",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "₹50 lakh",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "₹1 crore",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "₹5 crore",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Select listing location",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Loading properties",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "We couldn’t load properties. Please try again.",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "What’s behind an AI Rank?",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Understand how valuation, possession, location, and title information inform a property’s rank. Use the score to guide your research, then review the underlying details.",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Understand the ranking",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Before you commit to a bid",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Read the original bank notice and deposit deadline.",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Check possession status and available documents.",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Arrange an inspection and independent legal review.",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Read the buyer guide",
+    "files": [
+      "src\\panels\\buyer\\pages\\HomePage.jsx"
+    ]
+  },
+  {
+    "text": "Direct Advocate Bridge",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Schedule a confidential consultation",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Speak directly with a senior DRT advocate on our portal bridge. Neither party sees the other's phone number or email address.",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Consultation Request Placed",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Our legal coordinator will assign a Bar Council practitioner in",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "fluent in",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": ". You will receive a secure portal bridge invitation with dial-in and chat room details.",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Book Another Consultation",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Language You Think In",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "English",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Tamil (தமிழ்)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Telugu (తెలుగు)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Kannada (ಕನ್ನಡ)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Malayalam (മലയാളം)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Hindi (हिन्दी)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRT Bench / Jurisdiction",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRT Chennai (DRT-1, 2, 3)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRT Bengaluru (DRT-1, 2)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRT Hyderabad (DRT-1, 2)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRT Ernakulam (Kerala)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRT Coimbatore",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRAT (Appellate Tribunal)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Auction Lot ID or Scheduled Property Note (Optional)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "e.g. Lot #402, OMR Chennai flat, or Bank of Baroda Ambattur shed",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Encrypted private dial-in bridge · No phone sharing",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Schedule",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "What Our Legal Bench Verifies Before You Bid",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Section 13(2) Notice",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Verifies whether the 60-day demand notice was duly served on borrowers and guarantors without legal defects.",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Possession Status",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx",
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Examines whether Section 13(4) symbolic possession or Section 14 CMM/DM physical possession order is executed.",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "DRT Securitisation Appeal",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Checks pending SA (Securitisation Application) cases before DRT or stay petitions that might delay sale certificates.",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "30-Year Encumbrance (EC)",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Cross-checks sub-registrar records for prior mortgages, revenue attachment, tax claims, or secondary litigation.",
+    "files": [
+      "src\\panels\\buyer\\pages\\LegalPage.jsx"
+    ]
+  },
+  {
+    "text": "Checking your session...",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Sign In to Your Account",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "One sign-in for buyers, administrators, checkers, and field engineers.",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "One-Click Demo Credentials",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Investor / Buyer",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "buyer@bankauctions.ai",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "System Admin",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "admin@bankauctions.ai",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Data Checker",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "checker@bankauctions.ai",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Engineer",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "engineer@bankauctions.ai",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Registered Email",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "name@example.com",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Sign In Securely",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Don't have an investor account?",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Create an account",
+    "files": [
+      "src\\panels\\buyer\\pages\\LoginPage.jsx"
+    ]
+  },
+  {
+    "text": "Buyer Search & Alert Preferences",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Customize target cities and auction property types to tailor your search feed and email updates.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Target Auction Regions",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Asset Classes of Interest",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Commercial Shops",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Maximum Reserve Price Budget",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹50 Lakhs",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹1 Crore",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹2 Crores",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹5 Crores",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Weekly Auction Digest Alerts",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Receive immediate notifications whenever new SARFAESI notices match your city & budget.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Save Preferences",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Preferences saved!",
+    "files": [
+      "src\\panels\\buyer\\pages\\PreferencesPage.jsx"
+    ]
+  },
+  {
+    "text": "Flats & houses",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Residential apartments, builder floors, bungalows and independent villas.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Plots & land",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Residential layouts, commercial development parcels and agricultural farmland.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Shops & offices",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "High-street retail showrooms, IT park suites and corporate commercial floors.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Warehouses & industrial",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Manufacturing facilities, logistics hubs, godowns and industrial sheds.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Vehicles & machinery",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Commercial truck fleets, passenger cars, tractors, plant & heavy equipment.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Transparent Pricing · SARFAESI & DRT Foreclosures",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Searching is free. ₹699 for five properties, ₹4,999 for the whole truth on one.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Pro at ₹699 opens the details on five properties in one city. The ₹4,999 research report brings the field engineer and an advocate to the one you will bid on. Concierge Services takes over after you win.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Flat, transparent rate of",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "across all asset classes.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Explore asset classes below",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Forever",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Search every listing, no card needed",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Included search access:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Search in your own words or by filters",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Location, type, reserve price, EMD and auction date",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Results on the map and the EMD closing countdown",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "MASKED UNTIL YOU TAKE PRO",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Name of the lender, and the notice to download",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "The bank's photographs and the exact pincode",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Guideline value, suggested bid and similar properties",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Saved searches and alerts",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Start searching · free",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Recommended",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Pro",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "five properties · one city",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "one-time pack",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Opens everything the bank provided on a property",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Full details of 5 properties in one city",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Lender name and the notice to download",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Bank photographs and documents on file",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Guideline value and suggested max bid",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Stays unlocked permanently — use it anytime",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Receipt for every payment",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Get Pro · ₹699",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "More listings, one payment",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Same one-time unlock as Pro, sized for buyers comparing many properties in one city.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "GOLD",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Save 25%",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "15 properties, one city",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Full dossier access for 15 properties including lender identity, original SARFAESI notices, valuation reports, and tax receipts.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Get Gold",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "DIAMOND",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Best Value · Save 35%",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "25 properties, one city",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Maximum exploration power for active investors and family offices looking across deep city-wide auction catalogs.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Get Diamond",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Packs cover one city, 90 days, and include everything Pro unlocks — lender name, notice download, photographs, tax receipts, price history — just across more properties. Add another city by buying a pack for it; each city is tracked separately.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Full On-Foot Due Diligence",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Research & Field Report · ₹4,999 per property",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "The checker's verification, the field engineer's ground report with photographs and videos, the verified guideline value and a recommended bid range. Available once a property has been verified and published — open it from Search and buy it on its page.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Ground Engineer Visit",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Physical Videos & Photos",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Empanelled Advocate Review",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Explore Verified Lots",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Purchase directly on any published property page",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Pricing by asset class",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "All asset categories share the same transparent rate of ₹699 for a 5-lot Pro Pack. Select a card below to explore specifics for each category.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Pro Pack (5 lots)",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Frequently Asked Questions",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Do my Pro pack unlocks ever expire?",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "No. Your 5 property unlocks in a Pro pack stay permanently in your account until you choose to unlock a lot. Once unlocked, every property dossier remains accessible forever in your account archive.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "What is the difference between Pro and the ₹4,999 Research Report?",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Pro opens all the documents provided by the bank (SARFAESI notice, reserve price breakdown, bank photographs, and guideline values). The ₹4,999 Research Report sends our licensed civil engineer and advocate to the property physically to verify boundaries, road access, and occupancy status.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "What happens after I win an auction?",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Our Concierge Services team assists you with Sale Certificate registration, Sub-Registrar Office stamping, and liaison with the bank's Authorised Officer to ensure smooth physical handover.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PricingPage.jsx"
+    ]
+  },
+  {
+    "text": "Loading comprehensive auction dossier...",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Property Not Found",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "This auction listing may have expired, been stayed by the DRT, or unpublished.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Browse Live Auctions",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Back to Search Results",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Share",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "AI Rank #",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Premium Curated",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Auction in",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "days",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "PIN:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Photo",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Physical Asset Specifications (",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Possession State",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Encumbrance Check",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Chartered Engineer Site Inspection",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Physical property inspection by empanelled civil engineer",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Unlocked",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Pro Dossier Gated",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Occupancy Status",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Access Road",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Boundary Match",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Engineer Market Valuation",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Civil Engineer Observations:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "GPS Coordinates:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Proximity:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "km from",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "On-Site Photos by Engineer:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "The full engineer valuation breakdown, GPS coordinates, boundary report, and site photographs are available to Pro pack members.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Unlock with 1 Credit",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Physical site inspection scheduled with field engineering team.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Reserve Price (Starting Bid)",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "% below estimated market value",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Earnest Money Deposit (EMD 10%):",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Minimum Bid Increment:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Auction Start Date & Time:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Inspection Window:",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Unlock Full Intelligence Dossier",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Dossier Unlocked & Saved in My Archive",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Lender Authority & Contact",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Authorized Officer",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Contact Phone / Helpdesk",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Submit your EMD directly through the respective lender portal (e.g. IBAPI, MSTC, or designated bank account) as specified in the original SARFAESI sale notice.",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Unlock Property Dossier",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Unlocking uses",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "1 of your",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "remaining property credits",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Full Chartered Engineer inspection report & photos",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "GPS site coordinates & landmark proximity breakdown",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Permanent storage in your personal archive",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Confirm Unlock (1 Credit)",
+    "files": [
+      "src\\panels\\buyer\\pages\\PropertyDetailsPage.jsx"
+    ]
+  },
+  {
+    "text": "Create Investor Account",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Sign up now and receive",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "3 complimentary property unlocks",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "to start discovering bank distress sales.",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "e.g. Ramesh Krishnan",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Email Address",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "ramesh@example.com",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Primary Investment City",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Chennai, Tamil Nadu",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Bengaluru, Karnataka",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Hyderabad, Telangana",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Coimbatore, Tamil Nadu",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Kochi, Kerala",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Madurai, Tamil Nadu",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "At least 6 characters",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Create Account & Claim Free Credits",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Already have an account?",
+    "files": [
+      "src\\panels\\buyer\\pages\\RegisterPage.jsx"
+    ]
+  },
+  {
+    "text": "Personal Property Archive",
+    "files": [
+      "src\\panels\\buyer\\pages\\SavedPropertiesPage.jsx"
+    ]
+  },
+  {
+    "text": "Bookmarked auction listings and permanently unlocked dossiers",
+    "files": [
+      "src\\panels\\buyer\\pages\\SavedPropertiesPage.jsx"
+    ]
+  },
+  {
+    "text": "Saved Bookmarks (",
+    "files": [
+      "src\\panels\\buyer\\pages\\SavedPropertiesPage.jsx"
+    ]
+  },
+  {
+    "text": "Unlocked Dossiers (",
+    "files": [
+      "src\\panels\\buyer\\pages\\SavedPropertiesPage.jsx"
+    ]
+  },
+  {
+    "text": "Explore Public Auctions",
+    "files": [
+      "src\\panels\\buyer\\pages\\SavedPropertiesPage.jsx"
+    ]
+  },
+  {
+    "text": "Filter by locality or keyword (e.g. Velachery, Sholinganallur)",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Grid View",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Grid",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "List View",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "List",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Map View",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Map",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "All Asset Types",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹25 L",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹50 L",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹1 Cr",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Under ₹3 Cr",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Closing Date",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Any Date",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Closing in 3 days",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Closing in 7 days",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Closing in 14 days",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Closing in 30 days",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Sorting Criteria",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Highest AI Rank",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Closing Soonest",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Lowest Reserve Price",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Highest Reserve Price",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Premium Highway / Corner",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Reset Filters",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Verified Bank Auctions in",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Updated directly from SARFAESI notices",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "No properties match your current filters",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Try adjusting your budget range, clearing category filters, or selecting another city.",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Clear All Filters",
+    "files": [
+      "src\\panels\\buyer\\pages\\SearchPage.jsx"
+    ]
+  },
+  {
+    "text": "Quality Gatekeeper",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Active Session",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Exception Verification Queue",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "The automated Maker pipeline ingests public bank auction notices. High-confidence listings pass through; ambiguous or obscured notices arrive here for mandatory human audit.",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Start Next in Queue",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Verification Operating Procedures",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "1. Compare Source Notice",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Inspect the original scanned image or PDF next to extracted JSON fields for any bank stamp obstructions.",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "2. Correct Numbers Exactly",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Verify Reserve Price, EMD, and Auction Date. Never extrapolate missing values without source notice grounding.",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "3. Submit to Admin Review",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Verified lots move to the Admin review desk. Checkers cannot publish directly to live buyer search.",
+    "files": [
+      "src\\panels\\checker\\pages\\CheckerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Loading side-by-side audit workspace...",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Notice not found or already verified.",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Back to Exception Queue",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "REF:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Auditing Quality Exception",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Maker Pipeline Flag Reason:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Original Scanned Notice Document",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Page 1 of 1",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "SARFAESI ACT 2002 · RULE 8(6) SALE NOTICE FOR SALE OF IMMOVABLE PROPERTY",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Notice is hereby given to the public in general that the below described immovable asset mortgaged to the Secured Creditor, the physical/constructive possession of which has been taken by the Authorised Officer of",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": ", will be sold on \"As is where is\", \"As is what is\", and \"Whatever there is\" basis.",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Description:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Location:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Survey / RS No:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Lender Auction Terms:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Reserve Price:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "(Rupees Eighty Seven Lakh Fifty Thousand only)",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "EMD Amount (10%):",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "between 11:00 AM to 4:00 PM",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Authorised Officer:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "· Contact:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Ground truth matches lender paper publication",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Open Full Resolution",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Extracted Data Quality Audit",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Edit fields to resolve discrepancies",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Reserve Price (INR)",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Maker:",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "EMD Amount (10%)",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Auction Sale Date",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Confidence: 90%",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Constructive possession",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Checker Audit & Correction Notes",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Notes explaining your corrections (e.g. Obscured reserve price verified against lender text schedule)",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Verify Data & Submit to Admin Desk",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Re-Scan Notice",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Reject Notice",
+    "files": [
+      "src\\panels\\checker\\pages\\SourceComparisonPage.jsx"
+    ]
+  },
+  {
+    "text": "Audit & Verification History",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Historical log of exception notices verified, corrected, or rejected by this quality desk.",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "No Audited Notices Recorded",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Notices you verify in the queue will appear here in the audit log.",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Lot:",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Exception Verification Work Queue (",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Nothing in this queue appears in customer search until verified by a quality checker and approved by an administrator.",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Search reference...",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Exception Queue Clear",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "All imported notices for this region have been verified.",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Source Ref",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Property & Location",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Flag Reason (Audit Trigger)",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Extracted Reserve",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Obscured",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Audit Notice",
+    "files": [
+      "src\\panels\\checker\\pages\\VerificationQueuePage.jsx"
+    ]
+  },
+  {
+    "text": "Field Operations",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Empanelled Engineer",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Inspection Schedule",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Visit assigned SARFAESI properties, verify physical boundaries, capture GPS coordinates and on-site photographs, and submit valuation assessments.",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "View Assigned Tasks (",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Immediate Action Assignments",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "All current site visits have been scheduled or submitted.",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Inspect Property",
+    "files": [
+      "src\\panels\\engineer\\pages\\EngineerDashboardPage.jsx"
+    ]
+  },
+  {
+    "text": "Loading inspection form...",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Back to Assignments",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "LOT:",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Site Visit Inspection Target",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Bank Reserve",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "1. Physical & Possession Observations",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Occupancy Observation",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Vacant, under bank seal lock",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Occupied by borrower",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Occupied by tenant",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Open plot with boundary fencing",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Access Road Width & Type",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Boundary Markers Match Notice Schedule?",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Matches Exactly",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Discrepancy Seen",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Overall Structure Condition",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "2. Independent Market Valuation & Proximity",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Engineer Valuation Estimate (INR)",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Nearest Landmark",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Distance to Landmark (km)",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Civil Observations & Buyer Notes",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "What a buyer should know after standing at the location (access width, neighborhood, lift, parking, maintenance state)",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "3. On-Site GPS Coordinates & Evidence Photos",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Verified GPS Position",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Capture Location",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Uploaded Evidence Photos (",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "added · minimum 3 needed)",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Upload File",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "+ Add Sample Photo",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "No inspection photos added yet. Upload from device or add a sample.",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Remove photo",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Submit Completed Site Inspection to Admin Desk",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "This inspection report has been submitted and is currently locked under administrative review.",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionFormPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Inspection History",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Historical log of physical site visits and valuation dossiers submitted by this chartered engineer.",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "No Completed Inspections Recorded",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Submitted inspection dossiers will appear here.",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "View Dossier →",
+    "files": [
+      "src\\panels\\engineer\\pages\\InspectionHistoryPage.jsx"
+    ]
+  },
+  {
+    "text": "Field Verification Assignments",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Properties requiring on-site civil observation, physical possession audit, and photos.",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "To Visit (",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Scheduled (",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Submitted (",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "No tasks in this tab",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "All caught up for this stage.",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Visit:",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Book Visit Slot",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Schedule Site Inspection",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Time Window / Slot",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Morning (10:00 AM - 1:00 PM)",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Afternoon (1:00 PM - 4:00 PM)",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Late Afternoon (4:00 PM - 6:00 PM)",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  },
+  {
+    "text": "Confirm Schedule",
+    "files": [
+      "src\\panels\\engineer\\pages\\MyAssignmentsPage.jsx"
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="14" fill="url(#cardGrad)"/>
+  <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-opacity="0.6"/>
+  <!-- Modern Bank Pillar with Gavel Angle -->
+  <path d="M12 24 L24 13 L36 24 V35 C36 36.1 35.1 37 34 37 H14 C12.9 37 12 36.1 12 35 Z" fill="#ffffff" fill-opacity="0.95"/>
+  <rect x="16" y="26" width="3.5" height="11" rx="1.5" fill="#00E5FF"/>
+  <rect x="22.25" y="23" width="3.5" height="14" rx="1.5" fill="#2563EB"/>
+  <rect x="28.5" y="26" width="3.5" height="11" rx="1.5" fill="#00E5FF"/>
+</svg>

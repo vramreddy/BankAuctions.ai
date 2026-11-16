@@ -1,0 +1,6 @@
+Bank logo assets
+
+Source: https://github.com/praveenpuglia/indian-banks
+Original paths: assets/logos/{slug}/logo.svg
+Mapping: sbi=sbin, bob=barb, canara=cnrb, pnb=punb, hdfc=hdfc, icici=icic, indianbank=idib, unionbank=ubin, axis=utib, kotak=kkbk, boi=bkid, central=cbin.
+Bank names and logos belong to their respective owners. Assets are stored locally and used without visual modification to identify banks.
