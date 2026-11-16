@@ -189,31 +189,6 @@ export function BuyerDashboardPage() {
             </Link>
           </div>
         </div>
-
-        {/* Policy Notice Box */}
-        <div className="mt-6 pt-4 border-t border-white/[0.08] grid sm:grid-cols-3 gap-4 text-xs">
-          <div className="flex items-start gap-2.5 text-slate-300">
-            <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
-            <div>
-              <strong className="text-white block font-medium">Browse All Assets Free</strong>
-              <span className="text-slate-400 text-[11px]">Inspect all 50+ bank auction properties across all regions.</span>
-            </div>
-          </div>
-          <div className="flex items-start gap-2.5 text-slate-300">
-            <Lock size={16} className="text-amber-400 shrink-0 mt-0.5" />
-            <div>
-              <strong className="text-white block font-medium">Lender & Engineer Gated</strong>
-              <span className="text-slate-400 text-[11px]">Notice PDF, lender officer phone & ground survey masked until unlocked.</span>
-            </div>
-          </div>
-          <div className="flex items-start gap-2.5 text-slate-300">
-            <ShieldCheck size={16} className="text-sky-400 shrink-0 mt-0.5" />
-            <div>
-              <strong className="text-white block font-medium">Permanent Access</strong>
-              <span className="text-slate-400 text-[11px]">Once unlocked with 1 credit, dossier remains permanently open in your account.</span>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* ======================================================== */}
