@@ -71,11 +71,10 @@ export function PropertyCard({ auction, isSaved: initialSaved = false, onSaveTog
           <button
             onClick={handleHeartClick}
             disabled={saving}
-            className={`p-2 rounded-xl backdrop-blur-md transition-colors ${
-              saved
-                ? 'bg-rose-500/80 text-white'
-                : 'bg-slate-900/60 text-slate-300 hover:text-white hover:bg-slate-900/90'
-            }`}
+            className={`p-2 rounded-xl backdrop-blur-md transition-colors ${saved
+              ? 'bg-rose-500/80 text-white'
+              : 'bg-slate-900/60 text-slate-300 hover:text-white hover:bg-slate-900/90'
+              }`}
           >
             <Heart className={`w-4 h-4 ${saved ? 'fill-current' : ''}`} />
           </button>

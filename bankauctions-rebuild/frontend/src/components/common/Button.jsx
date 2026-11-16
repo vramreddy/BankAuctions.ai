@@ -14,21 +14,27 @@ export function Button({
 }) {
   const variants = {
     primary:
-      'bg-gradient-to-r from-accent-cyan via-blue-500 to-indigo-600 text-slate-950 font-bold shadow-glow-cyan hover:shadow-[0_0_30px_rgba(0,229,255,0.6)] border-t border-white/40',
+      'btn-gradient-cyan text-slate-950 font-bold',
+    'gradient-cyan':
+      'btn-gradient-cyan text-slate-950 font-bold',
+    'gradient-teal':
+      'btn-gradient-teal text-slate-950 font-bold',
+    'gradient-violet':
+      'btn-gradient-violet text-white font-bold',
     secondary:
-      'bg-slate-800/80 hover:bg-slate-700/80 text-white border border-slate-700/60 hover:border-accent-cyan/40',
+      'bg-slate-900/80 hover:bg-slate-800/90 text-white border border-slate-700/70 hover:border-accent-cyan/50 backdrop-blur-md shadow-sm',
     outline:
-      'bg-transparent hover:bg-white/5 text-slate-200 border border-white/15 hover:border-accent-cyan/50',
+      'bg-transparent hover:bg-white/10 text-slate-200 border border-white/20 hover:border-accent-cyan/60 backdrop-blur-sm',
     ghost:
-      'bg-transparent hover:bg-white/5 text-slate-300 hover:text-white',
+      'bg-transparent hover:bg-white/10 text-slate-300 hover:text-white',
     danger:
-      'bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40'
+      'bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-semibold shadow-lg shadow-rose-950/40 border-t border-white/20'
   };
 
   const sizes = {
-    sm: 'text-xs px-3 py-1.5 rounded-lg',
-    md: 'text-sm px-4 py-2 rounded-xl',
-    lg: 'text-base px-6 py-3 rounded-xl'
+    sm: 'text-xs px-3 py-1.5 rounded-lg gap-1.5',
+    md: 'text-sm px-4 py-2 rounded-xl gap-2',
+    lg: 'text-base px-6 py-3 rounded-xl gap-2.5'
   };
 
   return (
@@ -36,7 +42,7 @@ export function Button({
       type={type}
       disabled={disabled || loading}
       onClick={onClick}
-      className={`inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed ${
+      className={`inline-flex items-center justify-center font-medium transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed select-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-obsidian ${
         variants[variant] || variants.primary
       } ${sizes[size] || sizes.md} ${className}`}
       {...props}

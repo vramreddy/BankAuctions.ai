@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation, Link, Navigate } from 'react-router-dom';
-import { loginDestination } from '../../../utils/workspace';
-import { 
-  Building2, Mail, Lock, ArrowRight, ShieldCheck, 
-  Sparkles, AlertCircle, CheckCircle2 
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import {
+  Building2, Mail, Lock, ArrowRight, ShieldCheck,
+  Sparkles, AlertCircle, CheckCircle2
 } from 'lucide-react';
 import { useAuth } from '../../../contexts/AuthContext';
 import GlassCard from '../../../components/common/GlassCard';
@@ -12,14 +11,14 @@ import Button from '../../../components/common/Button';
 export default function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login, user: currentUser, loading: sessionLoading } = useAuth();
+  const { login } = useAuth();
 
-  const [email, setEmail] = useState(location.state?.email || '');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const from = location.state?.from;
+  const from = location.state?.from?.pathname || '/buyer/dashboard';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,25 +26,23 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await login(email.trim(), password);
-      if (!response.success || !response.user || !response.token) {
-        throw new Error(response.message || 'Unable to sign in. Please try again.');
-      }
-      navigate(loginDestination(response.user.role, from), { replace: true });
+      const user = await login(email, password);
+      // Route based on role
+      if (user.role === 'ADMIN') navigate('/admin');
+      else if (user.role === 'CHECKER') navigate('/checker');
+      else if (user.role === 'ENGINEER') navigate('/engineer');
+      else navigate(from, { replace: true });
     } catch (err) {
-      if (err.status === 401) {
-        navigate('/register', { state: { email: email.trim(), from, loginFailed: true } });
-        return;
-      }
       setError(err.response?.data?.message || err.message || 'Invalid login credentials. Please check your email and password.');
     } finally {
       setLoading(false);
     }
   };
 
-
-  if (sessionLoading) return <p className="p-12 text-center" role="status">Checking your session...</p>;
-  if (currentUser) return <Navigate to={loginDestination(currentUser.role, from)} replace />;
+  const fillQuickDemo = (roleEmail, rolePass) => {
+    setEmail(roleEmail);
+    setPassword(rolePass);
+  };
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -60,30 +57,71 @@ export default function LoginPage() {
               Bank<span className="text-accent-cyan">Auctions</span><span className="text-xs text-accent-cyan font-mono ml-1">.ai</span>
             </span>
           </Link>
-          <h2 className="text-2xl font-extrabold text-white">Login to your account</h2>
+          <h2 className="text-2xl font-extrabold text-white">Sign In to Your Account</h2>
           <p className="mt-2 text-sm text-slate-400">
-            Enter your email and password to access your workspace.
+            Discover vetted bank foreclosures, unlock contact contacts, and track auctions.
           </p>
+        </div>
+
+        {/* Demo Fast Login Pills */}
+        <div className="p-3 bg-slate-900/60 border border-slate-800 rounded-xl">
+          <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 text-center">
+            One-Click Demo Credentials
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-xs">
+            <button
+              type="button"
+              onClick={() => fillQuickDemo('buyer@bankauctions.ai', 'Buyer@123')}
+              className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-accent-cyan border border-accent-cyan/30 text-left transition-colors"
+            >
+              <div className="font-bold">Investor / Buyer</div>
+              <div className="text-[10px] text-slate-400 font-mono">buyer@bankauctions.ai</div>
+            </button>
+            <button
+              type="button"
+              onClick={() => fillQuickDemo('admin@bankauctions.ai', 'Admin@123')}
+              className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-purple-400 border border-purple-500/30 text-left transition-colors"
+            >
+              <div className="font-bold">System Admin</div>
+              <div className="text-[10px] text-slate-400 font-mono">admin@bankauctions.ai</div>
+            </button>
+            <button
+              type="button"
+              onClick={() => fillQuickDemo('checker@bankauctions.ai', 'Checker@123')}
+              className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-amber-400 border border-amber-500/30 text-left transition-colors"
+            >
+              <div className="font-bold">Data Checker</div>
+              <div className="text-[10px] text-slate-400 font-mono">checker@bankauctions.ai</div>
+            </button>
+            <button
+              type="button"
+              onClick={() => fillQuickDemo('engineer@bankauctions.ai', 'Engineer@123')}
+              className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-emerald-400 border border-emerald-500/30 text-left transition-colors"
+            >
+              <div className="font-bold">Field Engineer</div>
+              <div className="text-[10px] text-slate-400 font-mono">engineer@bankauctions.ai</div>
+            </button>
+          </div>
         </div>
 
         {/* Card Form */}
         <GlassCard className="p-8">
           {error && (
-            <div role="alert" className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-400 text-sm">
+            <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-400 text-sm">
               <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
           )}
 
-          <form aria-busy={loading} onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="login-email" className="block text-xs font-mono uppercase text-slate-400 mb-2">
+              <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
                 Registered Email
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
-                  id="login-email" name="email" autoComplete="username" type="email"
+                  type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -95,18 +133,21 @@ export default function LoginPage() {
 
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label htmlFor="login-password" className="block text-xs font-mono uppercase text-slate-400">
+                <label className="block text-xs font-mono uppercase text-slate-400">
                   Password
                 </label>
+                <a href="#forgot" className="text-xs text-accent-cyan hover:underline">
+                  Forgot password?
+                </a>
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
-                  id="login-password" name="password" autoComplete="current-password" type="password"
+                  type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                  placeholder="••••••••"
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-accent-cyan"
                 />
               </div>
@@ -120,7 +161,7 @@ export default function LoginPage() {
               className="w-full justify-center"
               icon={<ArrowRight className="w-4 h-4" />}
             >
-              Login
+              Sign In Securely
             </Button>
           </form>
 
@@ -194,7 +235,7 @@ export default function LoginPage() {
 
           <div className="mt-6 pt-5 border-t border-slate-800 text-center text-sm text-slate-400">
             Don't have an investor account?{' '}
-            <Link to="/register" state={{ email: email.trim(), from }} className="text-accent-cyan font-semibold hover:underline">
+            <Link to="/register" className="text-accent-cyan font-semibold hover:underline">
               Create an account
             </Link>
           </div>
