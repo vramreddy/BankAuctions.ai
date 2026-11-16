@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 
 export default function SupportHelpSection({ className = '' }) {
   const cards = [
     {
       id: 'property',
       title: 'A question about a property',
-      desc: 'Open the property\'s details page and use "Request Documents on WhatsApp" to reach the bank/branch directly.',
+      desc: 'Open the property\'s details page and use “Request Documents on WhatsApp” to reach the bank/branch directly.',
       image: '/images/help-property.jpg',
       alt: 'A question about a bank auction property',
       actionText: 'Find the property',
@@ -48,11 +47,11 @@ export default function SupportHelpSection({ className = '' }) {
       <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-8">
         {/* Left: Typography exactly matching reference */}
         <div className="lg:col-span-7 flex flex-col justify-center">
-          <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-white/[0.04] border border-sky-400/30 text-[11px] font-mono uppercase tracking-wider text-sky-400 w-fit mb-4">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700/60 text-[11px] font-semibold uppercase tracking-wider text-slate-300 w-fit mb-5">
             SUPPORT
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.12]">
+          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.08]">
             How can we help?
           </h2>
 
@@ -63,7 +62,7 @@ export default function SupportHelpSection({ className = '' }) {
 
         {/* Right: Support Associate Consultation Photo */}
         <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
-          <div className="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl max-w-md w-full bg-[#0a0f1d]">
+          <div className="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl max-w-lg w-full bg-[#0a0f1d]">
             <img
               src="/images/help-support-hero.jpg"
               alt="How can we help - Customer Support"
@@ -79,23 +78,23 @@ export default function SupportHelpSection({ className = '' }) {
         {cards.map((card) => (
           <div
             key={card.id}
-            className="bg-[#0b101e] border border-white/[0.08] rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-white/20 hover:-translate-y-0.5"
+            className="bg-[#0b1120] border border-slate-800/80 rounded-3xl p-5 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-slate-600/80 hover:-translate-y-0.5 group"
           >
             <div>
-              <div className="rounded-2xl overflow-hidden mb-5 h-36 w-full bg-slate-950">
+              <div className="rounded-2xl overflow-hidden mb-5 h-40 w-full bg-slate-950 border border-white/5">
                 <img
                   src={card.image}
                   alt={card.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
 
-              <h3 className="text-sm sm:text-base font-bold text-white mb-2 tracking-tight">
+              <h3 className="text-[17px] font-bold text-white mb-2.5 tracking-tight">
                 {card.title}
               </h3>
 
-              <p className="text-xs text-slate-400 leading-relaxed font-normal">
+              <p className="text-[13px] text-slate-400 leading-relaxed font-normal min-h-[56px]">
                 {card.desc}
               </p>
             </div>
@@ -103,7 +102,7 @@ export default function SupportHelpSection({ className = '' }) {
             <div className="mt-5 pt-2">
               <Link
                 to={card.link}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors group"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors"
               >
                 <span>{card.actionText}</span>
                 <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -114,7 +113,7 @@ export default function SupportHelpSection({ className = '' }) {
       </div>
 
       {/* Placeholder Note */}
-      <p className="text-[11px] text-slate-500 mt-6 px-1">
+      <p className="text-[12px] text-slate-500 mt-6 px-1">
         For anything about the platform itself, this section is a placeholder for now — a real contact/FAQ flow can be built out in a future module.
       </p>
     </section>
