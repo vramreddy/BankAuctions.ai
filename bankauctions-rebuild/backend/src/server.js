@@ -4,12 +4,13 @@ import { logger } from './utils/logger.js';
 
 const PORT = config.port;
 
-const server = app.listen(PORT, () => {
+const HOST = '127.0.0.1';
+const server = app.listen(PORT, HOST, () => {
   logger.info(`====================================================`);
   logger.info(` BankAuctions.ai Backend API Engine Online`);
-  logger.info(` Port: http://localhost:${PORT}`);
-  logger.info(` API Root: http://localhost:${PORT}/api/v1`);
-  logger.info(` Health Check: http://localhost:${PORT}/api/v1/health`);
+  logger.info(` Port: http://${HOST}:${PORT}`);
+  logger.info(` API Root: http://${HOST}:${PORT}/api/v1`);
+  logger.info(` Health Check: http://${HOST}:${PORT}/api/v1/health`);
   logger.info(` Environment: ${config.env}`);
   logger.info(`====================================================`);
 });

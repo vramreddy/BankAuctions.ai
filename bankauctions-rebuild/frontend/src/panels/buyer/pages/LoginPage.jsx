@@ -124,7 +124,75 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-slate-800 text-center text-sm text-slate-400">
+          {/* Quick Demo Access Credentials */}
+          <div className="mt-6 pt-5 border-t border-slate-800">
+            <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-3 text-center">
+              Quick Demo Fill (Click to autofill)
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('buyer@bankauctions.ai');
+                  setPassword('Buyer@123');
+                }}
+                className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 hover:border-cyan-500/60 text-left transition-colors text-xs group"
+              >
+                <div className="font-semibold text-white group-hover:text-cyan-400 flex items-center justify-between">
+                  <span>Buyer</span>
+                  <span className="text-[10px] text-cyan-400 font-mono">Fill →</span>
+                </div>
+                <div className="text-[10px] text-slate-400 truncate">buyer@bankauctions.ai</div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('checker@bankauctions.ai');
+                  setPassword('Checker@123');
+                }}
+                className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 hover:border-amber-500/60 text-left transition-colors text-xs group"
+              >
+                <div className="font-semibold text-white group-hover:text-amber-400 flex items-center justify-between">
+                  <span>Checker</span>
+                  <span className="text-[10px] text-amber-400 font-mono">Fill →</span>
+                </div>
+                <div className="text-[10px] text-slate-400 truncate">checker@bankauctions.ai</div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('engineer@bankauctions.ai');
+                  setPassword('Engineer@123');
+                }}
+                className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 hover:border-emerald-500/60 text-left transition-colors text-xs group"
+              >
+                <div className="font-semibold text-white group-hover:text-emerald-400 flex items-center justify-between">
+                  <span>Engineer</span>
+                  <span className="text-[10px] text-emerald-400 font-mono">Fill →</span>
+                </div>
+                <div className="text-[10px] text-slate-400 truncate">engineer@bankauctions.ai</div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('admin@bankauctions.ai');
+                  setPassword('Admin@123');
+                }}
+                className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 hover:border-purple-500/60 text-left transition-colors text-xs group"
+              >
+                <div className="font-semibold text-white group-hover:text-purple-400 flex items-center justify-between">
+                  <span>Admin</span>
+                  <span className="text-[10px] text-purple-400 font-mono">Fill →</span>
+                </div>
+                <div className="text-[10px] text-slate-400 truncate">admin@bankauctions.ai</div>
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-slate-800 text-center text-sm text-slate-400">
             Don't have an investor account?{' '}
             <Link to="/register" state={{ email: email.trim(), from }} className="text-accent-cyan font-semibold hover:underline">
               Create an account
