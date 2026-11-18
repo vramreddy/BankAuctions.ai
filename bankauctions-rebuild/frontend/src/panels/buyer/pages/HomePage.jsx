@@ -1,407 +1,922 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCity } from '../../../contexts/CityContext';
+import {
+  PROTOTYPE_DATA,
+  PROTOTYPE_BENCH,
+  PROTOTYPE_STATE_MAP
+} from '../../../data/prototypeData';
 import {
   Search,
   ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles,
+  Heart,
+  Scale,
+  Calendar,
+  Layers,
   MapPin,
   Clock,
-  FileText,
-  Sparkles,
-  ArrowUpRight,
-  CheckCircle2
+  Lock,
+  MessageSquare
 } from 'lucide-react';
-import { useCity } from '../../../contexts/CityContext';
-import { api } from '../../../services/api';
-import { Button } from '../../../components/common/Button';
-import { CATEGORY_DETAILS } from '@shared/constants/categories.js';
-import { formatINR } from '../../../utils/formatters';
-
-// Modular Protected Trust & Action Components
 import PromoterBanksMarquee from '../../../components/trust/PromoterBanksMarquee';
-import HowItWorksJourney from '../../../components/trust/HowItWorksJourney';
-import AuctionActionHub from '../../../components/actions/AuctionActionHub';
-import PropertySelectionDock from '../../../components/actions/PropertySelectionDock';
-import SupportHelpSection from '../../../components/trust/SupportHelpSection';
 
 export default function HomePage() {
-  const { selectedCity, allCities } = useCity();
+  const { selectedCity, setCity, allCities } = useCity();
   const navigate = useNavigate();
 
-  const [city, setCity] = useState(selectedCity);
+  // Search filter states
+  const [searchCity, setSearchCity] = useState(selectedCity);
   const [cat, setCat] = useState('');
-  const [budget, setBudget] = useState('');
-  const [query, setQuery] = useState('');
-  const [listings, setListings] = useState([]);
-  const [status, setStatus] = useState('loading');
-  const [retry, setRetry] = useState(0);
+  const [budget, setBudget] = useState('0');
+  const [closing, setClosing] = useState('0');
+  const [naturalQuery, setNaturalQuery] = useState('');
+  const [searchMode, setSearchMode] = useState('fields'); // 'fields', 'words', 'map'
 
-  // Multi-property selection state for selection actions
-  const [selectedLots, setSelectedLots] = useState([]);
+  // Language filter for lawyer roster
+  const [selectedLang, setSelectedLang] = useState('All');
+  const [selectedAdvocate, setSelectedAdvocate] = useState(null);
+  const [consultModalOpen, setConsultModalOpen] = useState(false);
+  const [bookingSuccess, setBookingSuccess] = useState(false);
 
-  useEffect(() => {
-    let active = true;
-    setStatus('loading');
-    api.getAuctions({ city, limit: 3, sort: 'rank' })
-      .then(res => {
-        if (!res.success || !Array.isArray(res.data)) throw new Error('Unavailable');
-        if (active) {
-          setListings(res.data.slice(0, 3));
-          setStatus('ready');
-        }
-      })
-      .catch(() => {
-        if (active) setStatus('error');
-      });
-    return () => {
-      active = false;
-    };
-  }, [city, retry]);
+  // Synchronize city changes
+  const activeCityKey = selectedCity.toLowerCase();
+  const cityInfo = PROTOTYPE_DATA.cities[activeCityKey] || PROTOTYPE_DATA.cities.chennai;
+  const cityName = cityInfo.label;
+  const stateName = PROTOTYPE_STATE_MAP[activeCityKey] || 'Tamil Nadu';
 
-  const search = (e) => {
-    e.preventDefault();
-    const params = new URLSearchParams({ city });
-    if (cat) params.set('cat', cat);
-    if (budget) params.set('maxBudget', budget);
-    if (query.trim()) params.set('search', query.trim());
-    navigate(`/search?${params}`);
-  };
+  // Filter properties for current city
+  const cityProperties = useMemo(() => {
+    return PROTOTYPE_DATA.props.filter(p => p.city === activeCityKey);
+  }, [activeCityKey]);
 
-  const toggleSelectLot = (lot, e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setSelectedLots(prev => {
-      const exists = prev.some(item => item.id === lot.id);
-      if (exists) {
-        return prev.filter(item => item.id !== lot.id);
-      } else {
-        return [...prev, lot];
+  // Premium properties for current city
+  const premiumProperties = useMemo(() => {
+    return cityProperties.filter(p => p.premium).slice(0, 4);
+  }, [cityProperties]);
+
+  // Top ranked properties by category in this city
+  const topRankedProperties = useMemo(() => {
+    const catsSeen = new Set();
+    const result = [];
+    // Sort by rank ascending
+    const sorted = [...cityProperties].sort((a, b) => a.rank - b.rank);
+    for (const p of sorted) {
+      if (!catsSeen.has(p.cat)) {
+        catsSeen.add(p.cat);
+        result.push(p);
       }
-    });
+      if (result.length >= 4) break;
+    }
+    return result;
+  }, [cityProperties]);
+
+  // Advocate bench for this state
+  const advocates = useMemo(() => {
+    const list = PROTOTYPE_BENCH[stateName] || [];
+    if (selectedLang === 'All') return list;
+    return list.filter(adv => adv[4].includes(selectedLang));
+  }, [stateName, selectedLang]);
+
+  // Handle Search submit
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if (searchCity) params.set('city', searchCity);
+    if (cat) params.set('cat', cat);
+    if (budget && budget !== '0') params.set('maxBudget', budget);
+    if (closing && closing !== '0') params.set('closing', closing);
+    if (naturalQuery) params.set('q', naturalQuery);
+    navigate(`/search?${params.toString()}`);
   };
 
-  const inputClass = 'w-full rounded-xl glass-input px-3.5 py-3 text-sm';
+  const handleBookAdvocate = (adv) => {
+    setSelectedAdvocate(adv);
+    setBookingSuccess(false);
+    setConsultModalOpen(true);
+  };
+
+  const handleConfirmBooking = (e) => {
+    e.preventDefault();
+    setBookingSuccess(true);
+    setTimeout(() => {
+      setConsultModalOpen(false);
+      setBookingSuccess(false);
+    }, 2500);
+  };
+
+  const categoryCards = [
+    { name: 'Flats & apartments', slug: 'flats', img: '/img/chennai-flat-1.jpg', desc: '7 rankings · 5 cities' },
+    { name: 'Houses & villas', slug: 'houses', img: '/img/chennai-house-1.jpg', desc: '7 rankings · 5 cities' },
+    { name: 'Plots & land', slug: 'plots', img: '/img/chennai-land-1.jpg', desc: '7 rankings · 5 cities' },
+    { name: 'Shops & showrooms', slug: 'shops', img: '/img/chennai-shop-1.jpg', desc: '7 rankings · 5 cities' },
+    { name: 'Offices', slug: 'offices', img: '/img/chennai-office-1.jpg', desc: '7 rankings · 5 cities' },
+    { name: 'Warehouses & industrial', slug: 'warehouses', img: '/img/chennai-warehouse-1.jpg', desc: '7 rankings · 5 cities' },
+    { name: 'Vehicles & machinery', slug: 'vehicles', img: '/img/chennai-vehicle-1.jpg', desc: '7 rankings · 5 cities' }
+  ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
       {/* ======================================================== */}
-      {/* 1. HERO SECTION: Clean institutional matching graphic */}
+      {/* 1. CURATED PREMIUM SHOWCASE BANNER                       */}
       {/* ======================================================== */}
-      <section className="relative overflow-hidden rounded-3xl bg-[#070b16] border border-white/[0.08] p-6 sm:p-10 lg:p-12 shadow-2xl mt-4">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Left Column: Typography & Verification Signals */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            {/* Live City Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-emerald-500/30 text-xs font-medium text-emerald-400 w-fit mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Live in {allCities[city]?.name || 'Chennai'}</span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tight text-white leading-[1.12]">
-              Every bank<br />
-              auction, and the<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#93c5fd] via-[#a5b4fc] to-[#c4b5fd]">
-                data to bid right.
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed mt-5 max-w-xl">
-              Verified listings from banks, NBFCs, co-operatives and courts across {allCities[city]?.name || 'Chennai'} — each carrying fair value, confirmed clearing prices, possession risk and photographs shot by our own field team.
-            </p>
-
-            {/* 3 Verification Checkmarks */}
-            <div className="flex flex-wrap items-center gap-y-2.5 gap-x-6 mt-7 text-xs font-medium text-slate-300">
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-                <span>Banks, NBFCs & courts</span>
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-                <span>Possession risk checked</span>
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-                <span>Field-verified on foot</span>
-              </span>
-            </div>
+      <section className="relative overflow-hidden rounded-3xl bg-slate-900 border border-white/10 shadow-2xl">
+        <div className="grid lg:grid-cols-12 min-h-[440px] relative">
+          {/* Background image & gradient overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/img/lounge.jpg"
+              alt="Premium properties"
+              className="w-full h-full object-cover object-center opacity-40 lg:opacity-60"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#120814]/95 via-[#120814]/85 to-transparent" />
           </div>
 
-          {/* Right Column: Hero Graphic */}
-          <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
-            <img
-              src="/images/hero-grid-perfect.png"
-              alt="Verified Bank Auction Properties - Villas, Commercial & Land"
-              className="w-full max-w-md lg:max-w-none h-auto object-contain rounded-2xl select-none"
-              fetchPriority="high"
-            />
+          {/* Banner content */}
+          <div className="lg:col-span-8 z-10 p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-rose-600 text-xs font-black tracking-wider uppercase w-fit mb-5 shadow-md">
+              <Sparkles size={13} />
+              PREMIUM
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.12]">
+              Highway, corner and high-value properties, curated for <span className="text-rose-400">{cityName}</span>.
+            </h2>
+
+            <p className="text-slate-300 text-base sm:text-lg mt-4 max-w-xl font-normal leading-relaxed">
+              A separate plan from Pro. Pick 1, 2 or 3 months for the city you are in.
+            </p>
+
+            {/* Pricing Pills */}
+            <div className="flex flex-wrap gap-3 mt-6">
+              <div className="bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl px-5 py-3 text-white text-xs">
+                <b className="block text-xl font-extrabold text-white">₹1,499</b>
+                <span className="text-slate-300 font-medium">1 month</span>
+              </div>
+              <div className="bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl px-5 py-3 text-white text-xs">
+                <b className="block text-xl font-extrabold text-white">₹2,699</b>
+                <span className="text-slate-300 font-medium">2 months</span>
+              </div>
+              <div className="bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl px-5 py-3 text-white text-xs">
+                <b className="block text-xl font-extrabold text-white">₹3,499</b>
+                <span className="text-slate-300 font-medium">3 months</span>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <Link
+                to="/premium"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-xl shadow-rose-900/40 transition-all hover:scale-[1.02]"
+              >
+                <span>See Premium</span>
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ======================================================== */}
-      {/* 2. PROMOTER BANKS: Professional Carousel with Logos */}
+      {/* 2. PREMIUM PICKS IN SELECTED CITY                        */}
       {/* ======================================================== */}
-      <PromoterBanksMarquee />
-
-      {/* ======================================================== */}
-      {/* 3. SEARCH BANK AUCTIONS */}
-      {/* ======================================================== */}
-      <section id="property-search" className="glass-panel rounded-2xl p-5 sm:p-6 scroll-mt-24" aria-label="Search auction properties">
-        <div className="flex flex-wrap gap-4 justify-between items-center mb-5">
-          <h2 className="text-lg font-bold text-white">Search bank auction properties</h2>
-          <Link to="/search" className="text-xs text-brand-cyan flex items-center gap-1 hover:underline">
-            All filters <ArrowUpRight size={14} />
+      <section>
+        <div className="flex flex-wrap justify-between items-end gap-4 mb-8">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Premium picks in <span className="text-rose-400">{cityName}</span>
+            </h2>
+            <p className="text-sm text-slate-400 mt-1 max-w-2xl">
+              You see the price and a distance from a known landmark. Premium unlocks the lender, exact locality and field photographs.
+            </p>
+          </div>
+          <Link
+            to="/premium"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/15 text-white text-xs font-bold transition-all"
+          >
+            <span>All premium properties</span>
+            <ArrowRight size={14} />
           </Link>
         </div>
 
-        <form onSubmit={search} className="grid sm:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
-          <label className="lg:col-span-2">
-            <span className="block text-xs text-slate-400 mb-2">City / region</span>
-            <select className={inputClass} value={city} onChange={e => setCity(e.target.value)}>
-              {Object.entries(allCities).map(([key, value]) => (
-                <option key={key} value={key}>{value.name}</option>
-              ))}
-            </select>
-          </label>
+        {/* 4 Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {premiumProperties.map((p) => {
+            const hasHighway = p.flags?.includes('highway');
+            const hasCorner = p.flags?.includes('corner');
+            const hasCommercial = p.flags?.includes('commercial');
 
-          <label className="lg:col-span-3">
-            <span className="block text-xs text-slate-400 mb-2">Property type</span>
-            <select className={inputClass} value={cat} onChange={e => setCat(e.target.value)}>
-              <option value="">All property types</option>
-              {Object.values(CATEGORY_DETAILS).map(value => (
-                <option key={value.slug} value={value.slug}>{value.name}</option>
-              ))}
-            </select>
-          </label>
+            return (
+              <Link
+                key={p.id}
+                to={`/lot/${p.id}`}
+                className="group block rounded-2xl overflow-hidden bg-slate-900/60 border border-white/10 hover:border-rose-500/40 transition-all hover:shadow-2xl hover:shadow-rose-950/20"
+              >
+                {/* Image & Badges */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-950">
+                  <img
+                    src={`/img/${p.img}`}
+                    alt={p.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  {/* AI Rank Badge */}
+                  <div className="absolute top-3 left-3 bg-white text-slate-950 rounded-xl px-2.5 py-1 text-xs font-extrabold flex items-center gap-1.5 shadow-lg">
+                    <span className="text-rose-600 font-black">#{p.rank}</span>
+                    <span className="text-[10px] text-slate-600 font-mono uppercase tracking-wider leading-none">
+                      AI rank<br />{p.cat}
+                    </span>
+                  </div>
 
-          <label className="lg:col-span-2">
-            <span className="block text-xs text-slate-400 mb-2">Maximum budget</span>
-            <select className={inputClass} value={budget} onChange={e => setBudget(e.target.value)}>
-              <option value="">Any budget</option>
-              <option value="2500000">₹25 lakh</option>
-              <option value="5000000">₹50 lakh</option>
-              <option value="10000000">₹1 crore</option>
-              <option value="50000000">₹5 crore</option>
-            </select>
-          </label>
+                  {/* Favorite Heart */}
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-rose-400">
+                    <Heart size={15} />
+                  </div>
 
-          <label className="lg:col-span-3">
-            <span className="block text-xs text-slate-400 mb-2">Locality or keyword</span>
-            <input
-              className={inputClass}
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              placeholder="Area, property, or bank name"
-            />
-          </label>
+                  {/* Status Badges */}
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                    <span className="bg-slate-950/90 text-white border border-white/20 rounded-full px-2.5 py-0.5 text-[11px] font-bold">
+                      🔒 Premium
+                    </span>
+                    {p.bank_photos ? (
+                      <span className="bg-white/90 text-slate-900 rounded-full px-2.5 py-0.5 text-[11px] font-bold">
+                        Bank supplied
+                      </span>
+                    ) : (
+                      <span className="bg-white/80 text-slate-900 rounded-full px-2.5 py-0.5 text-[11px] font-medium">
+                        Representative
+                      </span>
+                    )}
+                  </div>
+                </div>
 
-          <Button type="submit" className="lg:col-span-2 h-11" icon={<Search size={16} />}>
-            Search
-          </Button>
-        </form>
+                {/* Content */}
+                <div className="p-4 space-y-2">
+                  <h3 className="font-bold text-white text-sm line-clamp-1 group-hover:text-rose-400 transition-colors">
+                    {p.short} · Premium location
+                  </h3>
+                  <p className="text-xs text-slate-400 line-clamp-1">
+                    Lender shown on Premium · closes in {p.days} days
+                  </p>
 
-        <div className="flex flex-wrap gap-x-5 gap-y-3 mt-5 pt-4 border-t border-white/10 text-xs">
-          <span className="text-slate-500">Browse by type</span>
-          {Object.values(CATEGORY_DETAILS).map(value => (
-            <Link key={value.slug} className="text-slate-300 hover:text-brand-cyan" to={`/search?city=${city}&cat=${value.slug}`}>
-              {value.short}
+                  {/* Highlights */}
+                  {(hasHighway || hasCorner || hasCommercial) && (
+                    <div className="text-[11.5px] font-bold text-rose-400">
+                      ★ {hasHighway ? 'Highway frontage' : ''}
+                      {hasHighway && hasCommercial ? ' · ' : ''}
+                      {hasCorner ? 'Corner property' : ''}
+                      {hasCorner && hasCommercial ? ' · ' : ''}
+                      {hasCommercial && !hasHighway && !hasCorner ? 'High commercial value' : ''}
+                    </div>
+                  )}
+
+                  {/* Price & Discount */}
+                  <div className="flex items-baseline justify-between pt-2 border-t border-white/[0.08]">
+                    <span className="text-base font-extrabold text-white">
+                      {p.reserve >= 100 ? `₹${(p.reserve / 100).toFixed(2)} Cr` : `₹${p.reserve.toFixed(1)} L`}
+                    </span>
+                    <span className="text-xs font-semibold text-rose-400">
+                      {p.disc}% below market
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 3. THREE REASONS SMART BUYERS START HERE                 */}
+      {/* ======================================================== */}
+      <section className="pt-8">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="inline-block px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs font-extrabold uppercase tracking-wider mb-3">
+            WHY BANKAUCTIONS.AI
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Three reasons smart buyers start here
+          </h2>
+          <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
+            Bank auction properties are priced below market, but the sale notices are hard to compare and easy to misread. This is how we make them useful.
+          </p>
+        </div>
+
+        {/* 3 Reason Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Reason 01: Score Ring */}
+          <div className="rounded-3xl bg-slate-900/60 border border-white/10 p-6 flex flex-col justify-between shadow-xl">
+            {/* Visual Header */}
+            <div className="bg-[#0b1329] border border-white/10 rounded-2xl p-5 mb-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="bg-white text-slate-950 rounded-xl px-2.5 py-1 text-xs font-extrabold flex items-center gap-1.5">
+                  <span className="text-rose-600 font-black">#1</span>
+                  <span className="text-[10px] text-slate-600 font-mono uppercase tracking-wider">
+                    AI rank<br />Flat · Chennai
+                  </span>
+                </div>
+                <div className="w-14 h-14 rounded-full border-4 border-rose-500 flex items-center justify-center font-black text-white text-base">
+                  84<span className="text-[10px] text-slate-400 font-normal">/100</span>
+                </div>
+              </div>
+
+              {/* Progress Bars */}
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between items-center text-[11px] text-slate-300">
+                  <span>Discount</span>
+                  <div className="w-32 bg-white/10 h-2 rounded-full overflow-hidden">
+                    <div className="bg-rose-500 h-full w-[85%]" />
+                  </div>
+                </div>
+                <div className="flex justify-between items-center text-[11px] text-slate-300">
+                  <span>Possession</span>
+                  <div className="w-32 bg-white/10 h-2 rounded-full overflow-hidden">
+                    <div className="bg-rose-500 h-full w-[88%]" />
+                  </div>
+                </div>
+                <div className="flex justify-between items-center text-[11px] text-slate-300">
+                  <span>Location</span>
+                  <div className="w-32 bg-white/10 h-2 rounded-full overflow-hidden">
+                    <div className="bg-rose-500 h-full w-[80%]" />
+                  </div>
+                </div>
+                <div className="flex justify-between items-center text-[11px] text-slate-300">
+                  <span>Documents</span>
+                  <div className="w-32 bg-white/10 h-2 rounded-full overflow-hidden">
+                    <div className="bg-rose-500 h-full w-[80%]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-rose-400">01</span>
+              <h3 className="text-lg font-bold text-white">Know what a property is really worth</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Each property gets an AI score out of 100 from its discount to market, possession, location and documents. It is ranked only against its own kind in its own city, so a flat is never compared with a warehouse.
+              </p>
+              <div className="pt-3 border-t border-white/[0.08] text-[11.5px] text-slate-300 flex items-start gap-2">
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                <span>
+                  <b className="text-white">How it helps you:</b> Properties here are listed about 31% below market on average. The rank shows which ones are genuinely strong in minutes.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Reason 02: Field Verification */}
+          <div className="rounded-3xl bg-slate-900/60 border border-white/10 p-6 flex flex-col justify-between shadow-xl">
+            {/* Visual Header */}
+            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-white/10">
+              <img
+                src="/img/chennai-flat-1.jpg"
+                alt="Field verified"
+                className="w-full h-full object-cover"
+              />
+              <span className="absolute top-3 left-3 bg-emerald-600 text-white rounded-full px-2.5 py-0.5 text-xs font-bold shadow-md">
+                ✓ Field verified
+              </span>
+              <div className="absolute bottom-2 inset-x-2 bg-slate-950/85 backdrop-blur-md rounded-xl p-2.5 flex justify-between text-[11px] text-slate-300">
+                <span>Occupancy · <b className="text-white">Vacant</b></span>
+                <span>Access · <b className="text-white">Wide, paved</b></span>
+                <span>Boundaries · <b className="text-white">Match</b></span>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-rose-400">02</span>
+              <h3 className="text-lg font-bold text-white">See what the sale notice does not tell you</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Photographs released by the bank are tagged as such. Our field engineers visit and record occupancy, access, boundaries and condition. Anything our software could not read cleanly is checked by a person first.
+              </p>
+              <div className="pt-3 border-t border-white/[0.08] text-[11.5px] text-slate-300 flex items-start gap-2">
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                <span>
+                  <b className="text-white">How it helps you:</b> You learn whether it is occupied, what condition it is in and what a fair value looks like before you commit an EMD.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Reason 03: Legal Advice */}
+          <div className="rounded-3xl bg-slate-900/60 border border-white/10 p-6 flex flex-col justify-between shadow-xl">
+            {/* Visual Header */}
+            <div className="bg-[#0b1329] border border-white/10 rounded-2xl p-5 mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <img src="/img/adv/adv-r-venkatesan.jpg" className="w-10 h-10 rounded-full object-cover border-2 border-white/20" alt="Advocate" />
+                <img src="/img/adv/adv-s-meenakshi.jpg" className="w-10 h-10 rounded-full object-cover border-2 border-white/20 -ml-4" alt="Advocate" />
+                <img src="/img/adv/adv-k-ramanathan.jpg" className="w-10 h-10 rounded-full object-cover border-2 border-white/20 -ml-4" alt="Advocate" />
+              </div>
+
+              {/* Chat bubble */}
+              <div className="bg-white/10 rounded-2xl p-3 text-xs text-slate-200 mb-3 border border-white/10">
+                💬 "Is the title clear? Any encumbrance on record?"
+              </div>
+
+              <div className="flex justify-between items-center text-[11px] text-slate-400">
+                <span>🗣 Speaks <b>English · Tamil</b></span>
+                <span>🔔 Closes in <b>2 days</b></span>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="space-y-3">
+              <span className="text-xs font-mono font-bold text-rose-400">03</span>
+              <h3 className="text-lg font-bold text-white">Bid with advice, not guesswork</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Book a 30 minute call with an advocate in your state who speaks your language, about the exact property you are considering. Save what you look for and get alerted before an auction closes.
+              </p>
+              <div className="pt-3 border-t border-white/[0.08] text-[11.5px] text-slate-300 flex items-start gap-2">
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                <span>
+                  <b className="text-white">How it helps you:</b> You get an independent view on title, encumbrance and possession, and you never miss a closing date.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 4. HERO SEARCH SECTION                                   */}
+      {/* ======================================================== */}
+      <section className="text-center pt-8">
+        <div className="max-w-3xl mx-auto space-y-4">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-white/[0.08] border border-white/20 text-rose-400 text-xs font-bold uppercase tracking-wider">
+            LIVE IN {cityName}
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            Find the auction deal <em className="not-italic text-rose-500">before</em> everyone else.
+          </h1>
+          <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            Every property sold by banks across South India, scored by AI within its own category, with the photographs to match.
+          </p>
+        </div>
+
+        {/* Search Bar Form */}
+        <div className="max-w-4xl mx-auto mt-8">
+          {searchMode === 'fields' && (
+            <form onSubmit={handleSearch} className="rounded-full bg-white p-2 shadow-2xl flex flex-wrap md:flex-nowrap items-center text-slate-900 border border-slate-200">
+              <div className="px-5 py-2 border-r border-slate-200 text-left flex-1 min-w-[140px]">
+                <label className="block text-[10px] font-bold tracking-wider text-slate-500 uppercase">City</label>
+                <select
+                  value={searchCity}
+                  onChange={(e) => setSearchCity(e.target.value)}
+                  className="w-full bg-transparent text-xs font-bold text-slate-900 focus:outline-none cursor-pointer"
+                >
+                  {Object.entries(allCities || {}).map(([k, v]) => (
+                    <option key={k} value={k}>{v.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="px-5 py-2 border-r border-slate-200 text-left flex-1 min-w-[160px]">
+                <label className="block text-[10px] font-bold tracking-wider text-slate-500 uppercase">Type</label>
+                <select
+                  value={cat}
+                  onChange={(e) => setCat(e.target.value)}
+                  className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none cursor-pointer"
+                >
+                  <option value="">All property types</option>
+                  <option value="flat">Flats & apartments</option>
+                  <option value="house">Houses & villas</option>
+                  <option value="land">Plots & land</option>
+                  <option value="shop">Shops & showrooms</option>
+                  <option value="office">Offices</option>
+                  <option value="warehouse">Warehouses & industrial</option>
+                  <option value="vehicle">Vehicles & machinery</option>
+                </select>
+              </div>
+
+              <div className="px-5 py-2 border-r border-slate-200 text-left flex-1 min-w-[130px]">
+                <label className="block text-[10px] font-bold tracking-wider text-slate-500 uppercase">Budget</label>
+                <select
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                  className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none cursor-pointer"
+                >
+                  <option value="0">Any budget</option>
+                  <option value="25">Under ₹25 L</option>
+                  <option value="50">Under ₹50 L</option>
+                  <option value="100">Under ₹1 Cr</option>
+                </select>
+              </div>
+
+              <div className="px-5 py-2 text-left flex-1 min-w-[140px]">
+                <label className="block text-[10px] font-bold tracking-wider text-slate-500 uppercase">Closing</label>
+                <select
+                  value={closing}
+                  onChange={(e) => setClosing(e.target.value)}
+                  className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none cursor-pointer"
+                >
+                  <option value="0">All live properties</option>
+                  <option value="7">Closing in 7 days</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                className="px-8 py-3.5 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shrink-0"
+              >
+                Search
+              </button>
+            </form>
+          )}
+
+          {searchMode === 'words' && (
+            <form onSubmit={handleSearch} className="rounded-full bg-white p-2 shadow-2xl flex items-center text-slate-900 border border-slate-200">
+              <div className="px-6 py-2 text-left flex-1">
+                <label className="block text-[10px] font-bold tracking-wider text-slate-500 uppercase">Ask in your words</label>
+                <input
+                  type="text"
+                  value={naturalQuery}
+                  onChange={(e) => setNaturalQuery(e.target.value)}
+                  placeholder="2BHK flat in Chennai under 60 lakh closing soon"
+                  className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="px-8 py-3.5 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shrink-0"
+              >
+                Search
+              </button>
+            </form>
+          )}
+
+          {/* Search Modes Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-5">
+            <button
+              onClick={() => setSearchMode('fields')}
+              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+                searchMode === 'fields'
+                  ? 'bg-white text-slate-950 font-bold shadow-md'
+                  : 'bg-white/[0.08] text-slate-300 hover:bg-white/[0.14]'
+              }`}
+            >
+              Search fields
+            </button>
+            <button
+              onClick={() => setSearchMode('words')}
+              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                searchMode === 'words'
+                  ? 'bg-white text-slate-950 font-bold shadow-md'
+                  : 'bg-white/[0.08] text-slate-300 hover:bg-white/[0.14]'
+              }`}
+            >
+              <span>✦ Ask in your words</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-rose-500/20 text-rose-400 font-bold">PRO</span>
+            </button>
+            <Link
+              to="/search?mode=map"
+              className="px-4 py-2 rounded-full text-xs font-semibold bg-white/[0.08] text-slate-300 hover:bg-white/[0.14] transition-all flex items-center gap-1.5"
+            >
+              <span>⌖ Pick on the map</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-rose-500/20 text-rose-400 font-bold">PRO</span>
+            </Link>
+            <Link
+              to="/preferences"
+              className="px-4 py-2 rounded-full text-xs font-semibold bg-white/[0.08] text-slate-300 hover:bg-white/[0.14] transition-all flex items-center gap-1.5"
+            >
+              <span>☰ Set preferences</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 5. TOP RANKED IN SELECTED CITY                           */}
+      {/* ======================================================== */}
+      <section>
+        <div className="flex flex-wrap justify-between items-end gap-4 mb-8">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Top ranked in <span className="text-rose-400">{cityName}</span>
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">
+              Highest AI score in each category.
+            </p>
+          </div>
+          <Link
+            to="/search"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/15 text-white text-xs font-bold transition-all"
+          >
+            <span>See all</span>
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        {/* 4 Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {topRankedProperties.map((p) => (
+            <Link
+              key={p.id}
+              to={`/lot/${p.id}`}
+              className="group block rounded-2xl overflow-hidden bg-slate-900/60 border border-white/10 hover:border-cyan-500/40 transition-all hover:shadow-2xl"
+            >
+              {/* Image & Badges */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-950">
+                <img
+                  src={`/img/${p.img}`}
+                  alt={p.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 left-3 bg-white text-slate-950 rounded-xl px-2.5 py-1 text-xs font-extrabold flex items-center gap-1.5 shadow-lg">
+                  <span className="text-rose-600 font-black">#{p.rank}</span>
+                  <span className="text-[10px] text-slate-600 font-mono uppercase tracking-wider leading-none">
+                    AI rank<br />{p.cat}
+                  </span>
+                </div>
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white/80 hover:text-rose-400">
+                  <Heart size={15} />
+                </div>
+                <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                  {p.bank_photos ? (
+                    <span className="bg-white/90 text-slate-900 rounded-full px-2.5 py-0.5 text-[11px] font-bold">
+                      Bank supplied
+                    </span>
+                  ) : (
+                    <span className="bg-white/80 text-slate-900 rounded-full px-2.5 py-0.5 text-[11px] font-medium">
+                      Representative
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 space-y-2">
+                <h3 className="font-bold text-white text-sm line-clamp-1 group-hover:text-cyan-400 transition-colors">
+                  {p.short} · {p.loc}
+                </h3>
+                <p className="text-xs text-slate-400 line-clamp-1">
+                  {p.bank} · closes in {p.days} days
+                </p>
+
+                <div className="flex items-baseline justify-between pt-2 border-t border-white/[0.08]">
+                  <span className="text-base font-extrabold text-white">
+                    {p.reserve >= 100 ? `₹${(p.reserve / 100).toFixed(2)} Cr` : `₹${p.reserve.toFixed(1)} L`}
+                  </span>
+                  <span className="text-xs font-semibold text-rose-400">
+                    {p.disc}% below market
+                  </span>
+                </div>
+              </div>
             </Link>
           ))}
         </div>
       </section>
 
       {/* ======================================================== */}
-      {/* 4. ACTION HUB: EMD Calculator, Alerts & SARFAESI Audit */}
+      {/* 6. BROWSE BY CATEGORY (7 CATEGORIES)                     */}
       {/* ======================================================== */}
-      <AuctionActionHub />
+      <section>
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Browse by category
+          </h2>
+          <p className="text-sm text-slate-400 mt-1">
+            Seven separate rankings, one page each.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 text-center">
+          {categoryCards.map((cat) => (
+            <Link
+              key={cat.slug}
+              to={`/${cat.slug}`}
+              className="group block p-3 rounded-2xl bg-slate-900/40 border border-white/10 hover:border-rose-500/40 hover:bg-white/[0.04] transition-all"
+            >
+              <div className="aspect-square rounded-xl overflow-hidden mb-3 bg-slate-800">
+                <img
+                  src={cat.img}
+                  alt={cat.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <h4 className="text-xs font-bold text-white group-hover:text-rose-400 transition-colors leading-tight">
+                {cat.name}
+              </h4>
+              <small className="block text-[10px] text-slate-400 mt-1">
+                {cat.desc}
+              </small>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {/* ======================================================== */}
-      {/* 6. EXPLORE AUCTIONS: Grid with multi-select dock support */}
+      {/* 7. TALK TO A LAWYER BEFORE YOU BID                       */}
       {/* ======================================================== */}
-      <section className="mt-8">
+      <section className="pt-4">
         <div className="flex flex-wrap justify-between items-end gap-4 mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-white tracking-tight">
-              Explore auctions in {allCities[city]?.name || city}
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Talk to a lawyer before you bid
             </h2>
-            <p className="text-sm text-slate-400 mt-2">
-              Explore homes, land, commercial spaces and vehicles. Select assets to compare, calculate joint EMD, or export.
+            <p className="text-sm text-slate-400 mt-1">
+              Advocates enrolled in <span className="text-white font-bold">{stateName}</span>, where you are searching. Only advocates who speak a language you do are shown.
             </p>
           </div>
-          <Link to={`/search?city=${city}`} className="text-sm text-brand-cyan flex items-center gap-2 hover:underline">
-            View all assets <ArrowRight size={16} />
+          <Link
+            to="/legal"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/15 text-white text-xs font-bold transition-all"
+          >
+            <span>See all advocates</span>
+            <ArrowRight size={14} />
           </Link>
         </div>
 
-        {/* City Filter Pills */}
-        <div className="flex flex-wrap gap-2 mb-6" aria-label="Select listing location">
-          {Object.entries(allCities).map(([key, value]) => (
+        {/* Language Filter Bar */}
+        <div className="flex flex-wrap items-center gap-2 mb-6">
+          <span className="text-xs font-bold text-slate-300 mr-2">I speak:</span>
+          {['All', 'English', 'Tamil', 'Telugu', 'Kannada', 'Malayalam', 'Hindi'].map((lang) => (
             <button
-              key={key}
-              onClick={() => setCity(key)}
-              aria-pressed={city === key}
-              className={`px-4 py-2 rounded-lg border text-xs transition-colors ${
-                city === key
-                  ? 'border-brand-cyan/40 bg-brand-cyan/10 text-brand-cyan font-medium'
-                  : 'border-white/10 text-slate-400 hover:text-white hover:bg-white/5'
+              key={lang}
+              onClick={() => setSelectedLang(lang)}
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
+                selectedLang === lang
+                  ? 'bg-rose-600 text-white font-bold shadow-sm'
+                  : 'bg-white/[0.08] text-slate-300 hover:bg-white/[0.14]'
               }`}
             >
-              {value.name}
+              {lang}
             </button>
           ))}
         </div>
 
-        {/* Catalog Grid */}
-        {status === 'loading' ? (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" role="status" aria-label="Loading properties">
-            {[1, 2, 3].map(i => (
-              <div key={i} className="h-80 rounded-2xl bg-slate-900 border border-white/5 animate-pulse" />
-            ))}
-          </div>
-        ) : status === 'error' ? (
-          <div className="glass-panel rounded-2xl p-8 text-center" role="status">
-            <p className="text-slate-300 mb-4">We couldn’t load properties. Please try again.</p>
-            <Button onClick={() => setRetry(retry + 1)} variant="secondary">Retry</Button>
-          </div>
-        ) : !listings.length ? (
-          <div className="glass-panel rounded-2xl p-8 text-slate-400">
-            No published properties in this location yet. Select another city to continue exploring.
-          </div>
-        ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {listings.map(item => {
-              const date = item.auctionStartDate ? new Date(item.auctionStartDate) : null;
-              const validDate = date && !Number.isNaN(date.getTime());
-              const isSelected = selectedLots.some(s => s.id === item.id);
-
-              return (
-                <div
-                  key={item.id}
-                  className={`group relative glass-panel-interactive rounded-2xl overflow-hidden transition-all duration-300 ${
-                    isSelected ? 'ring-2 ring-brand-cyan border-brand-cyan/50' : ''
-                  }`}
-                >
-                  {/* Select Checkbox for Selection-wise actions */}
-                  <button
-                    onClick={(e) => toggleSelectLot(item, e)}
-                    className="absolute top-3 right-3 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-md border border-white/20 text-xs font-mono text-white hover:bg-slate-900 transition-colors"
-                    title={isSelected ? 'Deselect lot' : 'Select lot for comparison'}
-                  >
-                    <span className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${
-                      isSelected ? 'bg-brand-cyan border-brand-cyan text-slate-950' : 'border-white/40'
-                    }`}>
-                      {isSelected && '✓'}
-                    </span>
-                    <span className="text-[11px]">{isSelected ? 'Selected' : 'Select'}</span>
-                  </button>
-
-                  <Link to={`/lot/${item.id}`} className="block focus-visible:outline-none">
-                    <div className="relative h-48 overflow-hidden bg-slate-900">
-                      <span className="absolute bottom-3 left-3 z-10 rounded-md bg-slate-950/85 px-2.5 py-1 text-[11px] font-medium text-white">
-                        {item.isDemo ? 'Demo · ' : ''}{item.category?.name || 'Asset'}
-                      </span>
-                      <img
-                        src={item.primaryImageUrl || '/images/chennai-flat-1.jpg'}
-                        alt={item.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        onError={e => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src = '/images/chennai-flat-1.jpg';
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
-                      <span className="absolute bottom-3 left-4 text-xs font-semibold text-white drop-shadow">
-                        {item.bankName || item.bank?.name || 'View bank details'}
-                      </span>
-                    </div>
-
-                    <div className="p-5">
-                      <p className="flex gap-1 items-center text-xs text-slate-400 capitalize">
-                        <MapPin size={13} />
-                        {item.locality ? `${item.locality}, ` : ''}{allCities[item.city]?.name || item.city}
-                      </p>
-                      <h3 className="text-base font-semibold text-white mt-2 mb-5 line-clamp-2 min-h-12 group-hover:text-brand-cyan transition-colors">
-                        {item.title}
-                      </h3>
-                      <div className="flex items-end justify-between gap-2 border-t border-white/10 pt-4">
-                        <div>
-                          <p className="text-[10px] uppercase tracking-wider text-slate-500 mb-1">Reserve price</p>
-                          <p className="font-mono text-xl font-bold text-white">
-                            {item.reservePrice ? formatINR(item.reservePrice) : 'See notice'}
-                          </p>
-                        </div>
-                        <ArrowUpRight size={20} className="text-brand-cyan group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </div>
-                      <p className="flex gap-2 items-center text-[11px] text-slate-400 mt-4">
-                        <Clock size={13} />
-                        {validDate
-                          ? `${date < new Date() ? 'Scheduled date' : 'Auction date'}: ${date.toLocaleDateString('en-IN', {
-                              day: 'numeric',
-                              month: 'short',
-                              year: 'numeric',
-                              timeZone: 'Asia/Kolkata'
-                            })}`
-                          : 'Check notice for auction date'}
-                      </p>
-                    </div>
-                  </Link>
+        {/* Advocates Cards Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {advocates.map((adv, idx) => (
+            <div
+              key={idx}
+              className="rounded-3xl bg-slate-900/70 border border-white/10 p-6 flex flex-col justify-between hover:border-rose-500/30 transition-all shadow-xl"
+            >
+              <div className="flex items-start gap-4">
+                <img
+                  src={`/img/adv/${adv[0].toLowerCase().replace(/[^a-z0-9]/g, '-')}.jpg`}
+                  onError={(e) => { e.target.src = '/img/adv/adv-r-venkatesan.jpg'; }}
+                  alt={adv[0]}
+                  className="w-16 h-16 rounded-2xl object-cover border border-white/15 shrink-0"
+                />
+                <div className="space-y-1">
+                  <h4 className="font-bold text-white text-base leading-snug">{adv[0]}</h4>
+                  <p className="text-xs text-rose-400 font-semibold">{adv[2]} at the Bar</p>
+                  <p className="text-[11px] text-slate-400">{adv[1]}</p>
                 </div>
-              );
-            })}
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-white/[0.08] space-y-2.5">
+                <p className="text-xs text-slate-300 line-clamp-1">
+                  <b>Focus:</b> {adv[3]}
+                </p>
+                <div className="flex flex-wrap gap-1 text-[10px]">
+                  {adv[4].split(',').map((l, i) => (
+                    <span key={i} className="px-2 py-0.5 rounded-md bg-white/10 text-slate-300">
+                      {l.trim()}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 flex items-center justify-between pt-3 border-t border-white/[0.08]">
+                <div className="text-white font-extrabold text-sm">
+                  {adv[5]} <small className="text-slate-400 font-normal">/ 30 min</small>
+                </div>
+                <button
+                  onClick={() => handleBookAdvocate(adv)}
+                  className="px-4 py-2 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow-md transition-all"
+                >
+                  Book Consultation
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 8. PROMOTER BANKS CAROUSEL MARQUEE                       */}
+      {/* ======================================================== */}
+      <PromoterBanksMarquee />
+
+      {/* ======================================================== */}
+      {/* 9. LIVE STATS BAND                                       */}
+      {/* ======================================================== */}
+      <section className="rounded-3xl bg-slate-900/80 border border-white/10 py-10 px-6 sm:px-12 shadow-xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <b className="block text-4xl sm:text-5xl font-black text-white tracking-tight">{cityInfo.live}</b>
+            <span className="text-xs sm:text-sm text-slate-400 mt-1 block">live properties</span>
           </div>
-        )}
-      </section>
-
-      {/* ======================================================== */}
-      {/* 7. SIMPLIFIED AUCTION JOURNEY (3 Steps: 01, 02, 03) */}
-      {/* ======================================================== */}
-      <div className="pt-4">
-        <HowItWorksJourney />
-      </div>
-
-      {/* ======================================================== */}
-      {/* 9. KNOWLEDGE HUBS: AI Rank & Due Diligence Guide */}
-      {/* ======================================================== */}
-      <section className="grid md:grid-cols-2 gap-5 pt-4">
-        <div className="glass-panel rounded-2xl p-6 sm:p-8">
-          <Sparkles className="text-brand-cyan mb-4" size={24} />
-          <h2 className="text-xl font-bold text-white">What’s behind an AI Rank?</h2>
-          <p className="text-sm text-slate-400 leading-relaxed mt-3 mb-5">
-            Understand how valuation, possession, location, and title information inform a property’s rank. Use the score to guide your research, then review the underlying details.
-          </p>
-          <Link to="/ai-rank" className="text-sm text-brand-cyan inline-flex items-center gap-2 hover:underline">
-            Understand the ranking <ArrowRight size={15} />
-          </Link>
-        </div>
-
-        <div className="glass-panel rounded-2xl p-6 sm:p-8">
-          <FileText className="text-amber-400 mb-4" size={24} />
-          <h2 className="text-xl font-bold text-white">Before you commit to a bid</h2>
-          <ul className="text-sm text-slate-400 mt-3 mb-5 space-y-2 list-disc pl-4">
-            <li>Read the original bank notice and deposit deadline.</li>
-            <li>Check possession status and available documents.</li>
-            <li>Arrange an inspection and independent legal review.</li>
-          </ul>
-          <Link to="/guides" className="text-sm text-brand-cyan inline-flex items-center gap-2 hover:underline">
-            Read the buyer guide <ArrowRight size={15} />
-          </Link>
+          <div>
+            <b className="block text-4xl sm:text-5xl font-black text-white tracking-tight">{cityInfo.newWeek}</b>
+            <span className="text-xs sm:text-sm text-slate-400 mt-1 block">new this week</span>
+          </div>
+          <div>
+            <b className="block text-4xl sm:text-5xl font-black text-white tracking-tight">{cityInfo.discount}</b>
+            <span className="text-xs sm:text-sm text-slate-400 mt-1 block">average discount</span>
+          </div>
+          <div>
+            <b className="block text-4xl sm:text-5xl font-black text-white tracking-tight">{cityInfo.lenders}</b>
+            <span className="text-xs sm:text-sm text-slate-400 mt-1 block">lenders listed</span>
+          </div>
         </div>
       </section>
 
       {/* ======================================================== */}
-      {/* 10. SUPPORT & HELP: Exact Reference Implementation */}
+      {/* DIRECT ADVOCATE BRIDGE BOOKING MODAL                     */}
       {/* ======================================================== */}
-      <div className="pt-6">
-        <SupportHelpSection />
-      </div>
+      {consultModalOpen && selectedAdvocate && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in">
+          <div className="bg-slate-900 border border-white/20 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
+            <button
+              onClick={() => setConsultModalOpen(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold w-8 h-8 rounded-full bg-white/10 flex items-center justify-center"
+            >
+              ✕
+            </button>
 
-      {/* Floating Selection Dock when properties are checked */}
-      <PropertySelectionDock
-        selectedLots={selectedLots}
-        onClearSelection={() => setSelectedLots([])}
-      />
+            {bookingSuccess ? (
+              <div className="text-center py-8 space-y-3">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                  <CheckCircle2 size={36} />
+                </div>
+                <h3 className="text-xl font-bold text-white">Consultation Bridge Scheduled!</h3>
+                <p className="text-xs text-slate-300 max-w-sm mx-auto">
+                  Encrypted private dial-in bridge link generated. Neither party will see the other's phone or email address.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleConfirmBooking} className="space-y-4">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono text-rose-400 font-bold uppercase tracking-wider">
+                    Direct Advocate Bridge
+                  </span>
+                  <h3 className="text-xl font-bold text-white">
+                    Schedule Consultation with {selectedAdvocate[0]}
+                  </h3>
+                  <p className="text-xs text-slate-400">
+                    Speak directly with a senior DRT advocate on our portal bridge. Neither party sees the other's phone number or email address.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 text-xs text-slate-300 space-y-1">
+                  <div><b>Court:</b> {selectedAdvocate[1]}</div>
+                  <div><b>Experience:</b> {selectedAdvocate[2]} at Bar</div>
+                  <div><b>Fee:</b> {selectedAdvocate[5]} for 30 minutes</div>
+                </div>
+
+                <div className="space-y-3 text-xs text-left">
+                  <label className="block">
+                    <span className="text-slate-300 font-semibold mb-1 block">Language You Think In</span>
+                    <select className="w-full rounded-xl bg-slate-800 border border-white/20 p-2.5 text-white">
+                      {selectedAdvocate[4].split(',').map((l, i) => (
+                        <option key={i} value={l.trim()}>{l.trim()}</option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <label className="block">
+                    <span className="text-slate-300 font-semibold mb-1 block">DRT Bench / Jurisdiction</span>
+                    <input
+                      type="text"
+                      defaultValue={`${selectedAdvocate[1]}`}
+                      className="w-full rounded-xl bg-slate-800 border border-white/20 p-2.5 text-white"
+                      readOnly
+                    />
+                  </label>
+
+                  <label className="block">
+                    <span className="text-slate-300 font-semibold mb-1 block">Auction Lot ID or Scheduled Property Note (Optional)</span>
+                    <input
+                      type="text"
+                      placeholder="e.g. Lot #402, OMR Chennai flat, or Bank of Baroda Ambattur shed"
+                      className="w-full rounded-xl bg-slate-800 border border-white/20 p-2.5 text-white"
+                    />
+                  </label>
+                </div>
+
+                <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-[11px] text-rose-300 flex items-center gap-2">
+                  <Lock size={14} className="shrink-0" />
+                  <span>Encrypted private dial-in bridge · No phone sharing</span>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg"
+                >
+                  Schedule Consultation · {selectedAdvocate[5]}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

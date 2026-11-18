@@ -9,7 +9,7 @@ import CheckerLayout from '../layouts/CheckerLayout';
 import EngineerLayout from '../layouts/EngineerLayout';
 import AdminLayout from '../layouts/AdminLayout';
 
-// Buyer Pages
+// Buyer & Public Pages
 import HomePage from '../panels/buyer/pages/HomePage';
 import SearchPage from '../panels/buyer/pages/SearchPage';
 import CategoryPage from '../panels/buyer/pages/CategoryPage';
@@ -19,8 +19,17 @@ import BuyerDashboardPage from '../panels/buyer/pages/BuyerDashboardPage';
 import PreferencesPage from '../panels/buyer/pages/PreferencesPage';
 import PricingPage from '../panels/buyer/pages/PricingPage';
 import LegalPage from '../panels/buyer/pages/LegalPage';
-import AiRankGuidePage from '../panels/buyer/pages/AiRankGuidePage';
-import GuidesPage from '../panels/buyer/pages/GuidesPage';
+import PremiumPage from '../panels/buyer/pages/PremiumPage';
+import DataIntelligencePage from '../panels/buyer/pages/DataIntelligencePage';
+import LearnPage from '../panels/buyer/pages/LearnPage';
+import ConciergePage from '../panels/buyer/pages/ConciergePage';
+import AccountPage from '../panels/buyer/pages/AccountPage';
+import ArchivePage from '../panels/buyer/pages/ArchivePage';
+import FaqPage from '../panels/buyer/pages/FaqPage';
+import SupportPage from '../panels/buyer/pages/SupportPage';
+import CareersPage from '../panels/buyer/pages/CareersPage';
+import ContactPage from '../panels/buyer/pages/ContactPage';
+import StaffLoginPage from '../panels/buyer/pages/StaffLoginPage';
 import LoginPage from '../panels/buyer/pages/LoginPage';
 import RegisterPage from '../panels/buyer/pages/RegisterPage';
 
@@ -69,9 +78,9 @@ function RequireAuth({ children, allowedRoles }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-obsidian flex items-center justify-center">
+      <div className="min-h-screen bg-[#050814] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-10 h-10 border-4 border-accent-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-10 h-10 border-4 border-rose-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-slate-400 font-mono text-sm">Authenticating security session...</p>
         </div>
       </div>
@@ -83,7 +92,6 @@ function RequireAuth({ children, allowedRoles }) {
   }
 
   if (allowedRoles && !allowedRoles.includes(user.role)) {
-    // Redirect to their respective authorized home
     if (user.role === 'ADMIN') return <Navigate to="/admin" replace />;
     if (user.role === 'CHECKER') return <Navigate to="/checker" replace />;
     if (user.role === 'ENGINEER') return <Navigate to="/engineer" replace />;
@@ -97,19 +105,51 @@ function RequireAuth({ children, allowedRoles }) {
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* 1. Public Discovery & Buyer Routes */}
+      {/* 1. Public Discovery & Buyer Routes - Matching Sajith Prototype Overview */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/category/:slug" element={<CategoryPage />} />
-        <Route path="/lot/:id" element={<PropertyDetailsPage />} />
+        <Route path="/premium" element={<PremiumPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/data" element={<DataIntelligencePage />} />
+        <Route path="/ai-rank" element={<DataIntelligencePage />} />
+        <Route path="/learn" element={<LearnPage />} />
+        <Route path="/guides" element={<LearnPage />} />
+        <Route path="/concierge" element={<ConciergePage />} />
         <Route path="/legal" element={<LegalPage />} />
+        <Route path="/lawyers" element={<LegalPage />} />
         <Route path="/talk-to-a-lawyer" element={<LegalPage />} />
-        <Route path="/ai-rank" element={<AiRankGuidePage />} />
-        <Route path="/guides" element={<GuidesPage />} />
+
+        {/* 7 Dedicated Category Pages */}
+        <Route path="/flats" element={<CategoryPage explicitCat="flats" />} />
+        <Route path="/houses" element={<CategoryPage explicitCat="houses" />} />
+        <Route path="/plots" element={<CategoryPage explicitCat="plots" />} />
+        <Route path="/shops" element={<CategoryPage explicitCat="shops" />} />
+        <Route path="/offices" element={<CategoryPage explicitCat="offices" />} />
+        <Route path="/warehouses" element={<CategoryPage explicitCat="warehouses" />} />
+        <Route path="/vehicles" element={<CategoryPage explicitCat="vehicles" />} />
+        <Route path="/category/:slug" element={<CategoryPage />} />
+
+        {/* Property Dossier Details */}
+        <Route path="/lot/:id" element={<PropertyDetailsPage />} />
+        <Route path="/property/:id" element={<PropertyDetailsPage />} />
+
+        {/* Customer Account & Resources */}
+        <Route path="/account" element={<AccountPage />} />
+        <Route path="/archive" element={<ArchivePage />} />
+        <Route path="/preferences" element={<PreferencesPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
+        {/* Staff & Authentication */}
+        <Route path="/staff" element={<StaffLoginPage />} />
         <Route path="/login" element={<LoginPage />} />
-        {['BUYER','CHECKER','ADMIN','ENGINEER','MARKETING'].map(role => <Route key={role} path={`/${role.toLowerCase()}/login`} element={<LoginPage portal={role} />} />)}
+        {['BUYER','CHECKER','ADMIN','ENGINEER','MARKETING'].map(role => (
+          <Route key={role} path={`/${role.toLowerCase()}/login`} element={<LoginPage portal={role} />} />
+        ))}
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/information/:slug" element={<InformationPage />} />
       </Route>
@@ -123,12 +163,12 @@ export default function AppRoutes() {
           </RequireAuth>
         }
       >
-        <Route index element={<Navigate to="/buyer/dashboard" replace />} />
+        <Route index element={<Navigate to="/account" replace />} />
         <Route path="dashboard" element={<BuyerDashboardPage />} />
         <Route path="saved" element={<SavedPropertiesPage />} />
         <Route path="preferences" element={<PreferencesPage />} />
         <Route path="purchase/:id" element={<PropertyPurchasePage />} />
-        <Route path="purchases" element={<PropertyPurchasePage />} />
+        <Route path="purchases" element={<ArchivePage />} />
         <Route path="requests" element={<RequestsPage />} />
         <Route path="requests/:id" element={<RequestsPage />} />
         <Route path="recommendations" element={<RecommendationsPage />} />
@@ -197,9 +237,11 @@ export default function AppRoutes() {
         <Route path="settings" element={<SettingsPage />} />
       </Route>
 
+      {/* 6. Marketing Workspace */}
       <Route path="/marketing" element={<RequireAuth allowedRoles={['MARKETING','ADMIN']}><MarketingLayout /></RequireAuth>}>
         <Route index element={<RecommendationsPage />} />
       </Route>
+
       {/* 404 Catch All */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

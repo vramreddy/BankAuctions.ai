@@ -1,159 +1,239 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useCity } from '../../../contexts/CityContext';
-import { Button } from '../../../components/common/Button';
-import { GlassCard } from '../../../components/common/GlassCard';
-import { Sliders, Bell, MapPin, Check } from 'lucide-react';
+import { SlidersHorizontal, CheckCircle2, RotateCcw } from 'lucide-react';
 
-export function PreferencesPage() {
-  const { user } = useAuth();
+export default function PreferencesPage() {
   const { allCities } = useCity();
 
-  const [selectedCities, setSelectedCities] = useState(['chennai', 'bengaluru']);
-  const [selectedTypes, setSelectedTypes] = useState(['flat', 'house']);
-  const [maxBudget, setMaxBudget] = useState('10000000');
-  const [emailAlerts, setEmailAlerts] = useState(true);
+  const [cities, setCities] = useState(['chennai', 'hyderabad']);
+  const [cats, setCats] = useState(['flat', 'land']);
+  const [maxBudget, setMaxBudget] = useState('100');
+  const [possession, setPossession] = useState('Physical possession');
+  const [closingDays, setClosingDays] = useState('14');
+  const [alertLang, setAlertLang] = useState('English');
+  const [premiumOnly, setPremiumOnly] = useState(false);
+  const [channels, setChannels] = useState({ whatsapp: true, email: true, sms: false });
   const [saved, setSaved] = useState(false);
 
-  const toggleCity = (k) => {
-    setSelectedCities((prev) =>
-      prev.includes(k) ? prev.filter((c) => c !== k) : [...prev, k]
-    );
+  const toggleCity = (c) => {
+    setCities(prev => prev.includes(c) ? prev.filter(x => x !== c) : [...prev, c]);
   };
 
-  const toggleType = (t) => {
-    setSelectedTypes((prev) =>
-      prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]
-    );
+  const toggleCat = (c) => {
+    setCats(prev => prev.includes(c) ? prev.filter(x => x !== c) : [...prev, c]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSave = (e) => {
     e.preventDefault();
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
   };
 
+  const handleReset = () => {
+    setCities(['chennai']);
+    setCats(['flat']);
+    setMaxBudget('0');
+    setPossession('');
+    setClosingDays('0');
+    setAlertLang('English');
+    setPremiumOnly(false);
+    setChannels({ whatsapp: true, email: false, sms: false });
+  };
+
   return (
-    <GlassCard className="p-6 sm:p-8 space-y-6">
-      <div>
-        <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-          <Sliders className="w-5 h-5 text-brand-cyan" />
-          Buyer Search &amp; Alert Preferences
-        </h2>
-        <p className="text-xs text-slate-400 mt-1">
-          Customize target cities and auction property types to tailor your search feed and email updates.
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 text-xs text-slate-400">
+          <Link to="/" className="hover:text-white">Home</Link>
+          <span>/</span>
+          <span className="text-white">Set preferences</span>
+        </div>
+
+        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          Set your preferences.
+        </h1>
+
+        <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+          Tell us what you look for. We put matching properties first and alert you when new ones are listed.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Cities Selection */}
-        <div>
-          <label className="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-2">
-            Target Auction Regions
-          </label>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-            {Object.entries(allCities).map(([key, item]) => {
-              const checked = selectedCities.includes(key);
-              return (
-                <button
-                  type="button"
-                  key={key}
-                  onClick={() => toggleCity(key)}
-                  className={`p-3 rounded-xl border text-left text-xs font-bold transition-all flex items-center justify-between ${
-                    checked
-                      ? 'bg-brand-cyan/15 border-brand-cyan text-white shadow-glow-cyan'
-                      : 'bg-brand-900/40 border-slate-700/60 text-slate-400 hover:text-white'
-                  }`}
-                >
-                  <span>{item.name}</span>
-                  {checked && <Check className="w-3.5 h-3.5 text-brand-cyan" />}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Property Categories Selection */}
-        <div>
-          <label className="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-2">
-            Asset Classes of Interest
-          </label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      <form onSubmit={handleSave} className="p-8 sm:p-10 rounded-3xl bg-slate-900/80 border border-white/10 space-y-8 shadow-xl">
+        {/* Cities */}
+        <div className="space-y-3">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-white">Target Metros</h3>
+          <div className="flex flex-wrap gap-2.5">
             {[
-              { id: 'flat', label: 'Flats & Apartments' },
-              { id: 'house', label: 'Houses & Villas' },
-              { id: 'land', label: 'Plots & Land' },
-              { id: 'shop', label: 'Commercial Shops' },
-              { id: 'office', label: 'Offices' },
-              { id: 'warehouse', label: 'Industrial Sheds' },
-              { id: 'vehicle', label: 'Vehicles' }
-            ].map((t) => {
-              const checked = selectedTypes.includes(t.id);
-              return (
-                <button
-                  type="button"
-                  key={t.id}
-                  onClick={() => toggleType(t.id)}
-                  className={`p-3 rounded-xl border text-left text-xs font-bold transition-all flex items-center justify-between ${
-                    checked
-                      ? 'bg-brand-cyan/15 border-brand-cyan text-white shadow-glow-cyan'
-                      : 'bg-brand-900/40 border-slate-700/60 text-slate-400 hover:text-white'
-                  }`}
-                >
-                  <span>{t.label}</span>
-                  {checked && <Check className="w-3.5 h-3.5 text-brand-cyan" />}
-                </button>
-              );
-            })}
+              { id: 'chennai', label: 'Chennai' },
+              { id: 'hyderabad', label: 'Hyderabad' },
+              { id: 'bengaluru', label: 'Bengaluru' },
+              { id: 'coimbatore', label: 'Coimbatore' },
+              { id: 'kerala', label: 'Kerala' }
+            ].map((c) => (
+              <button
+                type="button"
+                key={c.id}
+                onClick={() => toggleCity(c.id)}
+                className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                  cities.includes(c.id)
+                    ? 'bg-rose-600/20 border-rose-500 text-rose-300 font-bold'
+                    : 'bg-white/[0.04] border-white/10 text-slate-300 hover:border-white/25'
+                }`}
+              >
+                {c.label}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Budget Cap */}
-        <div>
-          <label className="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-2">
-            Maximum Reserve Price Budget
-          </label>
-          <select
-            value={maxBudget}
-            onChange={(e) => setMaxBudget(e.target.value)}
-            className="w-full sm:w-72 px-4 py-2.5 rounded-xl glass-input text-sm text-white"
-          >
-            <option value="5000000" className="bg-brand-950">Under ₹50 Lakhs</option>
-            <option value="10000000" className="bg-brand-950">Under ₹1 Crore</option>
-            <option value="20000000" className="bg-brand-950">Under ₹2 Crores</option>
-            <option value="50000000" className="bg-brand-950">Under ₹5 Crores</option>
-          </select>
+        {/* Property Types */}
+        <div className="space-y-3">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-white">Property Types</h3>
+          <div className="flex flex-wrap gap-2.5">
+            {[
+              { id: 'flat', label: 'Flats & apartments' },
+              { id: 'house', label: 'Houses & villas' },
+              { id: 'land', label: 'Plots & land' },
+              { id: 'shop', label: 'Shops & showrooms' },
+              { id: 'office', label: 'Offices' },
+              { id: 'warehouse', label: 'Warehouses & industrial' },
+              { id: 'vehicle', label: 'Vehicles & machinery' }
+            ].map((t) => (
+              <button
+                type="button"
+                key={t.id}
+                onClick={() => toggleCat(t.id)}
+                className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                  cats.includes(t.id)
+                    ? 'bg-rose-600/20 border-rose-500 text-rose-300 font-bold'
+                    : 'bg-white/[0.04] border-white/10 text-slate-300 hover:border-white/25'
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Notifications Checkbox */}
-        <div className="p-4 rounded-2xl bg-brand-900/40 border border-slate-800 flex items-center gap-3">
+        {/* Budget & Possession */}
+        <div className="grid sm:grid-cols-2 gap-6">
+          <label className="block text-xs">
+            <span className="text-slate-300 font-semibold block mb-1.5">Maximum Budget</span>
+            <select
+              value={maxBudget}
+              onChange={(e) => setMaxBudget(e.target.value)}
+              className="w-full rounded-xl bg-slate-800 border border-white/20 p-3 text-white"
+            >
+              <option value="0">No limit</option>
+              <option value="25">Under ₹25 L</option>
+              <option value="50">Under ₹50 L</option>
+              <option value="100">Under ₹1 Cr</option>
+              <option value="300">Under ₹3 Cr</option>
+            </select>
+          </label>
+
+          <label className="block text-xs">
+            <span className="text-slate-300 font-semibold block mb-1.5">Possession Requirement</span>
+            <select
+              value={possession}
+              onChange={(e) => setPossession(e.target.value)}
+              className="w-full rounded-xl bg-slate-800 border border-white/20 p-3 text-white"
+            >
+              <option value="">Any possession</option>
+              <option value="Physical possession">Physical possession only</option>
+              <option value="Symbolic possession">Symbolic possession acceptable</option>
+            </select>
+          </label>
+        </div>
+
+        {/* Closing Window & Language */}
+        <div className="grid sm:grid-cols-2 gap-6">
+          <label className="block text-xs">
+            <span className="text-slate-300 font-semibold block mb-1.5">Closing Window</span>
+            <select
+              value={closingDays}
+              onChange={(e) => setClosingDays(e.target.value)}
+              className="w-full rounded-xl bg-slate-800 border border-white/20 p-3 text-white"
+            >
+              <option value="0">Any closing date</option>
+              <option value="7">Within 7 days</option>
+              <option value="14">Within 14 days</option>
+            </select>
+          </label>
+
+          <label className="block text-xs">
+            <span className="text-slate-300 font-semibold block mb-1.5">Language for Alerts</span>
+            <select
+              value={alertLang}
+              onChange={(e) => setAlertLang(e.target.value)}
+              className="w-full rounded-xl bg-slate-800 border border-white/20 p-3 text-white"
+            >
+              <option>English</option>
+              <option>Tamil</option>
+              <option>Telugu</option>
+              <option>Kannada</option>
+              <option>Malayalam</option>
+            </select>
+          </label>
+        </div>
+
+        {/* Premium Only Toggle */}
+        <label className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.04] border border-white/10 cursor-pointer">
+          <div>
+            <b className="text-white text-xs block">Premium properties only</b>
+            <span className="text-[11px] text-slate-400">Highway, corner and high-commercial-value listings only</span>
+          </div>
           <input
             type="checkbox"
-            id="alerts"
-            checked={emailAlerts}
-            onChange={(e) => setEmailAlerts(e.target.checked)}
-            className="w-4 h-4 rounded text-brand-cyan focus:ring-brand-cyan"
+            checked={premiumOnly}
+            onChange={(e) => setPremiumOnly(e.target.checked)}
+            className="w-4 h-4 accent-rose-600 rounded"
           />
-          <label htmlFor="alerts" className="text-xs text-slate-300 cursor-pointer">
-            <strong className="text-white block font-semibold">Weekly Auction Digest Alerts</strong>
-            Receive immediate notifications whenever new SARFAESI notices match your city &amp; budget.
-          </label>
+        </label>
+
+        {/* Alert Channels */}
+        <div className="space-y-3">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-white">Alert Me By</h3>
+          <div className="flex flex-wrap gap-4 text-xs">
+            {['whatsapp', 'email', 'sms'].map((ch) => (
+              <label key={ch} className="flex items-center gap-2 cursor-pointer text-slate-300 font-semibold">
+                <input
+                  type="checkbox"
+                  checked={channels[ch]}
+                  onChange={(e) => setChannels({ ...channels, [ch]: e.target.checked })}
+                  className="w-4 h-4 accent-rose-600 rounded"
+                />
+                <span className="capitalize">{ch}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <Button type="submit" variant="primary">
-            Save Preferences
-          </Button>
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/[0.08]">
+          <button
+            type="submit"
+            className="px-7 py-3 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-all"
+          >
+            Save preferences
+          </button>
+          <button
+            type="button"
+            onClick={handleReset}
+            className="px-5 py-3 rounded-full border border-white/20 text-slate-300 hover:text-white hover:bg-white/10 text-xs font-semibold transition-all flex items-center gap-1.5"
+          >
+            <RotateCcw size={13} />
+            <span>Reset</span>
+          </button>
           {saved && (
-            <span className="text-xs text-emerald-400 font-bold flex items-center gap-1 animate-in fade-in">
-              <Check className="w-4 h-4" /> Preferences saved!
+            <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+              <CheckCircle2 size={16} /> Saved. On Search, tick "Match my preferences" to apply them.
             </span>
           )}
         </div>
       </form>
-    </GlassCard>
+    </div>
   );
 }
-
-
-export default PreferencesPage;

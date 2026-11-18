@@ -97,8 +97,8 @@ export default function LegalBenchBlock({ className = '' }) {
 
           <div className="mt-6 pt-2">
             <Link
-              to="/guides"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-slate-600/90 hover:border-slate-300 text-slate-200 text-xs sm:text-sm font-medium transition-colors"
+              to="/learn"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-slate-600 hover:border-slate-300 text-slate-200 hover:text-white text-xs sm:text-sm font-medium transition-colors"
             >
               Open the auction guide
             </Link>
