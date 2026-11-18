@@ -11,8 +11,8 @@ export async function logAuditEvent({ actorId, actorName, actorRole, action, ent
         action,
         entityType,
         entityId,
-        beforeState: beforeState || null,
-        afterState: afterState || null,
+        beforeState: beforeState || undefined,
+        afterState: afterState || undefined,
         ipAddress: ipAddress || '127.0.0.1'
       }
     });

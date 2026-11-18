@@ -37,3 +37,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Local database binaries, test clusters and private uploaded source material
+.local/
+bankauctions-rebuild/backend/storage/

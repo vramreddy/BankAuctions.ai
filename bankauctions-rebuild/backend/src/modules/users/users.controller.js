@@ -1,16 +1,18 @@
+import { buyerAsset } from '../auctions/auctions.controller.js';
+import { publishedWhere } from '../workflow/notices.service.js';
 import { db } from '../../services/db.js';
 
 export async function getSavedProperties(req, res, next) {
   try {
     const userId = req.user.id;
     const list = await db.savedProperty.findMany({
-      where: { userId },
-      include: { auction: true }
+      where: { userId, auction: publishedWhere },
+      include: { auction: { include: { bank: true, category: true, attributes: true } } }
     });
 
     return res.json({
       success: true,
-      data: list
+      data: list.map(item => ({ ...item, auction: buyerAsset(item.auction) }))
     });
   } catch (err) {
     next(err);
@@ -21,13 +23,13 @@ export async function getUnlockedProperties(req, res, next) {
   try {
     const userId = req.user.id;
     const list = await db.propertyUnlock.findMany({
-      where: { userId },
-      include: { auction: true }
+      where: { userId, auction: publishedWhere },
+      include: { auction: { include: { bank: true, category: true, attributes: true } } }
     });
 
     return res.json({
       success: true,
-      data: list
+      data: list.map(item => ({ ...item, auction: buyerAsset(item.auction) }))
     });
   } catch (err) {
     next(err);

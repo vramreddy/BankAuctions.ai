@@ -27,8 +27,8 @@ export function AuthProvider({ children }) {
     loadUser();
   }, []);
 
-  const login = async (email, password) => {
-    const res = await api.login({ email, password });
+  const login = async (email, password, portal = 'BUYER') => {
+    const res = await api.login({ email, password, portal });
     if (res.success && res.token) {
       localStorage.setItem('ba_token', res.token);
       setUser(res.user);

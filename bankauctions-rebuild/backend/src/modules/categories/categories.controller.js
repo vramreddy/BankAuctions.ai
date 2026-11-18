@@ -10,7 +10,7 @@ export async function getCategories(req, res, next) {
       categories.map(async (cat) => {
         const where = {
           categoryId: cat.id,
-          status: 'PUBLISHED'
+          status: 'PUBLISHED', checkerApprovedAt: { not: null }
         };
         if (city && city !== 'all') {
           where.city = city.toLowerCase();

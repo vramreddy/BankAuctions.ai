@@ -1,3 +1,5 @@
+import { importNotices, fail } from '../workflow/notices.service.js';
+import { reviewInspection } from '../workflow/field.service.js';
 import { db } from '../../services/db.js';
 import { logAuditEvent } from '../../services/audit.service.js';
 import bcrypt from 'bcryptjs';
@@ -32,8 +34,8 @@ export async function getOverview(req, res, next) {
           pendingInspections: pendingInspections.length,
           pendingApprovals: inspectionSubmissions + checkerVerified,
           totalBuyers,
-          searchesPerformed: 124,
-          propertyViews: 418
+          searchesPerformed: null,
+          propertyViews: null
         },
         cityCounts,
         recentAudits
@@ -80,38 +82,7 @@ export async function getAuctions(req, res, next) {
   }
 }
 
-export async function publishAuction(req, res, next) {
-  try {
-    const { id } = req.params;
-    const admin = req.user;
-
-    const auction = await db.auctionNotice.findUnique({ where: { id } });
-    if (!auction) {
-      return res.status(404).json({ success: false, message: 'Auction not found' });
-    }
-
-    const updated = await db.auctionNotice.update({
-      where: { id },
-      data: { status: 'PUBLISHED' }
-    });
-
-    await logAuditEvent({
-      actorId: admin.id,
-      actorName: admin.fullName,
-      actorRole: admin.role,
-      action: 'PUBLISH_AUCTION_LISTING',
-      entityType: 'AUCTION',
-      entityId: id,
-      beforeState: { status: auction.status },
-      afterState: { status: 'PUBLISHED' },
-      ipAddress: req.ip
-    });
-
-    return res.json({ success: true, message: 'Property listing published successfully.', data: updated });
-  } catch (err) {
-    next(err);
-  }
-}
+export async function publishAuction(req,res,next){try{const item=await db.auctionNotice.findUnique({where:{id:req.params.id},include:{extraction:true}});if(!item?.checkerApprovedAt||item.extraction?.status!=='APPROVED')fail(409,'Checker approval is required. Import and review the notice in the checker registry first.');const data=await db.auctionNotice.update({where:{id:item.id},data:{status:'PUBLISHED'}});await logAuditEvent({actorId:req.user.id,actorName:req.user.fullName,actorRole:req.user.role,action:'REPUBLISH_APPROVED_ASSET',entityType:'AUCTION',entityId:item.id});res.json({success:true,data});}catch(e){next(e);}}
 
 export async function unpublishAuction(req, res, next) {
   try {
@@ -140,7 +111,7 @@ export async function unpublishAuction(req, res, next) {
       ipAddress: req.ip
     });
 
-    return res.json({ success: true, message: 'Property listing archived from public search.', data: updated });
+    return res.json({ success: true, message: 'Property listing archived from public search.', data: { id:updated.id,unlocksRemaining:updated.unlocksRemaining,isActive:updated.isActive } });
   } catch (err) {
     next(err);
   }
@@ -155,6 +126,8 @@ export async function assignEngineer(req, res, next) {
       return res.status(400).json({ success: false, message: 'auctionId and engineerId are required.' });
     }
 
+    const engineer = await db.user.findFirst({where:{id:engineerId,role:'ENGINEER',isActive:true}});
+    if(!engineer) fail(400,'Select an active engineer.');
     const assignment = await db.inspectionAssignment.create({
       data: {
         auctionId,
@@ -166,10 +139,7 @@ export async function assignEngineer(req, res, next) {
       }
     });
 
-    await db.auctionNotice.update({
-      where: { id: auctionId },
-      data: { status: 'ENGINEER_ASSIGNED' }
-    });
+    // Assignments do not change listing publication status.
 
     await logAuditEvent({
       actorId: admin.id,
@@ -188,133 +158,9 @@ export async function assignEngineer(req, res, next) {
   }
 }
 
-export async function approveInspection(req, res, next) {
-  try {
-    const { id } = req.params; // assignmentId
-    const { action } = req.body; // 'APPROVE' or 'REJECT'
-    const admin = req.user;
+export async function approveInspection(req,res,next){try{const data=await reviewInspection(req.user,req.params.id,{action:req.body.action==='APPROVE'?'APPROVE':'RETURN',notes:req.body.notes});res.json({success:true,data});}catch(e){next(e);}}
 
-    const assignment = await db.inspectionAssignment.findUnique({
-      where: { id },
-      include: { auction: true, report: true }
-    });
-
-    if (!assignment) {
-      return res.status(404).json({ success: false, message: 'Inspection assignment not found.' });
-    }
-
-    const nextStatus = action === 'APPROVE' ? 'PUBLISHED' : 'NEEDS_CORRECTION';
-
-    await db.inspectionAssignment.update({
-      where: { id },
-      data: { status: action === 'APPROVE' ? 'APPROVED' : 'REJECTED' }
-    });
-
-    await db.auctionNotice.update({
-      where: { id: assignment.auctionId },
-      data: { status: nextStatus }
-    });
-
-    await logAuditEvent({
-      actorId: admin.id,
-      actorName: admin.fullName,
-      actorRole: admin.role,
-      action: `ADMIN_${action}_INSPECTION`,
-      entityType: 'INSPECTION',
-      entityId: id,
-      afterState: { newAuctionStatus: nextStatus },
-      ipAddress: req.ip
-    });
-
-    return res.json({ success: true, message: `Inspection ${action === 'APPROVE' ? 'approved & published' : 'rejected'}.` });
-  } catch (err) {
-    next(err);
-  }
-}
-
-export async function importBatch(req, res, next) {
-  try {
-    const { records } = req.body;
-    const admin = req.user;
-
-    if (!Array.isArray(records) || records.length === 0) {
-      return res.status(400).json({ success: false, message: 'records array with structured auction items is required' });
-    }
-
-    const banks = await db.bank.findMany();
-    const categories = await db.auctionCategory.findMany();
-
-    const createdLots = [];
-    const skippedLots = [];
-
-    for (const r of records) {
-      // Check existing sourceRef to prevent duplicates
-      const existing = await db.auctionNotice.findUnique({ where: { sourceRef: r.sourceRef } });
-      if (existing) {
-        skippedLots.push({ sourceRef: r.sourceRef, reason: 'Duplicate sourceRef already exists' });
-        continue;
-      }
-
-      const bank = banks.find((b) => b.code === r.bankCode || b.name === r.bankName) || banks[0];
-      const category = categories.find((c) => c.code === r.catCode || c.slug === r.catCode) || categories[0];
-
-      const notice = await db.auctionNotice.create({
-        data: {
-          sourceRef: r.sourceRef,
-          title: r.title,
-          shortTitle: r.shortTitle || r.title.slice(0, 30),
-          city: (r.city || 'chennai').toLowerCase(),
-          locality: r.locality || 'City Centre',
-          address: r.address || 'Address disclosed on tender notice',
-          pincode: r.pincode || '600001',
-          bankId: bank.id,
-          categoryId: category.id,
-          reservePrice: Number(r.reservePrice),
-          estimatedMarketValue: r.estimatedMarketValue ? Number(r.estimatedMarketValue) : Number(r.reservePrice) * 1.3,
-          emdAmount: Number(r.emdAmount || r.reservePrice * 0.1),
-          bidIncrement: Number(r.bidIncrement || 25000),
-          auctionStartDate: new Date(r.auctionStartDate || Date.now() + 14 * 86400000),
-          noticeDate: new Date(r.noticeDate || Date.now()),
-          possession: r.possession || 'Symbolic possession',
-          encumbrances: r.encumbrances || 'None known',
-          contactOfficerName: r.contactOfficerName || 'Authorized Officer',
-          contactOfficerPhone: r.contactOfficerPhone || '044 2499 4423',
-          aiScore: Number(r.aiScore || 75),
-          aiRank: Number(r.aiRank || 1),
-          aiDiscountPct: Number(r.aiDiscountPct || 25),
-          isPremium: Boolean(r.isPremium),
-          hasBankPhotos: Boolean(r.hasBankPhotos),
-          primaryImageUrl: r.primaryImageUrl || `/images/${(r.city || 'chennai').toLowerCase()}-${category.code}-1.jpg`,
-          additionalImages: r.additionalImages || [],
-          status: 'PENDING_CHECKER',
-          attributes: r.attributes || {}
-        }
-      });
-      createdLots.push(notice);
-    }
-
-    await logAuditEvent({
-      actorId: admin.id,
-      actorName: admin.fullName,
-      actorRole: admin.role,
-      action: 'IMPORT_AUCTION_BATCH',
-      entityType: 'IMPORT_BATCH',
-      entityId: `batch-${Date.now()}`,
-      afterState: { imported: createdLots.length, skipped: skippedLots.length },
-      ipAddress: req.ip
-    });
-
-    return res.status(201).json({
-      success: true,
-      message: `Batch imported: ${createdLots.length} records staged for Checker review. ${skippedLots.length} duplicates skipped.`,
-      importedCount: createdLots.length,
-      skippedCount: skippedLots.length,
-      data: createdLots
-    });
-  } catch (err) {
-    next(err);
-  }
-}
+export async function importBatch(req,res,next){try{const data=await importNotices(req.user,req.body.records,req.body.sourceName);res.status(201).json({success:true,data:data.imported,importedCount:data.imported.length,skippedCount:data.duplicates.length,message:'Imported into checker registry. Nothing has been published.'});}catch(e){next(e);}}
 
 export async function getUsers(req, res, next) {
   try {
@@ -334,6 +180,7 @@ export async function giftUnlocks(req, res, next) {
   try {
     const { id } = req.params;
     const { count = 5 } = req.body;
+    if(!Number.isInteger(count)||count<1||count>1000) return res.status(400).json({success:false,message:'Credits must be a whole number between 1 and 1000.'});
     const admin = req.user;
 
     const user = await db.user.findUnique({ where: { id } });
@@ -344,8 +191,8 @@ export async function giftUnlocks(req, res, next) {
     const updated = await db.user.update({
       where: { id },
       data: {
-        unlocksRemaining: user.unlocksRemaining + Number(count),
-        planTier: user.planTier === 'FREE' ? 'PRO' : user.planTier
+        unlocksRemaining: { increment: count },
+        planTier: user.planTier
       }
     });
 
@@ -360,7 +207,7 @@ export async function giftUnlocks(req, res, next) {
       ipAddress: req.ip
     });
 
-    return res.json({ success: true, message: `Granted ${count} unlocks to ${user.fullName}`, data: updated });
+    return res.json({ success: true, message: `Granted ${count} unlocks to ${user.fullName}`, data: { id:updated.id,unlocksRemaining:updated.unlocksRemaining,isActive:updated.isActive } });
   } catch (err) {
     next(err);
   }
@@ -391,7 +238,7 @@ export async function toggleUserStatus(req, res, next) {
       ipAddress: req.ip
     });
 
-    return res.json({ success: true, message: `User account ${updated.isActive ? 'reinstated' : 'suspended'}`, data: updated });
+    return res.json({ success: true, message: `User account ${updated.isActive ? 'reinstated' : 'suspended'}`, data: { id:updated.id,unlocksRemaining:updated.unlocksRemaining,isActive:updated.isActive } });
   } catch (err) {
     next(err);
   }
@@ -399,11 +246,13 @@ export async function toggleUserStatus(req, res, next) {
 
 export async function createStaff(req, res, next) {
   try {
-    const { email, password, fullName, phone, role, city } = req.body;
+    const { password, fullName, phone, role, city } = req.body;
+    const email=String(req.body.email||'').trim().toLowerCase();
+    if(!email.includes('@')||!fullName?.trim()||!/^\d{10}$/.test(phone||'')) return res.status(400).json({success:false,message:'Provide a name, valid email and ten-digit phone.'});
     const admin = req.user;
 
-    if (!['CHECKER', 'ENGINEER', 'ADMIN'].includes(role)) {
-      return res.status(400).json({ success: false, message: 'Role must be CHECKER, ENGINEER, or ADMIN' });
+    if (!['CHECKER', 'ENGINEER', 'MARKETING', 'ADMIN'].includes(role)) {
+      return res.status(400).json({ success: false, message: 'Role must be CHECKER, ENGINEER, MARKETING or ADMIN' });
     }
 
     const existing = await db.user.findUnique({ where: { email } });
@@ -412,14 +261,15 @@ export async function createStaff(req, res, next) {
     }
 
     const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash(password || 'Staff@123456', salt);
+    if (typeof password !== 'string' || password.length < 12) return res.status(400).json({success:false,message:'Choose a staff password of at least 12 characters.'});
+    const passwordHash = await bcrypt.hash(password, salt);
 
     const staff = await db.user.create({
       data: {
         email,
         passwordHash,
         fullName,
-        phone: phone || `98400${Math.floor(10000 + Math.random() * 90000)}`,
+        phone,
         role,
         city: city || 'chennai',
         isActive: true
@@ -467,7 +317,9 @@ export async function updateSettings(req, res, next) {
     const { makerAutoPublish, chatWidget, bannerNotice } = req.body;
     const admin = req.user;
 
+    const settings = await db.siteSetting.findFirst();
     const updated = await db.siteSetting.update({
+      where: { id: settings.id },
       data: {
         ...(makerAutoPublish !== undefined && { makerAutoPublish }),
         ...(chatWidget !== undefined && { chatWidget }),
@@ -486,7 +338,7 @@ export async function updateSettings(req, res, next) {
       ipAddress: req.ip
     });
 
-    return res.json({ success: true, message: 'Platform settings updated', data: updated });
+    return res.json({ success: true, message: 'Platform settings updated', data: { id:updated.id,unlocksRemaining:updated.unlocksRemaining,isActive:updated.isActive } });
   } catch (err) {
     next(err);
   }

@@ -43,6 +43,12 @@ async function request(endpoint, options = {}) {
 }
 
 export const api = {
+  preparePropertyPurchase: (id) => request(`/payments/property/${id}`, {method:'POST'}),
+  getPurchases: () => request('/payments'),
+  getPurchase: (id) => request(`/payments/${id}`),
+  management: (path, options = {}) => request(`/management${path}`, options),
+  admin: (path, options = {}) => request(`/admin${path}`, options),
+  workflow: (path, options = {}) => request(`/workflow${path}`, options),
   // Auth
   login: (credentials) => request('/auth/login', { method: 'POST', body: JSON.stringify(credentials) }),
   register: (userData) => request('/auth/register', { method: 'POST', body: JSON.stringify(userData) }),
@@ -57,6 +63,8 @@ export const api = {
     });
     return request(`/auctions?${query.toString()}`);
   },
+  getBanks: () => request('/auctions/banks'),
+  exportAuctions: (params) => request(`/auctions/export?${new URLSearchParams(params)}`),
   getFeaturedAuctions: () => request('/auctions/featured'),
   getAuctionById: (id) => request(`/auctions/${id}`),
   unlockAuction: (id) => request(`/auctions/unlock/${id}`, { method: 'POST' }),

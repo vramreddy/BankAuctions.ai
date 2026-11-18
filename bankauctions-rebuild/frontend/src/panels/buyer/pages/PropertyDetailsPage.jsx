@@ -121,6 +121,8 @@ export function PropertyDetailsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      {auction.attributes?.attributes&&<GlassCard className="p-6 space-y-4"><h2 className="text-lg font-semibold">Verified asset details</h2><p className="text-sm text-slate-300 whitespace-pre-wrap">{auction.attributes.attributes.propertyDescription}</p><dl className="grid sm:grid-cols-3 gap-4 text-sm">{Object.entries({...auction.attributes.attributes.propertyDetails,...(auction.attributes.attributes.assetType==='VEHICLE'?auction.attributes.attributes.vehicle:auction.attributes.attributes.machinery)}).filter(([,value])=>value).map(([key,value])=><div key={key}><dt className="text-xs text-slate-500 capitalize">{key.replace(/([A-Z])/g,' $1')}</dt><dd className="text-slate-200 mt-1">{String(value)}</dd></div>)}</dl></GlassCard>}
+      {!userState.isUnlocked && <GlassCard className="p-5 flex flex-wrap gap-4 items-center justify-between"><div><h2 className="font-semibold">Property-specific access</h2><p className="text-sm text-slate-400 mt-1">{auction.accessPricePaise ? formatINR(auction.accessPricePaise / 100) : 'Ask the checker about access pricing'}</p></div><Link to={`/buyer/purchase/${id}`} className="text-cyan-300">View access purchase</Link></GlassCard>}
       {/* Top Breadcrumb & Action Header */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <Link to="/search" className="text-xs font-semibold text-slate-400 hover:text-brand-cyan flex items-center gap-1.5 transition-colors">
@@ -184,10 +186,10 @@ export function PropertyDetailsPage() {
           {/* Main Photo Viewer */}
           <div className="rounded-3xl overflow-hidden glass-panel aspect-[16/10] bg-brand-900 relative">
             <img
-              src={photos[selectedPhoto] || '/images/chennai-flat-1.jpg'}
+              src={photos[selectedPhoto] || '/images/asset-placeholder.svg'}
               alt={auction.title}
               className="w-full h-full object-cover"
-              onError={(e) => { e.target.src = '/images/chennai-flat-1.jpg'; }}
+              onError={(e) => { e.target.src = '/images/asset-placeholder.svg'; }}
             />
             <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
               <span>Photo {selectedPhoto + 1} of {photos.length}</span>
@@ -330,7 +332,7 @@ export function PropertyDetailsPage() {
               </div>
             ) : (
               <div className="p-6 text-center text-xs text-slate-400 bg-brand-900/40 rounded-2xl">
-                Physical site inspection scheduled with field engineering team.
+                No approved inspection report is available to view. Contact your checker to request a report.
               </div>
             )}
           </GlassCard>
@@ -369,7 +371,7 @@ export function PropertyDetailsPage() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400">Inspection Window:</span>
-                <span className="font-medium text-slate-200">{auction.inspectionDate || 'Contact Officer'}</span>
+                <span className="font-medium text-slate-200">{auction.inspectionDate || 'Ask your checker'}</span>
               </div>
             </div>
 
@@ -394,7 +396,7 @@ export function PropertyDetailsPage() {
           <GlassCard className="p-6 space-y-4">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
               <Building className="w-4 h-4 text-brand-cyan" />
-              Lender Authority &amp; Contact
+              Lender &amp; Checker Support
             </h4>
 
             <div className="space-y-2 text-xs">
@@ -402,14 +404,9 @@ export function PropertyDetailsPage() {
                 <span className="text-slate-400 block text-[10px] uppercase font-bold">Secured Creditor</span>
                 <strong className="text-white text-sm">{auction.bank?.name}</strong>
               </div>
-              <div>
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Authorized Officer</span>
-                <span className="text-slate-200">{auction.contactOfficerName || 'Authorized Officer, Recovery Branch'}</span>
-              </div>
-              <div>
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Contact Phone / Helpdesk</span>
-                <span className="font-mono text-brand-cyan font-bold">{auction.contactOfficerPhone || auction.bank?.contactPhone}</span>
-              </div>
+              <p className="text-slate-400">Your checker coordinates property questions, callbacks, legal assistance and additional reports.</p>
+              <Link className="btn-primary inline-flex px-4 py-3 rounded-xl" to={`/buyer/requests?auctionId=${auction.id}`}>Contact checker</Link>
+              <Link className="block text-cyan-300 py-2" to={`/buyer/requests?auctionId=${auction.id}&kind=DOCUMENT`}>Request documents or a report</Link>
             </div>
 
             <div className="pt-3 border-t border-slate-800 text-[11px] text-slate-400">

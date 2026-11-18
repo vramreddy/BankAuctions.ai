@@ -3,15 +3,18 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/navigation/Footer';
 import { useAuth } from '../contexts/AuthContext';
-import { User, Bookmark, Sliders, CreditCard, Sparkles, ShieldCheck } from 'lucide-react';
+import { User, Bookmark, Sliders, CreditCard, Sparkles, ShieldCheck, HelpCircle } from 'lucide-react';
 
 export function BuyerLayout() {
   const { user } = useAuth();
   const location = useLocation();
 
   const links = [
+    { name: 'Property purchases', path: '/buyer/purchases', icon: Bookmark },
     { name: 'Dashboard Overview', path: '/buyer/dashboard', icon: User },
     { name: 'Saved & Unlocked', path: '/buyer/saved', icon: Bookmark },
+    { name: 'Help', path: '/buyer/requests', icon: HelpCircle },
+    { name: 'Plan recommendations', path: '/buyer/recommendations', icon: CreditCard },
     { name: 'Preferences & Alerts', path: '/buyer/preferences', icon: Sliders },
     { name: 'Plan & Billing', path: '/pricing', icon: CreditCard }
   ];
@@ -32,7 +35,7 @@ export function BuyerLayout() {
                 Buyer Workspace
               </span>
               <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 font-semibold font-mono">
-                {user?.planTier || 'PRO'} Investor
+                {user?.planTier || 'FREE'} Investor
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -47,7 +50,7 @@ export function BuyerLayout() {
             <div className="px-5 py-3 rounded-2xl bg-slate-900/80 border border-slate-700/70 text-right backdrop-blur-md shadow-inner">
               <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 block">Available Unlocks</span>
               <span className="text-xl font-black text-cyan-400 font-mono tracking-tight">
-                {user?.unlocksRemaining ?? 5}
+                {user?.unlocksRemaining ?? 0}
               </span>
             </div>
             <Link

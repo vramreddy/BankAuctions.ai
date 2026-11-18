@@ -6,6 +6,14 @@ export function Footer() {
   return (
     <footer className="mt-20 border-t border-slate-800/80 bg-slate-950/80 backdrop-blur-xl pt-16 pb-12 text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Policies and staff access" className="flex flex-wrap gap-5 mb-8 text-sm">
+          <Link to="/information/terms">Terms and conditions</Link>
+          <Link to="/information/privacy">Privacy policy</Link>
+          <Link to="/information/payments">Payment information</Link>
+          <Link to="/information/refunds">Refund policy</Link>
+          <Link to="/checker/login">Checker login</Link>
+          <Link to="/admin/login">Administrator login</Link>
+        </nav>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
           {/* Brand Column */}
           <div className="md:col-span-2 space-y-4">
@@ -69,8 +77,8 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} BankAuctions.ai Technologies India Pvt. Ltd. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span className="hover:text-slate-400 cursor-pointer">Terms of Service</span>
-            <span className="hover:text-slate-400 cursor-pointer">Privacy Policy</span>
+            <Link to="/information/terms" className="hover:text-slate-400">Terms of Service</Link>
+            <Link to="/information/privacy" className="hover:text-slate-400">Privacy Policy</Link>
             <span className="hover:text-slate-400 cursor-pointer">Disclaimer &amp; Due Diligence</span>
           </div>
         </div>

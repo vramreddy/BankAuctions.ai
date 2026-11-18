@@ -23,9 +23,9 @@ export function PropertyCard({ auction, isSaved: initialSaved = false, onSaveTog
     }
     setSaving(true);
     try {
-      const res = await api.post(`/auctions/${auction.id}/save`);
-      setSaved(res.data?.data?.saved ?? !saved);
-      if (onSaveToggle) onSaveToggle(auction.id, res.data?.data?.saved ?? !saved);
+      const res = await api.saveAuction(auction.id);
+      setSaved(res.saved ?? !saved);
+      if (onSaveToggle) onSaveToggle(auction.id, res.saved ?? !saved);
     } catch (err) {
       console.error('Failed to toggle save:', err);
     } finally {
@@ -41,12 +41,12 @@ export function PropertyCard({ auction, isSaved: initialSaved = false, onSaveTog
       {/* Property Thumbnail with Overlays */}
       <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
         <img
-          src={auction.primaryImageUrl || '/images/chennai-flat-1.jpg'}
+          src={auction.primaryImageUrl || '/images/asset-placeholder.svg'}
           alt={auction.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           onError={(e) => {
-            e.target.src = '/images/chennai-flat-1.jpg';
+            e.target.src = '/images/asset-placeholder.svg';
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />

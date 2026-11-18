@@ -11,7 +11,7 @@
     "prisma:migrate": "prisma migrate dev",
     "prisma:deploy": "prisma migrate deploy",
     "prisma:seed": "node prisma/seed.js",
-    "test": "node --test"
+    "test": "node scripts/run-tests.mjs"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -25,6 +25,7 @@
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
+    "nodemailer": "^10.6.0",
     "pg": "^8.13.1",
     "zod": "^3.23.8"
   },

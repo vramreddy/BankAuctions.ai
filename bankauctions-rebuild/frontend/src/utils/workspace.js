@@ -1,5 +1,5 @@
 export function workspacePath(role) {
-  return { ADMIN: '/admin', CHECKER: '/checker', ENGINEER: '/engineer', BUYER: '/buyer/dashboard' }[role] || '/buyer/dashboard';
+  return { ADMIN: '/admin', CHECKER: '/checker', ENGINEER: '/engineer', MARKETING: '/marketing', BUYER: '/buyer/dashboard' }[role] || '/buyer/dashboard';
 }
 
 export function loginDestination(role, from) {

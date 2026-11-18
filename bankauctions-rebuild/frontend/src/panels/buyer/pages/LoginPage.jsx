@@ -1,25 +1,45 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation, Link, Navigate } from 'react-router-dom';
-import { loginDestination } from '../../../utils/workspace';
-import { 
-  Building2, Mail, Lock, ArrowRight, ShieldCheck, 
-  Sparkles, AlertCircle, CheckCircle2 
-} from 'lucide-react';
-import { useAuth } from '../../../contexts/AuthContext';
-import GlassCard from '../../../components/common/GlassCard';
-import Button from '../../../components/common/Button';
+import React, { useState } from "react";
+import { useNavigate, useLocation, Link, Navigate } from "react-router-dom";
+import { loginDestination } from "../../../utils/workspace";
+import {
+  Building2,
+  Mail,
+  Lock,
+  ArrowRight,
+  ShieldCheck,
+  ShieldAlert,
+  Scale,
+  HardHat,
+  ExternalLink,
+  Sparkles,
+  AlertCircle,
+  CheckCircle2,
+} from "lucide-react";
+import { useAuth } from "../../../contexts/AuthContext";
+import GlassCard from "../../../components/common/GlassCard";
+import Button from "../../../components/common/Button";
 
-export default function LoginPage() {
+export default function LoginPage({ portal = "BUYER" }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login, user: currentUser, loading: sessionLoading } = useAuth();
+  const {
+    login,
+    user: currentUser,
+    loading: sessionLoading,
+    logout,
+  } = useAuth();
 
-  const [email, setEmail] = useState(location.state?.email || '');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(location.state?.email || "");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const from = location.state?.from;
+
+  const autofillDemo = (eMail, pWord) => {
+    setEmail(eMail);
+    setPassword(pWord);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,26 +47,28 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await login(email.trim(), password);
+      const response = await login(email.trim(), password, portal);
       if (!response.success || !response.user || !response.token) {
-        throw new Error(response.message || 'Unable to sign in. Please try again.');
+        throw new Error(
+          response.message || "Unable to sign in. Please try again.",
+        );
       }
       navigate(loginDestination(response.user.role, from), { replace: true });
     } catch (err) {
-      if (err.status === 401) {
-        navigate('/register', { state: { email: email.trim(), from, loginFailed: true } });
+      if (err.status === 401 && portal === "BUYER") {
+        navigate("/register", {
+          state: { email: email.trim(), from, loginFailed: true },
+        });
         return;
       }
-      setError(err.response?.data?.message || err.message || 'Invalid login credentials. Please check your email and password.');
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "Invalid login credentials. Please check your email and password.",
+      );
     } finally {
       setLoading(false);
     }
-  };
-
-  const autofillDemo = (roleEmail, rolePass) => {
-    setEmail(roleEmail);
-    setPassword(rolePass);
-    setError(null);
   };
 
   if (sessionLoading) {
@@ -60,6 +82,26 @@ export default function LoginPage() {
     );
   }
 
+  if (currentUser && currentUser.role !== portal) {
+    return (
+      <div className="max-w-lg mx-auto p-8 my-12 rounded-2xl glass-panel space-y-5">
+        <h1 className="text-2xl font-bold">{portal.toLowerCase()} login</h1>
+        <p>
+          You are signed in as {currentUser.role.toLowerCase()}. Sign out to use
+          a different account for this portal.
+        </p>
+        <button className="btn-primary rounded-xl px-4 py-3" onClick={logout}>
+          Sign out and switch account
+        </button>
+        <Link
+          className="block text-cyan-300"
+          to={loginDestination(currentUser.role)}
+        >
+          Return to your workspace
+        </Link>
+      </div>
+    );
+  }
   if (currentUser) {
     return <Navigate to={loginDestination(currentUser.role, from)} replace />;
   }
@@ -74,27 +116,42 @@ export default function LoginPage() {
               <Building2 className="w-6 h-6 text-slate-950" />
             </div>
             <span className="text-2xl font-black tracking-tight text-white">
-              Bank<span className="text-accent-cyan">Auctions</span><span className="text-xs text-accent-cyan font-mono ml-1">.ai</span>
+              Bank<span className="text-accent-cyan">Auctions</span>
+              <span className="text-xs text-accent-cyan font-mono ml-1">
+                .ai
+              </span>
             </span>
           </Link>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">Login to your account</h1>
+          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+            {portal.charAt(0) + portal.slice(1).toLowerCase()} login
+          </h1>
           <p className="mt-2 text-xs sm:text-sm text-slate-400">
-            Sign in to access your role workspace and confidential auction dossiers.
+            Sign in with your assigned {portal.toLowerCase()} account.
           </p>
         </div>
 
         {/* Card Form */}
         <GlassCard className="p-7 sm:p-8 border-white/[0.1] shadow-2xl">
           {error && (
-            <div role="alert" className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-400 text-xs sm:text-sm">
+            <div
+              role="alert"
+              className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-400 text-xs sm:text-sm"
+            >
               <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
           )}
 
-          <form aria-busy={loading} onSubmit={handleSubmit} className="space-y-5">
+          <form
+            aria-busy={loading}
+            onSubmit={handleSubmit}
+            className="space-y-5"
+          >
             <div>
-              <label htmlFor="login-email" className="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">
+              <label
+                htmlFor="login-email"
+                className="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2"
+              >
                 Registered Email
               </label>
               <div className="relative">
@@ -115,7 +172,10 @@ export default function LoginPage() {
 
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label htmlFor="login-password" className="block text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                <label
+                  htmlFor="login-password"
+                  className="block text-[11px] font-mono uppercase tracking-wider text-slate-400"
+                >
                   Password
                 </label>
               </div>
@@ -147,68 +207,111 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          {/* Quick Demo Autofill Chips */}
           <div className="mt-6 pt-5 border-t border-white/[0.08]">
-            <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-3 text-center">
-              Quick Demo Fill (Click any role to autofill)
+            <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2.5 text-center">
+              Quick Buyer Demo Access
             </p>
+            <button
+              type="button"
+              onClick={() => autofillDemo("buyer@bankauctions.ai", "Buyer@123")}
+              className="w-full px-4 py-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-500/20 text-left transition-all text-xs group"
+            >
+              <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
+                <span className="flex items-center gap-2">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                  Fill Verified Buyer Account
+                </span>
+                <span className="text-[10px] text-cyan-300 font-mono">Autofill Credentials →</span>
+              </div>
+              <div className="text-[10px] text-slate-400 font-mono mt-0.5">
+                buyer@bankauctions.ai / Buyer@123
+              </div>
+            </button>
+          </div>
+
+          {/* Operational & Staff Logins Directory */}
+          <div className="mt-6 pt-5 border-t border-white/[0.08]">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                Staff &amp; Authority Portals
+              </span>
+              <span className="text-[10px] text-slate-400 font-mono">Dedicated Ports</span>
+            </div>
+            <p className="text-[11px] text-slate-400 mb-3">
+              Staff panels run on isolated standalone ports with role-specific authentication:
+            </p>
+
             <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => autofillDemo('buyer@bankauctions.ai', 'Buyer@123')}
-                className="px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700/70 hover:border-cyan-400/60 text-left transition-all text-xs group hover:bg-cyan-500/[0.05]"
+              <a
+                href="http://localhost:5174/admin/login"
+                className="p-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 hover:border-purple-400 hover:bg-purple-500/10 transition-all text-left group"
               >
-                <div className="font-bold text-white group-hover:text-cyan-400 flex items-center justify-between">
-                  <span>Buyer</span>
-                  <span className="text-[10px] text-cyan-400 font-mono">Fill →</span>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-xs text-white group-hover:text-purple-300 flex items-center gap-1.5">
+                    <ShieldAlert className="w-3.5 h-3.5 text-purple-400" />
+                    Admin
+                  </span>
+                  <span className="text-[9px] font-mono text-purple-400">:5174</span>
                 </div>
-                <div className="text-[10px] text-slate-400 font-mono truncate">buyer@bankauctions.ai</div>
-              </button>
+                <div className="text-[10px] text-slate-400 truncate">admin@bankauctions.ai</div>
+              </a>
 
-              <button
-                type="button"
-                onClick={() => autofillDemo('checker@bankauctions.ai', 'Checker@123')}
-                className="px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700/70 hover:border-amber-400/60 text-left transition-all text-xs group hover:bg-amber-500/[0.05]"
+              <a
+                href="http://localhost:5175/checker/login"
+                className="p-2.5 rounded-xl bg-slate-900/80 border border-teal-500/30 hover:border-teal-400 hover:bg-teal-500/10 transition-all text-left group"
               >
-                <div className="font-bold text-white group-hover:text-amber-400 flex items-center justify-between">
-                  <span>Checker</span>
-                  <span className="text-[10px] text-amber-400 font-mono">Fill →</span>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-xs text-white group-hover:text-teal-300 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-teal-400" />
+                    Checker
+                  </span>
+                  <span className="text-[9px] font-mono text-teal-400">:5175</span>
                 </div>
-                <div className="text-[10px] text-slate-400 font-mono truncate">checker@bankauctions.ai</div>
-              </button>
+                <div className="text-[10px] text-slate-400 truncate">checker@bankauctions.ai</div>
+              </a>
 
-              <button
-                type="button"
-                onClick={() => autofillDemo('engineer@bankauctions.ai', 'Engineer@123')}
-                className="px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700/70 hover:border-emerald-400/60 text-left transition-all text-xs group hover:bg-emerald-500/[0.05]"
+              <a
+                href="http://localhost:5176/advocate/login"
+                className="p-2.5 rounded-xl bg-slate-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 transition-all text-left group"
               >
-                <div className="font-bold text-white group-hover:text-emerald-400 flex items-center justify-between">
-                  <span>Engineer</span>
-                  <span className="text-[10px] text-emerald-400 font-mono">Fill →</span>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-xs text-white group-hover:text-amber-300 flex items-center gap-1.5">
+                    <Scale className="w-3.5 h-3.5 text-amber-400" />
+                    Advocate
+                  </span>
+                  <span className="text-[9px] font-mono text-amber-400">:5176</span>
                 </div>
-                <div className="text-[10px] text-slate-400 font-mono truncate">engineer@bankauctions.ai</div>
-              </button>
+                <div className="text-[10px] text-slate-400 truncate">advocate@bankauctions.ai</div>
+              </a>
 
-              <button
-                type="button"
-                onClick={() => autofillDemo('admin@bankauctions.ai', 'Admin@123')}
-                className="px-3 py-2 rounded-xl bg-slate-900/80 border border-slate-700/70 hover:border-purple-400/60 text-left transition-all text-xs group hover:bg-purple-500/[0.05]"
+              <a
+                href="http://localhost:5177/engineer/login"
+                className="p-2.5 rounded-xl bg-slate-900/80 border border-orange-500/30 hover:border-orange-400 hover:bg-orange-500/10 transition-all text-left group"
               >
-                <div className="font-bold text-white group-hover:text-purple-400 flex items-center justify-between">
-                  <span>Admin</span>
-                  <span className="text-[10px] text-purple-400 font-mono">Fill →</span>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-xs text-white group-hover:text-orange-300 flex items-center gap-1.5">
+                    <HardHat className="w-3.5 h-3.5 text-orange-400" />
+                    Engineer
+                  </span>
+                  <span className="text-[9px] font-mono text-orange-400">:5177</span>
                 </div>
-                <div className="text-[10px] text-slate-400 font-mono truncate">admin@bankauctions.ai</div>
-              </button>
+                <div className="text-[10px] text-slate-400 truncate">engineer@bankauctions.ai</div>
+              </a>
             </div>
           </div>
 
-          <div className="mt-6 pt-5 border-t border-white/[0.08] text-center text-xs text-slate-400">
-            Don't have an investor account?{' '}
-            <Link to="/register" state={{ email: email.trim(), from }} className="text-accent-cyan font-semibold hover:underline">
-              Create an account
-            </Link>
-          </div>
+          {portal === "BUYER" && (
+            <div className="mt-6 pt-5 border-t border-white/[0.08] text-center text-xs text-slate-400">
+              Don't have an investor account?{" "}
+              <Link
+                to="/register"
+                state={{ email: email.trim(), from }}
+                className="text-accent-cyan font-semibold hover:underline"
+              >
+                Create an account
+              </Link>
+            </div>
+          )}
         </GlassCard>
       </div>
     </div>

@@ -111,69 +111,7 @@ export async function getReviewDetails(req, res, next) {
   }
 }
 
-export async function submitReview(req, res, next) {
-  try {
-    const { id } = req.params;
-    const checker = req.user;
-    const validated = checkerCorrectionSchema.parse(req.body);
-
-    const auction = await db.auctionNotice.findUnique({ where: { id } });
-    if (!auction) {
-      return res.status(404).json({ success: false, message: 'Notice not found' });
-    }
-
-    let nextStatus = 'CHECKER_VERIFIED';
-    if (validated.decision === 'REJECTED') {
-      nextStatus = 'REJECTED';
-    } else if (validated.decision === 'NEEDS_CORRECTION') {
-      nextStatus = 'NEEDS_CORRECTION';
-    }
-
-    const updatedAuction = await db.auctionNotice.update({
-      where: { id },
-      data: {
-        status: nextStatus,
-        claimedByCheckerId: null,
-        claimedAt: null,
-        // Apply field corrections if supplied
-        ...(validated.corrections?.reservePrice && { reservePrice: Number(validated.corrections.reservePrice) }),
-        ...(validated.corrections?.emdAmount && { emdAmount: Number(validated.corrections.emdAmount) }),
-        ...(validated.corrections?.auctionStartDate && { auctionStartDate: new Date(validated.corrections.auctionStartDate) }),
-        ...(validated.corrections?.possession && { possession: validated.corrections.possession })
-      }
-    });
-
-    await db.verificationReview.create({
-      data: {
-        auctionId: id,
-        checkerId: checker.id,
-        decision: validated.decision,
-        correctionNotes: validated.correctionNotes || 'Verified by quality team',
-        fieldCorrections: validated.corrections || {}
-      }
-    });
-
-    await logAuditEvent({
-      actorId: checker.id,
-      actorName: checker.fullName,
-      actorRole: checker.role,
-      action: `CHECKER_${validated.decision}`,
-      entityType: 'AUCTION',
-      entityId: id,
-      beforeState: { status: auction.status },
-      afterState: { status: nextStatus, corrections: validated.corrections },
-      ipAddress: req.ip
-    });
-
-    return res.json({
-      success: true,
-      message: `Verification review saved. Status updated to ${nextStatus}.`,
-      data: updatedAuction
-    });
-  } catch (err) {
-    next(err);
-  }
-}
+export async function submitReview(req,res){return res.status(409).json({success:false,message:'Use the notice registry review workflow; legacy review cannot publish an asset.'});}
 
 export async function getCheckerHistory(req, res, next) {
   try {

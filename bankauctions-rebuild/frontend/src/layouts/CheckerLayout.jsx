@@ -9,7 +9,13 @@ export function CheckerLayout() {
 
   const links = [
     { name: 'Dashboard', path: '/checker', icon: LayoutDashboard },
-    { name: 'Exception Queue', path: '/checker/queue', icon: ListFilter },
+    { name: 'Asset catalog', path: '/checker/catalog', icon: ListFilter },
+    { name: 'Buyer activity', path: '/checker/buyers', icon: History },
+    { name: 'Policies & payments', path: '/checker/content', icon: Shield },
+    { name: 'Notice registry', path: '/checker/queue', icon: ListFilter },
+    { name: 'Buyer requests', path: '/checker/requests', icon: Shield },
+    { name: 'Field reviews', path: '/checker/inspections', icon: CheckCircle2 },
+    { name: 'Plan reviews', path: '/checker/recommendations', icon: Sparkles },
     { name: 'Audit History', path: '/checker/history', icon: History }
   ];
 
@@ -17,7 +23,7 @@ export function CheckerLayout() {
     <div className="flex flex-col min-h-screen bg-brand-obsidian">
       {/* High-Precision Checker Topbar with Advanced Glassmorphism */}
       <header className="sticky top-0 z-40 w-full glass-panel border-b border-white/[0.08] backdrop-blur-2xl shadow-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap gap-4 items-center justify-between">
           <div className="flex items-center gap-4">
             <Link
               to="/"
@@ -42,7 +48,7 @@ export function CheckerLayout() {
           </div>
 
           {/* Navigation Links with Luminous Indicator */}
-          <nav className="flex items-center gap-2">
+          <nav className="flex flex-wrap items-center gap-2" aria-label="Checker navigation">
             {links.map((link) => {
               const isActive = location.pathname === link.path;
               return (

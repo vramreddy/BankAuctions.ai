@@ -233,10 +233,6 @@ export function BuyerDashboardPage() {
               <span>Saved Lots ({savedIds.size})</span>
             </button>
           </div>
-
-          <div className="text-xs text-slate-400 font-mono">
-            Showing <strong className="text-white">{filteredAuctions.length}</strong> matching properties
-          </div>
         </div>
 
         {/* Filter Bar */}
@@ -340,11 +336,11 @@ export function BuyerDashboardPage() {
                   {/* Photo & Top Badges */}
                   <div className="relative h-48 overflow-hidden bg-slate-950">
                     <img
-                      src={lot.primaryImageUrl || '/images/chennai-flat-1.jpg'}
+                      src={lot.primaryImageUrl || '/images/asset-placeholder.svg'}
                       alt={lot.title}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/images/chennai-flat-1.jpg'; }}
+                      onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/images/asset-placeholder.svg'; }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
 

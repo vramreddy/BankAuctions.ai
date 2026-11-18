@@ -1,0 +1,24 @@
+{
+  "name": "bankauctions-ai-platform",
+  "version": "2.0.0",
+  "private": true,
+  "description": "BankAuctions.ai - Micro-architecture with standalone portals for Admin, Quality Checker, Advocate, Field Engineer, and Buyer Overview",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:overview": "npm --prefix frontend run dev -- --port 5173 --host",
+    "dev:admin": "npm --prefix admin run dev -- --port 5174 --host",
+    "dev:checker": "npm --prefix checker run dev -- --port 5175 --host",
+    "dev:advocate": "npm --prefix advocate run dev -- --port 5176 --host",
+    "dev:engineer": "npm --prefix engineer run dev -- --port 5177 --host",
+    "dev:all": "concurrently \"npm:dev:backend\" \"npm:dev:overview\" \"npm:dev:admin\" \"npm:dev:checker\" \"npm:dev:advocate\" \"npm:dev:engineer\"",
+    "build:backend": "npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:admin": "npm --prefix admin run build",
+    "build:checker": "npm --prefix checker run build",
+    "build:advocate": "npm --prefix advocate run build",
+    "build:engineer": "npm --prefix engineer run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -31,6 +31,9 @@ model User {
   savedProperties        SavedProperty[]
   propertyUnlocks        PropertyUnlock[]
   analyticsEvents        AnalyticsEvent[]
+  supportRequests        SupportRequest[]
+  recommendations        PlanRecommendation[]
+  lastLoginAt            DateTime?
 
   @@map("users")
 }
@@ -63,6 +66,7 @@ model AuctionCategory {
 }
 
 model AuctionNotice {
+  accessPricePaise Int?
   id                    String    @id @default(uuid())
   sourceRef             String    @unique @map("source_ref") // BNK-CHE-47019
   sourceLink            String?   @map("source_link")
@@ -108,6 +112,10 @@ model AuctionNotice {
   inspectionAssignments InspectionAssignment[]
   savedByUsers          SavedProperty[]
   unlockedByUsers       PropertyUnlock[]
+  extraction            NoticeExtraction?
+  supportRequests       SupportRequest[]
+  checkerApprovedAt     DateTime?
+  checkerApprovedById   String?
 
   @@index([city, status])
   @@index([reservePrice])
@@ -244,10 +252,156 @@ model AuditLog {
 
 model SiteSetting {
   id               String   @id @default(uuid())
-  makerAutoPublish Boolean  @default(true) @map("maker_auto_publish")
+  makerAutoPublish Boolean  @default(false) @map("maker_auto_publish")
   chatWidget       Boolean  @default(true) @map("chat_widget")
   bannerNotice     String?  @default("") @map("banner_notice")
   updatedAt        DateTime @updatedAt @map("updated_at")
 
   @@map("site_settings")
+}
+
+model NoticeExtraction {
+  id           String @id @default(uuid())
+  fingerprint  String @unique
+  sourceName   String
+  raw          Json
+  reviewed     Json
+  listing      Json @default("{}")
+  status       String @default("PENDING_CHECKER")
+  version      Int @default(1)
+  claimedById  String?
+  claimedAt    DateTime?
+  importedById String
+  reviewedById String?
+  reviewedAt   DateTime?
+  reviewNotes  String?
+  auctionId    String? @unique
+  auction      AuctionNotice? @relation(fields: [auctionId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  @@index([status, createdAt])
+  @@map("notice_extractions")
+}
+
+model SupportRequest {
+  id             String @id @default(uuid())
+  requesterId    String
+  requester      User @relation(fields: [requesterId], references: [id])
+  auctionId      String?
+  auction        AuctionNotice? @relation(fields: [auctionId], references: [id])
+  kind           String
+  subject        String
+  description    String
+  contactMethod  String @default("FORM")
+  status         String @default("OPEN")
+  priority       Boolean @default(false)
+  assignedCheckerId String?
+  assignedEngineerId String?
+  version        Int @default(1)
+  report         Json?
+  approvedReport Json?
+  reportVersion  Int @default(0)
+  approvedById   String?
+  approvedAt     DateTime?
+  messages       SupportMessage[]
+  deliveries     EmailDelivery[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  @@index([requesterId, status])
+  @@index([assignedEngineerId, status])
+  @@map("support_requests")
+}
+
+model SupportMessage {
+  id        String @id @default(uuid())
+  requestId String
+  request   SupportRequest @relation(fields: [requestId], references: [id])
+  authorId  String
+  body      String
+  internal  Boolean @default(false)
+  createdAt DateTime @default(now())
+  @@index([requestId, createdAt])
+  @@map("support_messages")
+}
+
+model ManagedFile {
+  id           String @id @default(uuid())
+  name         String
+  mime         String
+  purpose      String @default("EVIDENCE")
+  bytes        Bytes
+  size         Int
+  sha256       String
+  uploadedById String
+  extractionId String?
+  requestId    String?
+  createdAt    DateTime @default(now())
+  @@index([extractionId])
+  @@index([requestId])
+  @@map("managed_files")
+}
+
+model PlanRecommendation {
+  id           String @id @default(uuid())
+  buyerId      String
+  buyer        User @relation(fields: [buyerId], references: [id])
+  proposedById String
+  plan         String
+  reason       String
+  contactNotes String
+  consentGiven Boolean @default(false)
+  status       String @default("PENDING_CHECKER")
+  reviewedById String?
+  reviewNotes  String?
+  createdAt    DateTime @default(now())
+  reviewedAt   DateTime?
+  @@index([status, buyerId])
+  @@map("plan_recommendations")
+}
+
+model EmailDelivery {
+  id          String @id @default(uuid())
+  requestId   String
+  request     SupportRequest @relation(fields: [requestId], references: [id])
+  reportVersion Int
+  recipient   String
+  subject     String
+  body        String
+  status      String @default("PENDING")
+  attempts    Int @default(0)
+  lastError   String?
+  sentAt      DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@unique([requestId, reportVersion])
+  @@index([status, createdAt])
+  @@map("email_deliveries")
+}
+model BuyerContent {
+  slug String @id
+  draft Json @default("{}")
+  published Json?
+  version Int @default(0)
+  publishedAt DateTime?
+  updatedById String?
+  updatedAt DateTime @updatedAt
+  @@map("buyer_content")
+}
+
+model PropertyPaymentIntent {
+ id String @id @default(uuid())
+ buyerId String
+ auctionId String
+ amountPaise Int
+ currency String @default("INR")
+ status String @default("AWAITING_PROVIDER")
+ provider String?
+ providerOrderId String?
+ providerPaymentId String? @unique
+ paidAt DateTime?
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@unique([buyerId,auctionId])
+ @@unique([provider,providerOrderId])
+ @@map("property_payment_intents")
 }

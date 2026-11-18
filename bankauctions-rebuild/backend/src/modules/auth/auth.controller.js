@@ -15,6 +15,8 @@ function generateToken(user) {
 
 export async function login(req, res, next) {
   try {
+    const portal = req.body.portal || 'BUYER';
+    if (!['BUYER','CHECKER','ADMIN','ENGINEER','ADVOCATE','MARKETING'].includes(portal)) return res.status(400).json({success:false,message:'Choose a valid login portal.'});
     const validated = loginSchema.parse(req.body);
     const user = await db.user.findUnique({ where: { email: validated.email } });
 
@@ -26,17 +28,15 @@ export async function login(req, res, next) {
       return res.status(403).json({ success: false, message: 'This account has been suspended by administration.' });
     }
 
-    const roleCapitalized = user.role ? user.role.charAt(0) + user.role.slice(1).toLowerCase() : '';
-    const isMatch = (await bcrypt.compare(validated.password, user.passwordHash)) ||
-      (validated.password === `${roleCapitalized}@123`) ||
-      (validated.password === `${roleCapitalized}@123456`) ||
-      (validated.password === 'Password@123');
+    const isMatch = await bcrypt.compare(validated.password, user.passwordHash);
 
     if (!isMatch) {
       return res.status(401).json({ success: false, message: 'Invalid email or password.' });
     }
 
+    if (user.role !== portal) return res.status(403).json({success:false,message:`This account cannot sign in to the ${portal.toLowerCase()} portal. Use the login page for your assigned role.`});
     const token = generateToken(user);
+    await db.user.update({ where: { id: user.id }, data: { lastLoginAt: new Date() } });
 
     await logAuditEvent({
       actorId: user.id,

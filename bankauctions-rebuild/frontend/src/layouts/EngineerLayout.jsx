@@ -8,6 +8,7 @@ export function EngineerLayout() {
   const location = useLocation();
 
   const links = [
+    { name: 'Requested reports', path: '/engineer/requests', icon: ClipboardList },
     { name: 'Dashboard', path: '/engineer', icon: LayoutDashboard },
     { name: 'My Assignments', path: '/engineer/assignments', icon: ClipboardList },
     { name: 'Completed Visits', path: '/engineer/history', icon: History }
