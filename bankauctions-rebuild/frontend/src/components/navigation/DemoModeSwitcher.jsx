@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { Sparkles, Check } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export default function DemoModeSwitcher() {
-  const { user, login } = useAuth();
+  const { user } = useAuth();
   const [currentMode, setCurrentMode] = useState(() => {
     return localStorage.getItem('ba3_mode') || 'free';
   });
@@ -12,20 +12,17 @@ export default function DemoModeSwitcher() {
     setCurrentMode(mode);
     localStorage.setItem('ba3_mode', mode);
 
-    // If an auth context is present, update user mock plan
-    if (login) {
-      if (mode === 'free') {
-        localStorage.setItem('ba3_plan', 'Free');
-      } else if (mode === 'pro') {
-        localStorage.setItem('ba3_plan', 'Pro Pack (5 Unlocks)');
-      } else if (mode === 'prem') {
-        localStorage.setItem('ba3_plan', 'Premium Subscriber');
-      } else if (mode === 'both') {
-        localStorage.setItem('ba3_plan', 'Pro + Premium All Access');
-      }
+    if (mode === 'free') {
+      localStorage.setItem('ba3_plan', 'Free');
+    } else if (mode === 'pro') {
+      localStorage.setItem('ba3_plan', 'Pro Pack (5 Unlocks)');
+    } else if (mode === 'prem') {
+      localStorage.setItem('ba3_plan', 'Premium Subscriber');
+    } else if (mode === 'both') {
+      localStorage.setItem('ba3_plan', 'Pro + Premium All Access');
     }
 
-    // Dispatch custom event for immediate reactive re-renders
+    // Dispatch custom event for reactive components
     window.dispatchEvent(new Event('ba3_mode_change'));
   };
 
