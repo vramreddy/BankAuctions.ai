@@ -66,6 +66,14 @@ export default function StaffLoginPage() {
       role: 'MARKETING',
       icon: TrendingUp,
       color: 'text-cyan-400'
+    },
+    {
+      title: 'Leadership Dashboard',
+      desc: 'Executive view of platform revenue, checker turnaround SLAs, and board reporting.',
+      path: '/leadership',
+      role: 'ADMIN',
+      icon: Shield,
+      color: 'text-emerald-400'
     }
   ];
 

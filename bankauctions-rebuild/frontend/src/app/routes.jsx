@@ -30,6 +30,7 @@ import SupportPage from '../panels/buyer/pages/SupportPage';
 import CareersPage from '../panels/buyer/pages/CareersPage';
 import ContactPage from '../panels/buyer/pages/ContactPage';
 import StaffLoginPage from '../panels/buyer/pages/StaffLoginPage';
+import LeadershipDashboardPage from '../panels/buyer/pages/LeadershipDashboardPage';
 import LoginPage from '../panels/buyer/pages/LoginPage';
 import RegisterPage from '../panels/buyer/pages/RegisterPage';
 
@@ -146,6 +147,7 @@ export default function AppRoutes() {
 
         {/* Staff & Authentication */}
         <Route path="/staff" element={<StaffLoginPage />} />
+        <Route path="/leadership" element={<LeadershipDashboardPage />} />
         <Route path="/login" element={<LoginPage />} />
         {['BUYER','CHECKER','ADMIN','ENGINEER','MARKETING'].map(role => (
           <Route key={role} path={`/${role.toLowerCase()}/login`} element={<LoginPage portal={role} />} />
