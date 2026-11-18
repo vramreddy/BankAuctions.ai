@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/navigation/Footer';
 import ChatWithUs from '../components/chat/ChatWithUs';
-import DemoModeSwitcher from '../components/navigation/DemoModeSwitcher';
 
 export function PublicLayout() {
   return (
@@ -14,11 +13,8 @@ export function PublicLayout() {
       </main>
       <Footer />
 
-      {/* Interactive Chat Widget (Prototype 1:1) */}
+      {/* Interactive Chat Widget */}
       <ChatWithUs />
-
-      {/* Interactive Demo Mode Switcher (Prototype 1:1) */}
-      <DemoModeSwitcher />
     </div>
   );
 }
