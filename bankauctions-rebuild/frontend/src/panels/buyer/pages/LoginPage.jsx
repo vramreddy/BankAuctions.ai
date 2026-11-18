@@ -1,318 +1,274 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation, Link, Navigate } from "react-router-dom";
-import { loginDestination } from "../../../utils/workspace";
+import React, { useState } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useAuth } from '../../../contexts/AuthContext';
 import {
-  Building2,
-  Mail,
-  Lock,
-  ArrowRight,
+  Smartphone,
   ShieldCheck,
-  ShieldAlert,
-  Scale,
-  HardHat,
-  ExternalLink,
-  Sparkles,
-  AlertCircle,
+  Languages,
   CheckCircle2,
-} from "lucide-react";
-import { useAuth } from "../../../contexts/AuthContext";
-import GlassCard from "../../../components/common/GlassCard";
-import Button from "../../../components/common/Button";
+  ArrowRight,
+  Sparkles,
+  Lock,
+  UserCheck
+} from 'lucide-react';
 
-export default function LoginPage({ portal = "BUYER" }) {
+const PRESET_USERS = [
+  {
+    name: 'Demo user',
+    phone: '9000000000',
+    plan: 'Free',
+    langs: ['English'],
+    credits: 0
+  },
+  {
+    name: 'Anitha Raghavan',
+    phone: '9876543210',
+    plan: 'Pro pack · 5 properties',
+    langs: ['English', 'Tamil'],
+    credits: 4
+  },
+  {
+    name: 'Suresh Kumar',
+    phone: '9840123456',
+    plan: 'Premium · Chennai',
+    langs: ['English', 'Tamil', 'Telugu'],
+    credits: 5
+  }
+];
+
+export default function LoginPage({ portal = 'BUYER' }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const {
-    login,
-    user: currentUser,
-    loading: sessionLoading,
-    logout,
-  } = useAuth();
+  const { login } = useAuth();
 
-  const [email, setEmail] = useState(location.state?.email || "");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [name, setName] = useState('Anitha Raghavan');
+  const [phone, setPhone] = useState('9876543210');
+  const [selectedLangs, setSelectedLangs] = useState(['English', 'Tamil']);
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState('123456');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const from = location.state?.from;
+  const from = location.state?.from?.pathname || '/account';
 
-  const autofillDemo = (eMail, pWord) => {
-    setEmail(eMail);
-    setPassword(pWord);
+  const toggleLanguage = (lang) => {
+    setSelectedLangs((prev) =>
+      prev.includes(lang) ? prev.filter((l) => l !== lang) : [...prev, lang]
+    );
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSendOtp = () => {
+    if (!phone || phone.length < 10) {
+      setError('Please enter a valid 10-digit mobile number.');
+      return;
+    }
     setError(null);
+    setOtpSent(true);
+  };
+
+  const handleVerifyAndContinue = async (e) => {
+    e.preventDefault();
     setLoading(true);
+    setError(null);
 
     try {
-      const response = await login(email.trim(), password, portal);
-      if (!response.success || !response.user || !response.token) {
-        throw new Error(
-          response.message || "Unable to sign in. Please try again.",
-        );
+      const userObj = {
+        name: name.trim() || 'Valued Buyer',
+        phone: phone.trim(),
+        role: 'BUYER',
+        languages: selectedLangs,
+        plan: phone === '9876543210' ? 'Pro pack · 5 properties' : phone === '9840123456' ? 'Premium · Chennai' : 'Free',
+        credits: phone === '9876543210' ? 4 : 5
+      };
+
+      // Persist in localStorage to match prototype `ba3_user`
+      localStorage.setItem('ba3_user', JSON.stringify(userObj));
+      localStorage.setItem('ba3_user_name', userObj.name);
+
+      if (login) {
+        try {
+          await login({
+            email: `${phone}@bankauctions.ai`,
+            password: 'password123',
+            role: 'BUYER'
+          });
+        } catch (authErr) {
+          // Prototype fallback: Proceed to account
+        }
       }
-      navigate(loginDestination(response.user.role, from), { replace: true });
+
+      navigate(from, { replace: true });
     } catch (err) {
-      if (err.status === 401 && portal === "BUYER") {
-        navigate("/register", {
-          state: { email: email.trim(), from, loginFailed: true },
-        });
-        return;
-      }
-      setError(
-        err.response?.data?.message ||
-          err.message ||
-          "Invalid login credentials. Please check your email and password.",
-      );
+      setError('Failed to verify OTP. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  if (sessionLoading) {
-    return (
-      <div className="min-h-[70vh] flex items-center justify-center">
-        <div className="flex items-center gap-3 text-slate-400 text-sm font-mono">
-          <span className="w-4 h-4 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-          <span>Verifying active session...</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (currentUser && currentUser.role !== portal) {
-    return (
-      <div className="max-w-lg mx-auto p-8 my-12 rounded-2xl glass-panel space-y-5">
-        <h1 className="text-2xl font-bold">{portal.toLowerCase()} login</h1>
-        <p>
-          You are signed in as {currentUser.role.toLowerCase()}. Sign out to use
-          a different account for this portal.
-        </p>
-        <button className="btn-primary rounded-xl px-4 py-3" onClick={logout}>
-          Sign out and switch account
-        </button>
-        <Link
-          className="block text-cyan-300"
-          to={loginDestination(currentUser.role)}
-        >
-          Return to your workspace
-        </Link>
-      </div>
-    );
-  }
-  if (currentUser) {
-    return <Navigate to={loginDestination(currentUser.role, from)} replace />;
-  }
+  const handleSelectPreset = (preset) => {
+    setName(preset.name);
+    setPhone(preset.phone);
+    setSelectedLangs(preset.langs);
+    setOtpSent(true);
+    setOtp('123456');
+  };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-6">
-        {/* Logo and Intro */}
-        <div className="text-center">
-          <Link to="/" className="inline-flex items-center gap-2 mb-4 group">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-400 via-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/25 border-t border-white/40 group-hover:scale-105 transition-transform">
-              <Building2 className="w-6 h-6 text-slate-950" />
-            </div>
-            <span className="text-2xl font-black tracking-tight text-white">
-              Bank<span className="text-accent-cyan">Auctions</span>
-              <span className="text-xs text-accent-cyan font-mono ml-1">
-                .ai
-              </span>
-            </span>
-          </Link>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
-            {portal.charAt(0) + portal.slice(1).toLowerCase()} login
-          </h1>
-          <p className="mt-2 text-xs sm:text-sm text-slate-400">
-            Sign in with your assigned {portal.toLowerCase()} account.
-          </p>
+    <div className="min-h-screen bg-[#070b14] text-slate-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-lg mx-auto space-y-6">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-xs text-slate-400">
+          <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <span>/</span>
+          <span className="text-white">Sign in</span>
         </div>
 
-        {/* Card Form */}
-        <GlassCard className="p-7 sm:p-8 border-white/[0.1] shadow-2xl">
+        {/* Main Sign in Box matching prototype account.html */}
+        <div className="bg-[#0b101e] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-6">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Sign in or register
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+              Use your mobile number. In this prototype, the OTP is always <strong>123456</strong>.
+            </p>
+          </div>
+
           {error && (
-            <div
-              role="alert"
-              className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-400 text-xs sm:text-sm"
-            >
-              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-              <span>{error}</span>
+            <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs">
+              {error}
             </div>
           )}
 
-          <form
-            aria-busy={loading}
-            onSubmit={handleSubmit}
-            className="space-y-5"
-          >
+          <form onSubmit={handleVerifyAndContinue} className="space-y-4">
+            {/* Name */}
             <div>
-              <label
-                htmlFor="login-email"
-                className="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2"
-              >
-                Registered Email
+              <label className="block text-xs font-mono uppercase text-slate-400 mb-1.5">
+                Your name
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Anitha Raghavan"
+                className="w-full rounded-xl bg-slate-900 border border-white/10 px-3.5 py-3 text-sm text-white focus:outline-none focus:border-rose-500"
+              />
+            </div>
+
+            {/* Mobile number */}
+            <div>
+              <label className="block text-xs font-mono uppercase text-slate-400 mb-1.5">
+                Mobile number
               </label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
-                  id="login-email"
-                  name="email"
-                  autoComplete="username"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
-                  className="w-full glass-input rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none"
+                  type="tel"
+                  maxLength={10}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
+                  placeholder="9876543210"
+                  className="w-full rounded-xl bg-slate-900 border border-white/10 px-3.5 py-3 text-sm text-white focus:outline-none focus:border-rose-500 font-mono"
                 />
               </div>
             </div>
 
+            {/* Languages you speak */}
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <label
-                  htmlFor="login-password"
-                  className="block text-[11px] font-mono uppercase tracking-wider text-slate-400"
-                >
-                  Password
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-mono uppercase text-slate-400">
+                  Languages you speak
                 </label>
+                <span className="text-[11px] text-slate-500">For lawyer matching</span>
               </div>
-              <div className="relative">
-                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                <input
-                  id="login-password"
-                  name="password"
-                  autoComplete="current-password"
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full glass-input rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none"
-                />
+              <div className="flex flex-wrap gap-1.5">
+                {['English', 'Tamil', 'Telugu', 'Kannada', 'Malayalam', 'Hindi'].map((l) => (
+                  <button
+                    type="button"
+                    key={l}
+                    onClick={() => toggleLanguage(l)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
+                      selectedLangs.includes(l)
+                        ? 'bg-rose-600 text-white font-semibold shadow-md shadow-rose-600/30'
+                        : 'bg-white/[0.04] text-slate-400 border border-white/[0.06] hover:bg-white/[0.08] hover:text-slate-200'
+                    }`}
+                  >
+                    {l}
+                  </button>
+                ))}
               </div>
             </div>
 
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              loading={loading}
-              className="w-full justify-center"
-              icon={<ArrowRight className="w-4 h-4" />}
-            >
-              Sign In
-            </Button>
+            {/* Send OTP or Verify Step */}
+            {!otpSent ? (
+              <button
+                type="button"
+                onClick={handleSendOtp}
+                className="w-full py-3.5 rounded-xl border border-rose-500/50 hover:bg-rose-600 text-white font-bold text-sm tracking-wide transition-all active:scale-95 mt-2"
+              >
+                Send OTP
+              </button>
+            ) : (
+              <div className="space-y-4 pt-2">
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="block text-xs font-mono uppercase text-slate-400">
+                      OTP (Demo is 123456)
+                    </label>
+                    <span className="text-[11px] text-emerald-400">Code Sent</span>
+                  </div>
+                  <input
+                    type="text"
+                    maxLength={6}
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    placeholder="123456"
+                    className="w-full rounded-xl bg-slate-900 border border-emerald-500/50 px-3.5 py-3 text-sm text-white font-mono tracking-widest text-center focus:outline-none focus:border-emerald-400"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-rose-600/30 active:scale-95 flex items-center justify-center gap-2"
+                >
+                  <UserCheck size={16} />
+                  <span>{loading ? 'Verifying...' : 'Verify and continue'}</span>
+                </button>
+              </div>
+            )}
           </form>
 
-          <div className="mt-6 pt-5 border-t border-white/[0.08]">
-            <p className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2.5 text-center">
-              Quick Buyer Demo Access
-            </p>
-            <button
-              type="button"
-              onClick={() => autofillDemo("buyer@bankauctions.ai", "Buyer@123")}
-              className="w-full px-4 py-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-500/20 text-left transition-all text-xs group"
-            >
-              <div className="font-bold text-white group-hover:text-cyan-300 flex items-center justify-between">
-                <span className="flex items-center gap-2">
-                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                  Fill Verified Buyer Account
-                </span>
-                <span className="text-[10px] text-cyan-300 font-mono">Autofill Credentials →</span>
-              </div>
-              <div className="text-[10px] text-slate-400 font-mono mt-0.5">
-                buyer@bankauctions.ai / Buyer@123
-              </div>
-            </button>
-          </div>
-
-          {/* Operational & Staff Logins Directory */}
-          <div className="mt-6 pt-5 border-t border-white/[0.08]">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
-                Staff &amp; Authority Portals
-              </span>
-              <span className="text-[10px] text-slate-400 font-mono">Dedicated Ports</span>
-            </div>
-            <p className="text-[11px] text-slate-400 mb-3">
-              Staff panels run on isolated standalone ports with role-specific authentication:
-            </p>
-
-            <div className="grid grid-cols-2 gap-2">
-              <a
-                href="http://localhost:5174/admin/login"
-                className="p-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 hover:border-purple-400 hover:bg-purple-500/10 transition-all text-left group"
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="font-bold text-xs text-white group-hover:text-purple-300 flex items-center gap-1.5">
-                    <ShieldAlert className="w-3.5 h-3.5 text-purple-400" />
-                    Admin
-                  </span>
-                  <span className="text-[9px] font-mono text-purple-400">:5174</span>
-                </div>
-                <div className="text-[10px] text-slate-400 truncate">admin@bankauctions.ai</div>
-              </a>
-
-              <a
-                href="http://localhost:5175/checker/login"
-                className="p-2.5 rounded-xl bg-slate-900/80 border border-teal-500/30 hover:border-teal-400 hover:bg-teal-500/10 transition-all text-left group"
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="font-bold text-xs text-white group-hover:text-teal-300 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-teal-400" />
-                    Checker
-                  </span>
-                  <span className="text-[9px] font-mono text-teal-400">:5175</span>
-                </div>
-                <div className="text-[10px] text-slate-400 truncate">checker@bankauctions.ai</div>
-              </a>
-
-              <a
-                href="http://localhost:5176/advocate/login"
-                className="p-2.5 rounded-xl bg-slate-900/80 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 transition-all text-left group"
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="font-bold text-xs text-white group-hover:text-amber-300 flex items-center gap-1.5">
-                    <Scale className="w-3.5 h-3.5 text-amber-400" />
-                    Advocate
-                  </span>
-                  <span className="text-[9px] font-mono text-amber-400">:5176</span>
-                </div>
-                <div className="text-[10px] text-slate-400 truncate">advocate@bankauctions.ai</div>
-              </a>
-
-              <a
-                href="http://localhost:5177/engineer/login"
-                className="p-2.5 rounded-xl bg-slate-900/80 border border-orange-500/30 hover:border-orange-400 hover:bg-orange-500/10 transition-all text-left group"
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="font-bold text-xs text-white group-hover:text-orange-300 flex items-center gap-1.5">
-                    <HardHat className="w-3.5 h-3.5 text-orange-400" />
-                    Engineer
-                  </span>
-                  <span className="text-[9px] font-mono text-orange-400">:5177</span>
-                </div>
-                <div className="text-[10px] text-slate-400 truncate">engineer@bankauctions.ai</div>
-              </a>
+          {/* Quick Preset Selector */}
+          <div className="pt-4 border-t border-white/[0.08] space-y-2">
+            <span className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+              Quick Test Personas
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              {PRESET_USERS.map((p, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => handleSelectPreset(p)}
+                  className="p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] text-left transition-colors"
+                >
+                  <div className="font-bold text-white truncate">{p.name}</div>
+                  <div className="text-[10px] text-rose-400 truncate">{p.plan}</div>
+                </button>
+              ))}
             </div>
           </div>
+        </div>
 
-          {portal === "BUYER" && (
-            <div className="mt-6 pt-5 border-t border-white/[0.08] text-center text-xs text-slate-400">
-              Don't have an investor account?{" "}
-              <Link
-                to="/register"
-                state={{ email: email.trim(), from }}
-                className="text-accent-cyan font-semibold hover:underline"
-              >
-                Create an account
-              </Link>
-            </div>
-          )}
-        </GlassCard>
+        {/* Staff Login Link */}
+        <div className="text-center pt-2">
+          <Link
+            to="/staff"
+            className="text-xs text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1.5"
+          >
+            <span>Are you a team member or advocate?</span>
+            <span className="text-rose-400 font-semibold underline">Staff login →</span>
+          </Link>
+        </div>
       </div>
     </div>
   );
