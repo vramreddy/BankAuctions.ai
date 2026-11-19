@@ -12,12 +12,20 @@ var ROLES=BA.ROLES={checker:{label:'Checker',home:'checker.html',name:'Latha M.'
  marketing:{label:'Marketing',home:'marketing.html',name:'Meera N.',email:'meera.n@bankauctions.ai',pages:{marketing:'Marketing'}},
  admin:{label:'Admin',home:'admin.html',name:'Rahul D.',email:'rahul.d@bankauctions.ai',pages:{admin:'Admin',checker:'Checker work',lawyer:'Consultations',field:'Site visits',marketing:'Marketing',leadership:'Leadership'}},
  leadership:{label:'Leadership',home:'leadership.html',name:'Sanjay K.',email:'sanjay.k@bankauctions.ai',pages:{leadership:'Leadership'}}};
-var PAGEURL={checker:'checker.html',lawyer:'lawyer.html',field:'field.html',marketing:'marketing.html',admin:'admin.html',leadership:'leadership.html'};
+var PORT_HOST = window.location.hostname || 'localhost';
+var PAGEURL={
+  checker:'http://'+PORT_HOST+':5175/',
+  lawyer:'http://'+PORT_HOST+':5176/',
+  field:'http://'+PORT_HOST+':5177/',
+  marketing:'http://'+PORT_HOST+':5174/marketing.html',
+  admin:'http://'+PORT_HOST+':5174/',
+  leadership:'http://'+PORT_HOST+':5174/leadership.html'
+};
 if(staff&&staff.role==='ops')staff.role='admin';
 if(staff&&staff.id){var m0=FV.get(staff.id);if(m0&&m0.status!=='active'){BA.ls('ba3_staff',null);location.replace('staff.html?blocked='+m0.status);return}}
 function allowed(p){if(!staff)return false;var r=ROLES[staff.role];return !!r&&((p==='review'||p==='fvreview')?!!r.pages.checker:!!r.pages[p])}
 if(pg!=='staff'){if(!staff){location.replace('staff.html');return}if(!allowed(pg)){location.replace(ROLES[staff.role]?ROLES[staff.role].home:'staff.html');return}}
-if(staff){var R0=ROLES[staff.role];$('stwho').textContent=staff.name+' · '+R0.label;$('stout').hidden=false;$('stout').onclick=function(){BA.ls('ba3_staff',null);location.href='staff.html'};
+if(staff){var R0=ROLES[staff.role];$('stwho').textContent=staff.name+' · '+R0.label;$('stout').hidden=false;$('stout').onclick=function(){BA.ls('ba3_staff',null);location.href='staff.html'};var pub=document.querySelector('.sthd .right a.btn');if(pub)pub.href='http://'+PORT_HOST+':5173/';
  $('stnav').innerHTML=Object.keys(R0.pages).map(function(k){return '<a href="'+PAGEURL[k]+'" class="'+((pg===k||((pg==='review'||pg==='fvreview')&&k==='checker'))?'on':'')+'">'+R0.pages[k]+'</a>'}).join('')}
 if(pg==='staff'){
  if(staff){location.replace(ROLES[staff.role].home);return}
@@ -138,3 +146,4 @@ if(pg==='review'){
  refresh();var first=FIELDS.filter(function(f){return rec.maker[f[1]].s!=='ok'})[0];if(first&&!locked)setTimeout(function(){var el=$('f_'+first[1]);if(el&&!vals[first[1]]!==undefined)hl(first[1])},300);
 }
 })();
+
