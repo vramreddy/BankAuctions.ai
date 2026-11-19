@@ -394,6 +394,3 @@ html.paid .freeonly{display:none!important}
 @media(max-width:1000px){.svg3{grid-template-columns:1fr}}
 
 @media(min-width:1221px) and (max-width:1420px){.hd0 .w{gap:10px}.hd0 .nav{flex:1 1 auto;min-width:0}.hd0 .nav a{padding:8px 7px;font-size:12.5px}.hd0 .cs{max-width:112px}.hd0 .logo .wm{font-size:19px}}
-
-.demo{display:none!important}
-
