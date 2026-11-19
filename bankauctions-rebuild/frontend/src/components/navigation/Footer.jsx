@@ -3,92 +3,109 @@ import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-white/[0.08] bg-[#070b16] pt-16 pb-12 text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
-          {/* Brand Info */}
-          <div className="col-span-2 md:col-span-1 space-y-4">
-            <Link to="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#FF5A8A] to-[#B80F4B] p-0.5 flex items-center justify-center shadow-lg">
-                <svg className="w-5 h-5 text-white" viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M10 23 24 11l14 12v14a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2z" fill="#fff" />
-                  <rect x="15" y="27" width="4.5" height="10" rx="1" fill="#D61F5C" />
-                  <rect x="21.8" y="23" width="4.5" height="14" rx="1" fill="#D61F5C" />
-                  <rect x="28.6" y="19" width="4.5" height="18" rx="1" fill="#D61F5C" />
-                </svg>
-              </div>
-              <span className="font-extrabold text-lg text-white tracking-tight">
-                bank<span className="text-rose-500">auctions</span><span className="text-xs text-rose-400 font-mono">.ai</span>
-              </span>
-            </Link>
-            <p className="text-xs text-slate-400 max-w-[260px] leading-relaxed">
-              Ranked intelligence on bank auction properties across South India.
+    <footer className="ft mt-24 bg-[#0B1B30] text-[#c9c9d4] text-sm pt-0 pb-20">
+      <div className="w max-w-[1360px] mx-auto px-6">
+        {/* Top CTA Banner */}
+        <div className="fcta flex items-center justify-between gap-6 flex-wrap py-10 border-b border-white/10">
+          <div>
+            <h4 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-1">
+              Ready to find your next auction property?
+            </h4>
+            <p className="text-[#9a9aa8] text-sm m-0">
+              Browse free. Unlock the details when you are serious.
             </p>
           </div>
-
-          {/* Column 1: Browse */}
-          <div className="space-y-3 text-xs">
-            <h5 className="font-bold text-white text-xs uppercase tracking-wider font-mono">Browse</h5>
-            <ul className="space-y-2">
-              <li><Link to="/search" className="hover:text-rose-400 transition-colors">All properties</Link></li>
-              <li><Link to="/flats" className="hover:text-rose-400 transition-colors">Flats &amp; apartments</Link></li>
-              <li><Link to="/houses" className="hover:text-rose-400 transition-colors">Houses &amp; villas</Link></li>
-              <li><Link to="/plots" className="hover:text-rose-400 transition-colors">Plots &amp; land</Link></li>
-              <li><Link to="/shops" className="hover:text-rose-400 transition-colors">Shops &amp; showrooms</Link></li>
-              <li><Link to="/offices" className="hover:text-rose-400 transition-colors">Offices</Link></li>
-              <li><Link to="/warehouses" className="hover:text-rose-400 transition-colors">Warehouses &amp; industrial</Link></li>
-              <li><Link to="/vehicles" className="hover:text-rose-400 transition-colors">Vehicles &amp; machinery</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 2: Plans */}
-          <div className="space-y-3 text-xs">
-            <h5 className="font-bold text-white text-xs uppercase tracking-wider font-mono">Plans</h5>
-            <ul className="space-y-2">
-              <li><Link to="/premium" className="hover:text-rose-400 transition-colors text-rose-400 font-semibold">Premium</Link></li>
-              <li><Link to="/pricing" className="hover:text-rose-400 transition-colors">Pricing</Link></li>
-              <li><Link to="/concierge" className="hover:text-rose-400 transition-colors">Concierge</Link></li>
-              <li><Link to="/legal" className="hover:text-rose-400 transition-colors">Talk to a lawyer</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Resources */}
-          <div className="space-y-3 text-xs">
-            <h5 className="font-bold text-white text-xs uppercase tracking-wider font-mono">Resources</h5>
-            <ul className="space-y-2">
-              <li><Link to="/data" className="hover:text-rose-400 transition-colors">Data &amp; intelligence</Link></li>
-              <li><Link to="/learn" className="hover:text-rose-400 transition-colors">Learn</Link></li>
-              <li><Link to="/faq" className="hover:text-rose-400 transition-colors">FAQ</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 4: You */}
-          <div className="space-y-3 text-xs">
-            <h5 className="font-bold text-white text-xs uppercase tracking-wider font-mono">You</h5>
-            <ul className="space-y-2">
-              <li><Link to="/account" className="hover:text-rose-400 transition-colors">My account</Link></li>
-              <li><Link to="/archive" className="hover:text-rose-400 transition-colors">My archive</Link></li>
-              <li><Link to="/preferences" className="hover:text-rose-400 transition-colors">Set preferences</Link></li>
-              <li><Link to="/support" className="hover:text-rose-400 transition-colors">Support</Link></li>
-              <li><Link to="/careers" className="hover:text-rose-400 transition-colors">Careers</Link></li>
-              <li><Link to="/contact" className="hover:text-rose-400 transition-colors">Contact us</Link></li>
-              <li><Link to="/staff" className="hover:text-rose-400 transition-colors">Staff login</Link></li>
-            </ul>
+          <div className="fbt flex gap-3 flex-wrap">
+            <Link
+              to="/search"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-sm text-white bg-[var(--rose,#0F766E)] hover:brightness-105 transition-all shadow-md"
+            >
+              Search properties
+            </Link>
+            <Link
+              to="/pricing"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-sm text-white border border-white/40 hover:border-white transition-all"
+            >
+              See plans
+            </Link>
           </div>
         </div>
 
-        {/* Fine Print Disclaimer */}
-        <div className="pt-8 border-t border-white/[0.08] text-[11px] text-slate-500 leading-relaxed space-y-2">
-          <p>
-            © 2026 BankAuctions.ai. We provide intelligence and data and are not an auctioneer, agent or intermediary. Prototype data is illustrative. Photographs: Wikimedia Commons contributors and Pexels.
-          </p>
-          <div className="flex flex-wrap gap-4 text-slate-400 text-[11px]">
-            <Link to="/information/terms" className="hover:underline">Terms of Service</Link>
-            <Link to="/information/privacy" className="hover:underline">Privacy Policy</Link>
-            <Link to="/information/refunds" className="hover:underline">Refund Policy</Link>
-            <Link to="/checker/login" className="hover:underline">Checker Console</Link>
-            <Link to="/admin/login" className="hover:underline">Admin Console</Link>
+        {/* 4 Footer Columns */}
+        <div className="cols grid grid-cols-2 md:grid-cols-4 gap-8 py-11 border-b border-white/10">
+          {/* Col 1: Browse */}
+          <div>
+            <h5 className="font-extrabold text-xs uppercase tracking-wider text-white mb-3">
+              Browse
+            </h5>
+            <div className="flex flex-col space-y-2 text-xs text-[#b4b4c0]">
+              <Link to="/search" className="hover:text-white transition-colors">All properties</Link>
+              <Link to="/flats" className="hover:text-white transition-colors">Flats &amp; apartments</Link>
+              <Link to="/houses" className="hover:text-white transition-colors">Houses &amp; villas</Link>
+              <Link to="/plots" className="hover:text-white transition-colors">Plots &amp; land</Link>
+              <Link to="/shops" className="hover:text-white transition-colors">Shops &amp; showrooms</Link>
+              <Link to="/offices" className="hover:text-white transition-colors">Offices</Link>
+              <Link to="/warehouses" className="hover:text-white transition-colors">Warehouses &amp; industrial</Link>
+              <Link to="/vehicles" className="hover:text-white transition-colors">Vehicles &amp; machinery</Link>
+            </div>
           </div>
+
+          {/* Col 2: Plans and services */}
+          <div>
+            <h5 className="font-extrabold text-xs uppercase tracking-wider text-white mb-3">
+              Plans and services
+            </h5>
+            <div className="flex flex-col space-y-2 text-xs text-[#b4b4c0]">
+              <Link to="/premium" className="text-[#2DD4BF] font-semibold hover:text-white transition-colors">Premium properties</Link>
+              <Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link>
+              <Link to="/concierge" className="hover:text-white transition-colors">Concierge</Link>
+              <Link to="/property-management" className="hover:text-white transition-colors">Property management</Link>
+              <Link to="/nri-services" className="hover:text-white transition-colors">NRI services</Link>
+              <Link to="/lawyers" className="hover:text-white transition-colors">Talk to a lawyer</Link>
+            </div>
+          </div>
+
+          {/* Col 3: Resources */}
+          <div>
+            <h5 className="font-extrabold text-xs uppercase tracking-wider text-white mb-3">
+              Resources
+            </h5>
+            <div className="flex flex-col space-y-2 text-xs text-[#b4b4c0]">
+              <Link to="/data" className="hover:text-white transition-colors">Data &amp; intelligence</Link>
+              <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
+              <Link to="/faq" className="hover:text-white transition-colors">FAQ</Link>
+              <Link to="/support" className="hover:text-white transition-colors">Support</Link>
+              <Link to="/careers" className="hover:text-white transition-colors">Careers</Link>
+              <Link to="/contact" className="hover:text-white transition-colors">Contact us</Link>
+            </div>
+          </div>
+
+          {/* Col 4: Your account */}
+          <div>
+            <h5 className="font-extrabold text-xs uppercase tracking-wider text-white mb-3">
+              Your account
+            </h5>
+            <div className="flex flex-col space-y-2 text-xs text-[#b4b4c0]">
+              <Link to="/account" className="hover:text-white transition-colors">My account</Link>
+              <Link to="/archive" className="hover:text-white transition-colors">My archive</Link>
+              <Link to="/preferences" className="hover:text-white transition-colors">User preference</Link>
+              <Link to="/staff" className="hover:text-white transition-colors">Staff login</Link>
+              <a href="http://localhost:5174" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Admin Console ↗</a>
+              <a href="http://localhost:5175" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Checker Console ↗</a>
+              <a href="http://localhost:5176" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Advocate Console ↗</a>
+              <a href="http://localhost:5177" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Engineer Console ↗</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Fine print */}
+        <div className="fine pt-6 text-xs text-[#8a8a98] flex justify-between items-center flex-wrap gap-4 leading-relaxed">
+          <span>
+            © 2026 BankAuctions.ai. We provide intelligence and data and are not an auctioneer, agent or intermediary.
+          </span>
+          <span>
+            Prototype data is illustrative. Photographs: Wikimedia Commons contributors and Pexels.
+          </span>
         </div>
       </div>
     </footer>

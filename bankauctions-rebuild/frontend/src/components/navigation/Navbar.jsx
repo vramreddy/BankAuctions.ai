@@ -77,6 +77,8 @@ export function Navbar() {
     { name: 'Data & intelligence', path: '/data', isPremium: false },
     { name: 'Learn', path: '/learn', isPremium: false },
     { name: 'Concierge', path: '/concierge', isPremium: false },
+    { name: 'NRI services', path: '/nri-services', isPremium: false },
+    { name: 'Property management', path: '/property-management', isPremium: false },
     { name: 'Talk to a lawyer', path: '/legal', isPremium: false },
   ];
 
@@ -116,21 +118,21 @@ export function Navbar() {
             <div className="flex items-center gap-4 shrink-0">
               <Link to="/" className="flex items-center gap-3 group" aria-label="BankAuctions.ai home">
                 {/* SVG Icon matching prototype */}
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#FF5A8A] to-[#B80F4B] p-0.5 flex items-center justify-center shadow-lg shadow-rose-950/40 group-hover:scale-105 transition-all">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#2DD4BF] to-[#0B5D57] p-0.5 flex items-center justify-center shadow-lg shadow-teal-950/40 group-hover:scale-105 transition-all">
                   <svg className="w-6 h-6 text-white" viewBox="0 0 48 48" aria-hidden="true">
                     <rect width="48" height="48" rx="13" fill="none" />
                     <path d="M10 23 24 11l14 12v14a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2z" fill="#fff" />
-                    <rect x="15" y="27" width="4.5" height="10" rx="1" fill="#D61F5C" />
-                    <rect x="21.8" y="23" width="4.5" height="14" rx="1" fill="#D61F5C" />
-                    <rect x="28.6" y="19" width="4.5" height="18" rx="1" fill="#D61F5C" />
+                    <rect x="15" y="27" width="4.5" height="10" rx="1" fill="#0F766E" />
+                    <rect x="21.8" y="23" width="4.5" height="14" rx="1" fill="#0F766E" />
+                    <rect x="28.6" y="19" width="4.5" height="18" rx="1" fill="#0F766E" />
                   </svg>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-extrabold text-xl text-white tracking-tight flex items-baseline leading-none">
-                    bank<span className="text-rose-500 font-black">auctions</span><span className="text-xs text-rose-400 font-mono">.ai</span>
+                    bank<span className="text-[#2DD4BF] font-black">auctions</span><span className="text-xs text-teal-400 font-mono">.ai</span>
                   </span>
-                  <span className="text-[10px] text-slate-400 tracking-tight font-medium mt-1">
-                    Know the real value before you bid.
+                  <span className="text-[10.5px] text-[#B9DFDB] tracking-tight font-medium mt-1">
+                    Bank auctions, decoded.
                   </span>
                 </div>
               </Link>

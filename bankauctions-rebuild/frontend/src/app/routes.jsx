@@ -23,6 +23,8 @@ import PremiumPage from '../panels/buyer/pages/PremiumPage';
 import DataIntelligencePage from '../panels/buyer/pages/DataIntelligencePage';
 import LearnPage from '../panels/buyer/pages/LearnPage';
 import ConciergePage from '../panels/buyer/pages/ConciergePage';
+import NriServicesPage from '../panels/buyer/pages/NriServicesPage';
+import PropertyManagementPage from '../panels/buyer/pages/PropertyManagementPage';
 import AccountPage from '../panels/buyer/pages/AccountPage';
 import ArchivePage from '../panels/buyer/pages/ArchivePage';
 import FaqPage from '../panels/buyer/pages/FaqPage';
@@ -118,6 +120,8 @@ export default function AppRoutes() {
         <Route path="/learn" element={<LearnPage />} />
         <Route path="/guides" element={<LearnPage />} />
         <Route path="/concierge" element={<ConciergePage />} />
+        <Route path="/nri-services" element={<NriServicesPage />} />
+        <Route path="/property-management" element={<PropertyManagementPage />} />
         <Route path="/legal" element={<LegalPage />} />
         <Route path="/lawyers" element={<LegalPage />} />
         <Route path="/talk-to-a-lawyer" element={<LegalPage />} />
